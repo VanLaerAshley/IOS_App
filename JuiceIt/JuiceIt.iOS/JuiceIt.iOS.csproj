@@ -1,0 +1,208 @@
+﻿<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProjectGuid>{854E29B4-F771-4184-A1D4-81A19658A268}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>JuiceIt.iOS</RootNamespace>
+    <AssemblyName>JuiceIt.iOS</AssemblyName>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchFastDev>true</MtouchFastDev>
+    <IOSDebuggerPort>28350</IOSDebuggerPort>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <PlatformTarget>x86</PlatformTarget>
+    <DeviceSpecificBuild>false</DeviceSpecificBuild>
+    <MtouchVerbosity></MtouchVerbosity>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <DefineConstants></DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchArch>ARM64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <PlatformTarget>x86</PlatformTarget>
+    <MtouchVerbosity></MtouchVerbosity>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <DefineConstants></DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <PlatformTarget>x86</PlatformTarget>
+    <MtouchVerbosity></MtouchVerbosity>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <DeviceSpecificBuild>true</DeviceSpecificBuild>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchFastDev>true</MtouchFastDev>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <IOSDebuggerPort>41273</IOSDebuggerPort>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchArch>ARM64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <PlatformTarget>x86</PlatformTarget>
+    <MtouchVerbosity></MtouchVerbosity>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="MvvmCross.Platform">
+      <HintPath>..\packages\MvvmCross.Platform.5.7.0\lib\Xamarin.iOS10\MvvmCross.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Platform.iOS">
+      <HintPath>..\packages\MvvmCross.Platform.5.7.0\lib\Xamarin.iOS10\MvvmCross.Platform.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Core">
+      <HintPath>..\packages\MvvmCross.Core.5.7.0\lib\Xamarin.iOS10\MvvmCross.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.iOS">
+      <HintPath>..\packages\MvvmCross.Core.5.7.0\lib\Xamarin.iOS10\MvvmCross.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Binding">
+      <HintPath>..\packages\MvvmCross.Binding.5.7.0\lib\Xamarin.iOS10\MvvmCross.Binding.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Binding.iOS">
+      <HintPath>..\packages\MvvmCross.Binding.5.7.0\lib\Xamarin.iOS10\MvvmCross.Binding.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Localization">
+      <HintPath>..\packages\MvvmCross.Binding.5.7.0\lib\Xamarin.iOS10\MvvmCross.Localization.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-100.png" />
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-1024.png" />
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-114.png" />
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-120.png" />
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-128.png" />
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-144.png" />
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-152.png" />
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-16.png" />
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-167.png" />
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-172.png" />
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-180.png" />
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-196.png" />
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-20.png" />
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-256.png" />
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-29.png" />
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-32.png" />
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-40.png" />
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-48.png" />
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-50.png" />
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-512.png" />
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-55.png" />
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-57.png" />
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-58.png" />
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-60.png" />
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-64.png" />
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-72.png" />
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-76.png" />
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-80.png" />
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-87.png" />
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-88.png" />
+    <ImageAsset Include="Assets.xcassets\list.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\home.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\home.imageset\home-48.png" />
+    <ImageAsset Include="Assets.xcassets\home.imageset\home-72.png" />
+    <ImageAsset Include="Assets.xcassets\favorites.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\search.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\list.imageset\list-72.png" />
+    <ImageAsset Include="Assets.xcassets\list.imageset\list-48.png" />
+    <ImageAsset Include="Assets.xcassets\favorites.imageset\star-72.png" />
+    <ImageAsset Include="Assets.xcassets\favorites.imageset\star-48.png" />
+    <ImageAsset Include="Assets.xcassets\search.imageset\search-72.png" />
+    <ImageAsset Include="Assets.xcassets\search.imageset\search-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+    <Folder Include="Views\" />
+    <Folder Include="Assets.xcassets\list.imageset\" />
+    <Folder Include="Assets.xcassets\home.imageset\" />
+    <Folder Include="Assets.xcassets\favorites.imageset\" />
+    <Folder Include="Assets.xcassets\search.imageset\" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="LaunchScreen.storyboard" />
+    <InterfaceDefinition Include="Main.storyboard" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Info.plist" />
+    <None Include="Entitlements.plist" />
+    <None Include="packages.config" />
+    <None Include=".gitignore" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="Views\JuiceItTabsView.cs" />
+    <Compile Include="Views\JuiceItTabsView.designer.cs">
+      <DependentUpon>JuiceItTabsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TabHomeView.designer.cs">
+      <DependentUpon>TabHomeView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TabIndexView.cs" />
+    <Compile Include="Views\TabHomeView.cs" />
+    <Compile Include="Views\TabFavoriteView.cs" />
+    <Compile Include="Views\TabFavoriteView.designer.cs">
+      <DependentUpon>TabFavoriteView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TabIndexView.designer.cs">
+      <DependentUpon>TabIndexView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TabShopListView.cs" />
+    <Compile Include="Views\TabShopListView.designer.cs">
+      <DependentUpon>TabShopListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JuiceIt.Core\JuiceIt.Core.csproj">
+      <Project>{C1286CC5-2A4D-4980-B359-B696ADCA8241}</Project>
+      <Name>JuiceIt.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+</Project>
