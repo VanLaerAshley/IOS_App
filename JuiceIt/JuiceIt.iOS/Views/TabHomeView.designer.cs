@@ -9,7 +9,7 @@ using System;
 using System.CodeDom.Compiler;
 using UIKit;
 
-namespace JuiceIt.iOS
+namespace JuiceIt.iOS.Views
 {
     [Register ("TabHomeView")]
     partial class TabHomeView

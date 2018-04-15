@@ -9,7 +9,7 @@ using System;
 using System.CodeDom.Compiler;
 using UIKit;
 
-namespace JuiceIt.iOS
+namespace JuiceIt.iOS.Views
 {
     [Register ("TabIndexView")]
     partial class TabIndexView

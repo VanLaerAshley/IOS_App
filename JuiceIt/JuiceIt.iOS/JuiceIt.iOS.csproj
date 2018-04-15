@@ -108,6 +108,9 @@
     <Reference Include="MvvmCross.Localization">
       <HintPath>..\packages\MvvmCross.Binding.5.7.0\lib\Xamarin.iOS10\MvvmCross.Localization.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
@@ -162,6 +165,7 @@
     <Folder Include="Assets.xcassets\home.imageset\" />
     <Folder Include="Assets.xcassets\favorites.imageset\" />
     <Folder Include="Assets.xcassets\search.imageset\" />
+    <Folder Include="TableViewSources\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -183,12 +187,15 @@
     <Compile Include="Views\TabHomeView.designer.cs">
       <DependentUpon>TabHomeView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\TabIndexView.cs" />
     <Compile Include="Views\TabHomeView.cs" />
+    <Compile Include="Setup.cs" />
+    <Compile Include="SQLiteAsync.cs" />
+    <Compile Include="SQLite.cs" />
     <Compile Include="Views\TabFavoriteView.cs" />
     <Compile Include="Views\TabFavoriteView.designer.cs">
       <DependentUpon>TabFavoriteView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\TabIndexView.cs" />
     <Compile Include="Views\TabIndexView.designer.cs">
       <DependentUpon>TabIndexView.cs</DependentUpon>
     </Compile>
@@ -196,13 +203,20 @@
     <Compile Include="Views\TabShopListView.designer.cs">
       <DependentUpon>TabShopListView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Setup.cs" />
+    <Compile Include="TableViewSources\RecipeViewSource.cs" />
+    <Compile Include="Views\IndexTableCell.cs" />
+    <Compile Include="Views\IndexTableCell.designer.cs">
+      <DependentUpon>IndexTableCell.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\JuiceIt.Core\JuiceIt.Core.csproj">
       <Project>{C1286CC5-2A4D-4980-B359-B696ADCA8241}</Project>
       <Name>JuiceIt.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\testsmoothie.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

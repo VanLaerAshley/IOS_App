@@ -5,7 +5,7 @@ using MvvmCross.iOS.Views;
 using System;
 using UIKit;
 
-namespace JuiceIt.iOS
+namespace JuiceIt.iOS.Views
 {
     [MvxFromStoryboard(StoryboardName = "Main")]
     public partial class JuiceItTabsView : MvxTabBarViewController<JuiceItTabsViewModel>
