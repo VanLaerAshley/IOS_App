@@ -1,5 +1,5 @@
 using Foundation;
-using JuiceIt.Core.ViewModels;
+using JuiceIt.Shared.ViewModels;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.iOS.Views;
 using System;

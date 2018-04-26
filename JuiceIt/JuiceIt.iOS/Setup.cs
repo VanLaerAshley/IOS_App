@@ -22,7 +22,7 @@ namespace JuiceIt.IOS
 
         protected override IMvxApplication CreateApp()
         {
-            return new Core.App();
+            return new Shared.App();
         }
     }
 }

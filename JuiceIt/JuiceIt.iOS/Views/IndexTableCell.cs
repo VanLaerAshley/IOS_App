@@ -1,5 +1,5 @@
 using Foundation;
-using JuiceIt.Core.Models;
+using JuiceIt.Shared.Models;
 using MvvmCross.Binding.BindingContext;
 using MvvmCross.Binding.iOS.Views;
 using System;
@@ -20,6 +20,7 @@ namespace JuiceIt.iOS.Views
 
             MvxFluentBindingDescriptionSet<IndexTableCell, Recipe> set = new MvxFluentBindingDescriptionSet<IndexTableCell, Recipe>(this);
             set.Bind(TitleRecipe).To(res => res.name);
+
             set.Bind(SubtitleRecipe).To(res => res.description);
             set.Apply();
         }

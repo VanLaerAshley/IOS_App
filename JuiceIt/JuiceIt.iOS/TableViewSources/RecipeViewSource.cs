@@ -8,9 +8,6 @@ namespace JuiceIt.iOS.TableViewSources
 {
     public class RecipeViewSource : MvxTableViewSource
     {
-        //public RecipeViewSource(UITableView tableView) : base(tableView)
-        //{
-        //}
 		protected override UITableViewCell GetOrCreateCellFor(UITableView tableView, NSIndexPath indexPath, object item)
 		{
             try

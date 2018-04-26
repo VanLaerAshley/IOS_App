@@ -27,13 +27,15 @@
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <PlatformTarget>x86</PlatformTarget>
     <DeviceSpecificBuild>false</DeviceSpecificBuild>
-    <MtouchVerbosity></MtouchVerbosity>
+    <MtouchVerbosity>
+    </MtouchVerbosity>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\iPhone\Release</OutputPath>
-    <DefineConstants></DefineConstants>
+    <DefineConstants>
+    </DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodesignKey>iPhone Developer</CodesignKey>
@@ -43,13 +45,15 @@
     <MtouchArch>ARM64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <PlatformTarget>x86</PlatformTarget>
-    <MtouchVerbosity></MtouchVerbosity>
+    <MtouchVerbosity>
+    </MtouchVerbosity>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
-    <DefineConstants></DefineConstants>
+    <DefineConstants>
+    </DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodesignKey>iPhone Developer</CodesignKey>
@@ -58,7 +62,8 @@
     <MtouchArch>x86_64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <PlatformTarget>x86</PlatformTarget>
-    <MtouchVerbosity></MtouchVerbosity>
+    <MtouchVerbosity>
+    </MtouchVerbosity>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -80,13 +85,19 @@
     <MtouchArch>ARM64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <PlatformTarget>x86</PlatformTarget>
-    <MtouchVerbosity></MtouchVerbosity>
+    <MtouchVerbosity>
+    </MtouchVerbosity>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="MvvmCross.Platform">
       <HintPath>..\packages\MvvmCross.Platform.5.7.0\lib\Xamarin.iOS10\MvvmCross.Platform.dll</HintPath>
     </Reference>
@@ -108,65 +119,152 @@
     <Reference Include="MvvmCross.Localization">
       <HintPath>..\packages\MvvmCross.Binding.5.7.0\lib\Xamarin.iOS10\MvvmCross.Localization.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="System.Net.Http.Extensions">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\Xamarin.iOS10\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\Xamarin.iOS10\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Threading.Tasks.Extensions">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.4.0\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-100.png" />
-    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-1024.png" />
-    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-114.png" />
-    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-120.png" />
-    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-128.png" />
-    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-144.png" />
-    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-152.png" />
-    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-16.png" />
-    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-167.png" />
-    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-172.png" />
-    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-180.png" />
-    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-196.png" />
-    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-20.png" />
-    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-256.png" />
-    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-29.png" />
-    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-32.png" />
-    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-40.png" />
-    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-48.png" />
-    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-50.png" />
-    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-512.png" />
-    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-55.png" />
-    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-57.png" />
-    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-58.png" />
-    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-60.png" />
-    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-64.png" />
-    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-72.png" />
-    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-76.png" />
-    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-80.png" />
-    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-87.png" />
-    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-88.png" />
-    <ImageAsset Include="Assets.xcassets\list.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\home.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\home.imageset\home-48.png" />
-    <ImageAsset Include="Assets.xcassets\home.imageset\home-72.png" />
-    <ImageAsset Include="Assets.xcassets\favorites.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\search.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\list.imageset\list-72.png" />
-    <ImageAsset Include="Assets.xcassets\list.imageset\list-48.png" />
-    <ImageAsset Include="Assets.xcassets\favorites.imageset\star-72.png" />
-    <ImageAsset Include="Assets.xcassets\favorites.imageset\star-48.png" />
-    <ImageAsset Include="Assets.xcassets\search.imageset\search-72.png" />
-    <ImageAsset Include="Assets.xcassets\search.imageset\search-48.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-100.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-1024.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-114.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-120.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-128.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-144.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-152.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-16.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-167.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-172.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-180.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-196.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-20.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-256.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-29.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-32.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-40.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-48.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-50.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-512.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-55.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-57.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-58.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-60.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-64.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-72.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-76.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-80.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-87.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\appiconmaker.co_ios\Icon-88.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\list.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\home.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\home.imageset\home-48.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\home.imageset\home-72.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\favorites.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\search.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\list.imageset\list-72.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\list.imageset\list-48.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\favorites.imageset\star-72.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\favorites.imageset\star-48.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\search.imageset\search-72.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\search.imageset\search-48.png">
+      <Visible>false</Visible>
+    </ImageAsset>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-    <Folder Include="Views\" />
-    <Folder Include="Assets.xcassets\list.imageset\" />
-    <Folder Include="Assets.xcassets\home.imageset\" />
-    <Folder Include="Assets.xcassets\favorites.imageset\" />
-    <Folder Include="Assets.xcassets\search.imageset\" />
-    <Folder Include="TableViewSources\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
     <InterfaceDefinition Include="Main.storyboard" />
@@ -191,10 +289,6 @@
     <Compile Include="Setup.cs" />
     <Compile Include="SQLiteAsync.cs" />
     <Compile Include="SQLite.cs" />
-    <Compile Include="Views\TabFavoriteView.cs" />
-    <Compile Include="Views\TabFavoriteView.designer.cs">
-      <DependentUpon>TabFavoriteView.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\TabIndexView.cs" />
     <Compile Include="Views\TabIndexView.designer.cs">
       <DependentUpon>TabIndexView.cs</DependentUpon>
@@ -208,15 +302,34 @@
     <Compile Include="Views\IndexTableCell.designer.cs">
       <DependentUpon>IndexTableCell.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\DetailJuiceListView.cs" />
+    <Compile Include="Views\DetailJuiceListView.designer.cs">
+      <DependentUpon>DetailJuiceListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TableViewSources\FavoriteViewSource.cs" />
+    <Compile Include="Views\TabFavoriteView.cs" />
+    <Compile Include="Views\TabFavoriteView.designer.cs">
+      <DependentUpon>TabFavoriteView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FavoriteViewCell.cs" />
+    <Compile Include="Views\FavoriteViewCell.designer.cs">
+      <DependentUpon>FavoriteViewCell.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\JuiceIt.Core\JuiceIt.Core.csproj">
-      <Project>{C1286CC5-2A4D-4980-B359-B696ADCA8241}</Project>
-      <Name>JuiceIt.Core</Name>
+    <ProjectReference Include="..\JuiceIt.iOS.JuicIt.Watch\JuiceIt.iOS.JuicIt.Watch.csproj">
+      <IsWatchApp>true</IsWatchApp>
+      <Project>{9F230B04-10BB-4591-8393-DDC9E1B2D2D8}</Project>
+      <Name>JuiceIt.iOS.JuicIt.Watch</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JuiceIt.Shared\JuiceIt.Shared.csproj">
+      <Project>{6cf810c5-e555-4bee-8e61-56299f83615e}</Project>
+      <Name>JuiceIt.Shared</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\testsmoothie.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
 </Project>

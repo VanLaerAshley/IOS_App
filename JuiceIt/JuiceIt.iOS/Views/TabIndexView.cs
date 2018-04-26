@@ -1,6 +1,6 @@
 using Foundation;
-using JuiceIt.Core.ViewModels;
 using JuiceIt.iOS.TableViewSources;
+using JuiceIt.Shared.ViewModels;
 using MvvmCross.Binding.BindingContext;
 using MvvmCross.iOS.Views;
 using System;
@@ -27,6 +27,9 @@ namespace JuiceIt.iOS.Views
           
             MvxFluentBindingDescriptionSet<TabIndexView, TabIndexViewModel> set = new MvxFluentBindingDescriptionSet<TabIndexView, TabIndexViewModel>(this);
             set.Bind(_recipeViewSource).To(vm => vm.Recipes);
+            set.Bind(_recipeViewSource)
+               .For(src => src.SelectionChangedCommand)
+               .To(vm => vm.NavigateToDetailCommand);
             set.Apply();
         }
 

@@ -31,7 +31,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="21806" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" restorationIdentifier="naeit">
+                                <rect key="frame" x="60" y="204" width="256" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                     </view>
+                    <connections>
+                        <outlet property="naeit" destination="21806" id="name-outlet-21806"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="232" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -40,33 +52,6 @@
         <!--Tab Favorite View-->
         <!--Tab Shop List View-->
         <!--Tab Index View-->
-        <scene sceneID="459">
-            <objects>
-                <tableViewController id="460" sceneMemberID="viewController" customClass="TabFavoriteView" storyboardIdentifier="TabFavoriteView" useStoryboardIdentifierAsRestorationIdentifier="YES">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="461">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="464">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="464" id="465">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="460" id="462"/>
-                            <outlet property="delegate" destination="460" id="463"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="466" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="227" y="389"/>
-        </scene>
         <scene sceneID="876">
             <objects>
                 <tableViewController id="877" sceneMemberID="viewController" customClass="TabIndexView" storyboardIdentifier="TabIndexView" useStoryboardIdentifierAsRestorationIdentifier="YES">
@@ -151,6 +136,136 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1908" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="756" y="392"/>
+        </scene>
+        <scene sceneID="15991">
+            <objects>
+                <viewController id="15992" sceneMemberID="viewController" customClass="DetailJuiceListView" storyboardIdentifier="DetailJuiceListView" useStoryboardIdentifierAsRestorationIdentifier="YES">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="15989"/>
+                        <viewControllerLayoutGuide type="bottom" id="15990"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="15993">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="15996" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" restorationIdentifier="NameRecipe">
+                                <rect key="frame" x="27" y="85" width="201" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="16217" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" restorationIdentifier="IngredientsList" usesAttributedText="YES" numberOfLines="10">
+                                <rect key="frame" x="236" y="125" width="139" height="201"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Ingredients">
+                                        <attributes>
+                                            <font key="NSFont" name="HelveticaNeue" size="17"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="17072" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" numberOfLines="20" text="Description" restorationIdentifier="DescriptionText">
+                                <rect key="frame" x="20" y="437" width="328" height="122"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="17073" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                <rect key="frame" x="20" y="369" width="344" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Condition" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="17292" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" restorationIdentifier="ConditionText" numberOfLines="20">
+                                <rect key="frame" x="27" y="138" width="136" height="223"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="22311" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" restorationIdentifier="ButtonFavorites">
+                                <rect key="frame" x="20" y="585" width="374" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <size key="titleShadowOffset" width="0" height="0"/>
+                                <state key="normal" title="Add to favorites"/>
+                            </button>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="NameRecipe" destination="15996" id="name-outlet-15996"/>
+                        <outlet property="IngredientsList" destination="16217" id="name-outlet-16217"/>
+                        <outlet property="DescriptionText" destination="17072" id="name-outlet-17072"/>
+                        <outlet property="ConditionText" destination="17292" id="name-outlet-17292"/>
+                        <outlet property="ButtonFavorites" destination="22311" id="name-outlet-22311"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="15994" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1193" y="-480"/>
+        </scene>
+        <scene sceneID="22072">
+            <objects>
+                <tableViewController id="22073" sceneMemberID="viewController" storyboardIdentifier="TabFavoriteView" useStoryboardIdentifierAsRestorationIdentifier="YES" customClass="TabFavoriteView">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="22074">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="0" id="24658" customClass="FavoriteViewCell" restorationIdentifier="FavoriteViewCell" reuseIdentifier="FavoriteViewCell" rowHeight="139" accessoryType="disclosureIndicator">
+                                <rect key="frame" x="0.0" y="28" width="414" height="139"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="24658" id="24663">
+                                    <rect key="frame" x="0.0" y="0.0" width="376" height="138.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="24664" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" image="testsmoothie.jpg" highlighted="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" userInteractionEnabled="NO" clipsSubviews="YES">
+                                            <rect key="frame" x="20" y="8" width="107" height="107"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute keyPath="layer.cornerRadius" type="number">
+                                                    <real key="value" value="3"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="24660" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" restorationIdentifier="TitleFavorite">
+                                            <rect key="frame" x="149" y="43" width="219" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="24662" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" restorationIdentifier="SubtitleFavorite">
+                                            <rect key="frame" x="149" y="65" width="143" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" colorSpace="calibratedWhite" white="0.666666666666667" alpha="1"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="TitleFavorite" destination="24660" id="name-outlet-24660"/>
+                                    <outlet property="SubtitleFavorite" destination="24662" id="name-outlet-24662"/>
+                                </connections>
+                                <inset key="separatorInset" minX="147" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="22073" id="22075"/>
+                            <outlet property="delegate" destination="22073" id="22076"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="22079" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="241" y="398"/>
         </scene>
     </scenes>
     <resources>
