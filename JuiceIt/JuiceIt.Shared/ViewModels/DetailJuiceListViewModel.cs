@@ -8,18 +8,22 @@ using MvvmCross.Core.Navigation;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Platform;
 
+
 namespace JuiceIt.Shared.ViewModels
 {
     public class DetailJuiceListViewModel : MvxViewModel
     {
         private readonly IRecipeService _recipeService;
         private readonly ILocalDbService _localDbService;
+        private readonly ILocalShopListService _localShopListService;
         private Recipe _recipeContent;
 
-        public DetailJuiceListViewModel(IRecipeService recipeService, ILocalDbService localDbService)
+
+        public DetailJuiceListViewModel( IRecipeService recipeService, ILocalDbService localDbService, ILocalShopListService localShopListService)
         {
             this._recipeService = recipeService;
             this._localDbService = localDbService;
+            this._localShopListService = localShopListService;
         }
 
         public Recipe RecipeContent
@@ -52,6 +56,21 @@ namespace JuiceIt.Shared.ViewModels
             }
         }
 
+        private Recipe _ingredient;
+
+        public Recipe Ingredient
+        {
+            get
+            {
+                return _ingredient;
+            }
+            set
+            {
+                _ingredient = value;
+                RaisePropertyChanged(() => Ingredient);
+            }
+        }
+
 
         public async void Init(int RecipeId)
         {
@@ -66,12 +85,29 @@ namespace JuiceIt.Shared.ViewModels
                 return new MvxCommand(AddFavorite);
             }
         }
-        private TabFavoriteViewModel _tabFavoriteViewModel;
+
         public void AddFavorite()
         {
             _localDbService.AddFavorites(RecipeContent);
-            //_tabFavoriteViewModel.GetFavoriteData();
-            //this.ReloadFromBundle<TabFavoriteViewModel>();
+
         }
+
+
+
+        public ICommand PostShopListCommand
+        {
+            get
+            {
+                return new MvxCommand(AddShopList);
+            }
+        }
+
+        public void AddShopList()
+        {
+            _localShopListService.AddShopList(RecipeContent);
+        }
+
+
+
     }
 }

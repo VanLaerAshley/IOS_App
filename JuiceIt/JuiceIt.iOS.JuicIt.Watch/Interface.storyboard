@@ -12,11 +12,26 @@
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController">
                     <items>
                         <label alignment="left" text="Shop List" id="164" width="155" height="22"/>
-                        <label alignment="left" text="Title" id="208" width="116" height="20"/>
+                        <table alignment="left" id="253">
+                            <items>
+                                <tableRow id="254" customClass="ShopListCell">
+                                    <group key="rootItem" width="154" alignment="left" id="255" height="40">
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <items>
+                                            <label alignment="left" text="Label" id="300" width="120" height="49">
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </label>
+                                        </items>
+                                    </group>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <connections>
+                                        <outlet property="myRowLabel" destination="300" id="name-outlet-300"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
                     </items>
-                    <connections>
-                        <outlet property="RecipeName" destination="208" id="name-outlet-208"/>
-                    </connections>
+                    <connections/>
                 </controller>
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>

@@ -10,12 +10,10 @@ namespace JuiceIt.Shared.ViewModels
     public class TabFavoriteViewModel : MvxViewModel
     {
         private ILocalDbService _localDbService;
-        public TabFavoriteViewModel(ILocalDbService localDbService)
+        public TabFavoriteViewModel( ILocalDbService localDbService)
         {
             this._localDbService = localDbService;
-            GetFavoriteData();
         }
-
         private List<Favorites> _favorites;
 
         public List<Favorites> Favorites
@@ -33,25 +31,32 @@ namespace JuiceIt.Shared.ViewModels
 
         public async void GetFavoriteData()
         {
+            
             Favorites = await _localDbService.GetFavorite();
-            RaisePropertyChanged(() => Favorites);
         }
 
         public IMvxCommand RemoveFavoriteCommand
         {
             get
             {
-                return new MvxCommand<int>(RemoveWine);
+                return new MvxCommand<int>(RemoveFavorite);
             }
         }
 
-        public void RemoveWine(int index)
+        public void RemoveFavorite(int index)
         {
             Favorites f = Favorites[index];
             _localDbService.DeleteFavorite(f.Id);
             GetFavoriteData();
+
         }
 
+		public override void ViewAppearing()
+		{
+            base.ViewAppearing();
+            GetFavoriteData();
+		}
 
-    }
+
+	}
 }

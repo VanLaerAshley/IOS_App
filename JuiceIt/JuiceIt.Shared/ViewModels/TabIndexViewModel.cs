@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using JuiceIt.Shared.Models;
 using JuiceIt.Shared.Services;
 using MvvmCross.Core.Navigation;
@@ -15,6 +16,12 @@ namespace JuiceIt.Shared.ViewModels
         {
             this._recipeService = recipeService;
             this._navigationService = navigationService;
+
+        }
+
+        public override void ViewAppearing()
+        {
+            base.ViewAppearing();
             GetRecipesData();
         }
 
@@ -33,10 +40,35 @@ namespace JuiceIt.Shared.ViewModels
             }
         }
 
+        private List<Recipe> _filteredRecepies = new List<Recipe>();
+        public List<Recipe> FilteredRecepies
+        {
+            get
+            {
+                return _filteredRecepies;
+            }
+            set
+            {
+                _filteredRecepies = value;
+                RaisePropertyChanged(() => FilteredRecepies);
+            }
+        }
+
+        public void SearchJuices(string title)
+        {
+            if (string.IsNullOrWhiteSpace(title))
+                FilteredRecepies = Recipes;
+            else
+            {
+                FilteredRecepies = Recipes;
+                FilteredRecepies = FilteredRecepies.Where(r => r.name.ToLowerInvariant().Contains(title.ToLowerInvariant())).ToList();
+            }
+        }
+
         public async void GetRecipesData()
         {
-            Recipes = await _recipeService.GetRecipes();;
-            RaisePropertyChanged(() => Recipes);
+            Recipes = await _recipeService.GetRecipes();
+            FilteredRecepies = Recipes;
         }
 
         public MvxCommand<Recipe> NavigateToDetailCommand

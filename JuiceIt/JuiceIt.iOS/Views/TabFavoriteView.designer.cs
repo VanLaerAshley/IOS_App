@@ -14,8 +14,16 @@ namespace JuiceIt.iOS.Views
     [Register ("TabFavoriteView")]
     partial class TabFavoriteView
     {
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UISearchDisplayController searchDisplayController { get; set; }
+
         void ReleaseDesignerOutlets ()
         {
+            if (searchDisplayController != null) {
+                searchDisplayController.Dispose ();
+                searchDisplayController = null;
+            }
         }
     }
 }

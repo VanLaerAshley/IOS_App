@@ -26,7 +26,9 @@ namespace JuiceIt.iOS
             set.Bind(IngredientsList).To(res => res.Ingredients);
             set.Bind(ConditionText).To(res => res.Conditions);
             set.Bind(ButtonFavorites).To(res => res.PostFavoriteCommand);
+            set.Bind(ButtonShopList).To(res => res.PostShopListCommand);
             set.Apply();
         }
+
     }
 }

@@ -176,6 +176,9 @@
     <Reference Include="System.Text.RegularExpressions">
       <HintPath>..\packages\System.Text.RegularExpressions.4.3.0\lib\net463\System.Text.RegularExpressions.dll</HintPath>
     </Reference>
+    <Reference Include="MvvmCross.Plugins.Messenger">
+      <HintPath>..\packages\MvvmCross.Plugin.Messenger.5.7.0\lib\net45\MvvmCross.Plugins.Messenger.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
@@ -199,6 +202,12 @@
     <Compile Include="ViewModels\TabShopListViewModel.cs" />
     <Compile Include="Services\LocalDbService.cs" />
     <Compile Include="Services\ILocalDbService.cs" />
+    <Compile Include="Models\ShopList.cs" />
+    <Compile Include="Repositories\LocalShopListRepository.cs" />
+    <Compile Include="Services\LocalShopListService.cs" />
+    <Compile Include="Repositories\ILocalShopListRepository.cs" />
+    <Compile Include="Services\ILocalShopListService.cs" />
+    <Compile Include="Bootstrap\MessengerPluginBootstrap.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

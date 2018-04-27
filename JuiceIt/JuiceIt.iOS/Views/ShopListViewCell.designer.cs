@@ -7,11 +7,12 @@
 using Foundation;
 using System;
 using System.CodeDom.Compiler;
+using UIKit;
 
-namespace JuiceIt.iOS.JuicIt.WatchExtension
+namespace JuiceIt.iOS.Views
 {
-    [Register ("InterfaceController")]
-    partial class InterfaceController
+    [Register ("ShopListViewCell")]
+    partial class ShopListViewCell
     {
         void ReleaseDesignerOutlets ()
         {

@@ -3,12 +3,11 @@ using SQLite;
 
 namespace JuiceIt.Shared.Models
 {
-    [Table("Favorites")]
-    public class Favorites
+    [Table("ShopList")]
+    public class ShopList
     {
         [PrimaryKey, AutoIncrement, Column("_id")]
         public int Id { get; set; }
-        public string FavName { get; set; }
-        public string FavDescription { get; set; }
+        public string Ingredients { get; set; }
     }
 }

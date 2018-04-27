@@ -20,6 +20,10 @@ namespace JuiceIt.iOS
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton ButtonShopList { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel ConditionText { get; set; }
 
         [Outlet]
@@ -39,6 +43,11 @@ namespace JuiceIt.iOS
             if (ButtonFavorites != null) {
                 ButtonFavorites.Dispose ();
                 ButtonFavorites = null;
+            }
+
+            if (ButtonShopList != null) {
+                ButtonShopList.Dispose ();
+                ButtonShopList = null;
             }
 
             if (ConditionText != null) {

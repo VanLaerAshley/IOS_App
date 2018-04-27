@@ -32,14 +32,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="21806" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" restorationIdentifier="naeit">
-                                <rect key="frame" x="60" y="204" width="256" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="21806" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" restorationIdentifier="naeit" text="Juice of the day: All C">
+                                <rect key="frame" x="36" y="401" width="342" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="21"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="27995" translatesAutoresizingMaskIntoConstraints="NO" image="testsmoothie.jpg" clipsSubviews="YES">
+                                <rect key="frame" x="36" y="42" width="342" height="294"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute keyPath="layer.cornerRadius" type="number">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <constraints>
+                                    <constraint id="28268" firstItem="27995" firstAttribute="height" constant="294"/>
+                                    <constraint id="28269" firstItem="27995" firstAttribute="width" constant="342"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
+                        <constraints>
+                            <constraint id="28270" firstItem="231" firstAttribute="trailingMargin" secondItem="27995" secondAttribute="trailing" constant="16"/>
+                            <constraint id="28271" firstItem="27995" firstAttribute="leading" secondItem="231" secondAttribute="leadingMargin" constant="16"/>
+                            <constraint id="28837" firstItem="27995" firstAttribute="top" secondItem="227" secondAttribute="bottom" constant="22"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="naeit" destination="21806" id="name-outlet-21806"/>
@@ -103,10 +119,43 @@
                             <outlet property="dataSource" destination="877" id="879"/>
                             <outlet property="delegate" destination="877" id="880"/>
                         </connections>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="38655" restorationIdentifier="ActivityIndicator" animating="YES" key="tableFooterView">
+                            <rect key="frame" x="0.0" y="167" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </activityIndicatorView>
                     </tableView>
-                    <connections/>
+                    <connections>
+                        <outlet property="ActivityIndicator" destination="38655" id="name-outlet-38655"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="883" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="26116">
+                    <connections>
+                        <outlet property="delegate" destination="877" id="26117"/>
+                        <outlet property="searchBar" destination="26113" id="26118"/>
+                        <outlet property="searchContentsController" destination="877" id="26119"/>
+                        <outlet property="searchResultsDataSource" destination="877" id="26120"/>
+                        <outlet property="searchResultsDelegate" destination="877" id="26121"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="26401">
+                    <connections>
+                        <outlet property="delegate" destination="877" id="26402"/>
+                        <outlet property="searchBar" destination="26398" id="26403"/>
+                        <outlet property="searchContentsController" destination="877" id="26404"/>
+                        <outlet property="searchResultsDataSource" destination="877" id="26405"/>
+                        <outlet property="searchResultsDelegate" destination="877" id="26406"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="26692">
+                    <connections>
+                        <outlet property="delegate" destination="877" id="26693"/>
+                        <outlet property="searchBar" destination="26689" id="26694"/>
+                        <outlet property="searchContentsController" destination="877" id="26695"/>
+                        <outlet property="searchResultsDataSource" destination="877" id="26696"/>
+                        <outlet property="searchResultsDelegate" destination="877" id="26697"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="751" y="-478"/>
         </scene>
@@ -118,7 +167,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="1906">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="1906" restorationIdentifier="ShopListViewCell" reuseIdentifier="ShopListViewCell" customClass="ShopListViewCell">
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1906" id="1907">
@@ -190,13 +239,27 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="22311" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" restorationIdentifier="ButtonFavorites">
-                                <rect key="frame" x="20" y="585" width="374" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="22311" translatesAutoresizingMaskIntoConstraints="NO" adjustsImageSizeForAccessibilityContentSizeCategory="YES" restorationIdentifier="ButtonFavorites">
+                                <rect key="frame" x="20" y="670" width="374" height="46"/>
                                 <size key="titleShadowOffset" width="0" height="0"/>
                                 <state key="normal" title="Add to favorites"/>
+                                <constraints>
+                                    <constraint id="38946" firstItem="22311" firstAttribute="height" constant="46"/>
+                                    <constraint id="38947" firstItem="22311" firstAttribute="width" constant="374"/>
+                                </constraints>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="27716" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" restorationIdentifier="ButtonShopList">
+                                <rect key="frame" x="171" y="352" width="223" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add to shopping list"/>
                             </button>
                         </subviews>
+                        <constraints>
+                            <constraint id="38948" firstItem="22311" firstAttribute="trailing" secondItem="15993" secondAttribute="trailingMargin"/>
+                            <constraint id="38949" firstItem="22311" firstAttribute="leading" secondItem="15993" secondAttribute="leadingMargin"/>
+                            <constraint id="38952" firstItem="15990" firstAttribute="top" secondItem="22311" secondAttribute="bottom" constant="20"/>
+                            <constraint id="38953" firstItem="22311" firstAttribute="centerX" secondItem="15993" secondAttribute="centerX"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="NameRecipe" destination="15996" id="name-outlet-15996"/>
@@ -204,6 +267,7 @@
                         <outlet property="DescriptionText" destination="17072" id="name-outlet-17072"/>
                         <outlet property="ConditionText" destination="17292" id="name-outlet-17292"/>
                         <outlet property="ButtonFavorites" destination="22311" id="name-outlet-22311"/>
+                        <outlet property="ButtonShopList" destination="27716" id="name-outlet-27716"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="15994" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -212,7 +276,7 @@
         </scene>
         <scene sceneID="22072">
             <objects>
-                <tableViewController id="22073" sceneMemberID="viewController" storyboardIdentifier="TabFavoriteView" useStoryboardIdentifierAsRestorationIdentifier="YES" customClass="TabFavoriteView">
+                <tableViewController id="22073" sceneMemberID="viewController" storyboardIdentifier="TabFavoriteView" useStoryboardIdentifierAsRestorationIdentifier="YES" customClass="TabFavoriteView" hasRefreshControl="0">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="22074">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -262,8 +326,20 @@
                             <outlet property="delegate" destination="22073" id="22076"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="25165" id="25164"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="22079" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="25165">
+                    <connections>
+                        <outlet property="delegate" destination="22073" id="25166"/>
+                        <outlet property="searchBar" destination="25162" id="25167"/>
+                        <outlet property="searchContentsController" destination="22073" id="25168"/>
+                        <outlet property="searchResultsDataSource" destination="22073" id="25169"/>
+                        <outlet property="searchResultsDelegate" destination="22073" id="25170"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="241" y="398"/>
         </scene>

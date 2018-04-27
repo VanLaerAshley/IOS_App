@@ -14,8 +14,16 @@ namespace JuiceIt.iOS.Views
     [Register ("TabIndexView")]
     partial class TabIndexView
     {
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIActivityIndicatorView ActivityIndicator { get; set; }
+
         void ReleaseDesignerOutlets ()
         {
+            if (ActivityIndicator != null) {
+                ActivityIndicator.Dispose ();
+                ActivityIndicator = null;
+            }
         }
     }
 }
