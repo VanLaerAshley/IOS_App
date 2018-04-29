@@ -1,4 +1,5 @@
 using System;
+using CoreAnimation;
 using CoreGraphics;
 using JuiceIt.Shared.ViewModels;
 using MvvmCross.Binding.BindingContext;
@@ -8,17 +9,17 @@ using UIKit;
 namespace JuiceIt.iOS
 {
     [MvxFromStoryboard(StoryboardName = "Main")]
-    public partial class DetailJuiceListView : MvxViewController
+    public partial class DetailJuiceListView : MvxViewController<DetailJuiceListViewModel>
     {
         public DetailJuiceListView (IntPtr handle) : base (handle)
         {
         }
+
         public override void ViewDidLoad()
         {
-            UIScrollView scrollView;
             base.ViewDidLoad();
 
-            scrollView = new UIScrollView(new CGRect(0, 0, View.Frame.Width, View.Frame.Height));
+
 
             MvxFluentBindingDescriptionSet<DetailJuiceListView, DetailJuiceListViewModel> set = new MvxFluentBindingDescriptionSet<DetailJuiceListView, DetailJuiceListViewModel>(this);
             set.Bind(NameRecipe).To(res => res.RecipeContent.name);
@@ -30,5 +31,26 @@ namespace JuiceIt.iOS
             set.Apply();
         }
 
+        partial void ButtonFavorites_TouchUpInside(UIButton sender)
+        {
+           
+            UIAlertView alert = new UIAlertView()
+            {
+                Title = "Added to Favorites"
+            };
+            alert.AddButton("OK");
+            alert.Show();
+
+        }
+
+        partial void ButtonShopList_TouchUpInside(UIButton sender)
+        {
+            UIAlertView alert = new UIAlertView()
+            {
+               Title = "Added to Shopping List"
+            };
+            alert.AddButton("OK");
+            alert.Show();
+        }
     }
 }

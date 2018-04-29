@@ -26,6 +26,10 @@ namespace JuiceIt.iOS.Views
             set.Bind(_favoriteViewSource).To(vm => vm.Favorites);
 
             set.Bind(_favoriteViewSource).For(s => s.RemoveRowCommand).To(vm => vm.RemoveFavoriteCommand);
+
+            set.Bind(_favoriteViewSource)
+               .For(src => src.SelectionChangedCommand)
+               .To(vm => vm.NavigateToDetailCommand);
             set.Apply();
         }
     }

@@ -59,6 +59,7 @@ namespace JuiceIt.iOS.Views
             viewController.Title = tabName;
             //UIImage Image = Image.Size(10)
             viewController.TabBarItem = new UITabBarItem() { Title = tabName, Image = image };
+           
 
             return viewController;
         }

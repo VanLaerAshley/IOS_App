@@ -32,11 +32,23 @@ namespace JuiceIt.iOS
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIImageView DetailImage { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel IngredientsList { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel NameRecipe { get; set; }
+
+        [Action ("ButtonFavorites_TouchUpInside:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void ButtonFavorites_TouchUpInside (UIKit.UIButton sender);
+
+        [Action ("ButtonShopList_TouchUpInside:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void ButtonShopList_TouchUpInside (UIKit.UIButton sender);
 
         void ReleaseDesignerOutlets ()
         {
@@ -58,6 +70,11 @@ namespace JuiceIt.iOS
             if (DescriptionText != null) {
                 DescriptionText.Dispose ();
                 DescriptionText = null;
+            }
+
+            if (DetailImage != null) {
+                DetailImage.Dispose ();
+                DetailImage = null;
             }
 
             if (IngredientsList != null) {

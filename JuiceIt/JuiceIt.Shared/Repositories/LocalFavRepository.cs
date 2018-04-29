@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using JuiceIt.Shared.Models;
@@ -14,11 +16,12 @@ namespace JuiceIt.Shared.Repositories
         public void SetupDatabase()
         {
             var db = new SQLiteConnection(dbPath);
+            //db.DropTable<Favorites>();
             db.CreateTable<Favorites>();
             var table = db.Table<Favorites>();
             foreach (var s in table)
             {
-                Console.WriteLine(s.FavName + " " + s.FavDescription);
+                Console.WriteLine(s.description + " " + s.description);
             }
         }
 
@@ -26,9 +29,22 @@ namespace JuiceIt.Shared.Repositories
         {
             var db = new SQLiteConnection(dbPath);
             var newUserTask = new Favorites();
-            newUserTask.FavName = recipe.name;
-            newUserTask.FavDescription = recipe.description;
-            db.Insert(newUserTask);
+            newUserTask.name = recipe.name;
+            newUserTask.description = recipe.description;
+            string joinedIngredients = string.Join(",", recipe.ingredients.ToArray());
+            string joinedConditions = string.Join(",", recipe.condition.ToArray());
+            newUserTask.ingredients = joinedIngredients;
+            newUserTask.condition = joinedConditions;
+            var UserExist = db.Query<Favorites>("select * from Favorites where name = ?", recipe.name);
+            int selectedDepartment = UserExist.Count;
+            if(selectedDepartment > 0)
+            {
+                Debug.WriteLine("{0} Zit al in database", newUserTask.name);
+            }
+            else
+            {
+                db.Insert(newUserTask);
+            }
             return newUserTask;
         }
 
@@ -45,7 +61,7 @@ namespace JuiceIt.Shared.Repositories
             var db = new SQLiteAsyncConnection(dbPath);
             var newUserTask = db.DeleteAsync(new Favorites()
             {
-                Id = id
+                id = id
             });
             Console.WriteLine("Resultaat van de verwijderde lijn: {0}", newUserTask.Id);
             await db.DeleteAsync(newUserTask.Id);

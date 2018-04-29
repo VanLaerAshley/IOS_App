@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using JuiceIt.Shared.Models;
@@ -28,7 +29,16 @@ namespace JuiceIt.Shared.Repositories
             foreach(string value in recipe.ingredients)
             {
                 newUserTask.Ingredients = value;
-                db.Insert(newUserTask);
+                var UserExist = db.Query<ShopList>("select * from ShopList where Ingredients = ?", value);
+                int selectedDepartment = UserExist.Count;
+                if (selectedDepartment > 0)
+                {
+                    Debug.WriteLine(" Zit al in database", newUserTask.Ingredients);
+                }
+                else
+                {
+                    db.Insert(newUserTask);
+                }
                 Console.WriteLine("Ingredients: {0}", value);
             }
             return newUserTask;

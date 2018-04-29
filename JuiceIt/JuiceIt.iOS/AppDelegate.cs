@@ -4,6 +4,8 @@ using MvvmCross.Core.ViewModels;
 using MvvmCross.iOS.Platform;
 using MvvmCross.Platform;
 using UIKit;
+using Xamarin.Forms;
+using Xamarin.Forms.Platform.iOS;
 
 namespace JuiceIt.iOS
 {
@@ -20,7 +22,8 @@ namespace JuiceIt.iOS
             window = new UIWindow(UIScreen.MainScreen.Bounds);
             var setup = new Setup(this, window);
             setup.Initialize();
-
+            UITabBar.Appearance.TintColor = Color.FromHex("97BD57").ToUIColor();
+            UINavigationBar.Appearance.TintColor = Color.FromHex("97BD57").ToUIColor();
             var startup = Mvx.Resolve<IMvxAppStart>();
             startup.Start();
             window.MakeKeyAndVisible();

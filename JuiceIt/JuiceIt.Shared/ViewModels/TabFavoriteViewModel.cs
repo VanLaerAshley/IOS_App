@@ -3,16 +3,19 @@ using System;
 using System.Collections.Generic;
 using JuiceIt.Shared.Models;
 using JuiceIt.Shared.Services;
+using MvvmCross.Core.Navigation;
 using MvvmCross.Core.ViewModels;
 
 namespace JuiceIt.Shared.ViewModels
 {
     public class TabFavoriteViewModel : MvxViewModel
     {
+        private readonly IMvxNavigationService _navigationService;
         private ILocalDbService _localDbService;
-        public TabFavoriteViewModel( ILocalDbService localDbService)
+        public TabFavoriteViewModel( ILocalDbService localDbService, IMvxNavigationService navigationService)
         {
             this._localDbService = localDbService;
+            this._navigationService = navigationService;
         }
         private List<Favorites> _favorites;
 
@@ -46,7 +49,7 @@ namespace JuiceIt.Shared.ViewModels
         public void RemoveFavorite(int index)
         {
             Favorites f = Favorites[index];
-            _localDbService.DeleteFavorite(f.Id);
+            _localDbService.DeleteFavorite(f.id);
             GetFavoriteData();
 
         }
@@ -57,6 +60,15 @@ namespace JuiceIt.Shared.ViewModels
             GetFavoriteData();
 		}
 
-
+        public MvxCommand<Recipe> NavigateToDetailCommand
+        {
+            get
+            {
+                return new MvxCommand<Recipe>(selectedRecipe =>
+                {
+                    ShowViewModel<DetailJuiceListViewModel>(new { RecipeId = selectedRecipe.name });
+                });
+            }
+        }
 	}
 }

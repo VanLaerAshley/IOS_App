@@ -18,8 +18,8 @@ namespace JuiceIt.iOS.Views
             base.LayoutSubviews();
 
             MvxFluentBindingDescriptionSet<FavoriteViewCell, Favorites> set = new MvxFluentBindingDescriptionSet<FavoriteViewCell, Favorites>(this);
-            set.Bind(TitleFavorite).To(res => res.FavName);
-            set.Bind(SubtitleFavorite).To(res => res.FavDescription);
+            set.Bind(TitleFavorite).To(res => res.name);
+            set.Bind(SubtitleFavorite).To(res => res.description);
             set.Apply();
         }
     }

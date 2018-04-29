@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using SQLite;
 
 namespace JuiceIt.Shared.Models
@@ -7,8 +8,10 @@ namespace JuiceIt.Shared.Models
     public class Favorites
     {
         [PrimaryKey, AutoIncrement, Column("_id")]
-        public int Id { get; set; }
-        public string FavName { get; set; }
-        public string FavDescription { get; set; }
+        public int id { get; set; }
+        public string name { get; set; }
+        public string description { get; set; }
+        public string ingredients { get; set; }
+        public string condition { get; set; }
     }
 }
