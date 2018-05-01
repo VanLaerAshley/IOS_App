@@ -32,39 +32,70 @@
                         <viewControllerLayoutGuide type="top" id="227"/>
                         <viewControllerLayoutGuide type="bottom" id="228"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="231">
+                    <view key="view" contentMode="scaleToFill" id="231" restorationIdentifier="Name">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="Name" text="Juice of the day: All C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="21806" misplaced="YES">
-                                <rect key="frame" x="16" y="332" width="342" height="21"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="21"/>
-                                <nil key="highlightedColor"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="27995" restorationIdentifier="image" adjustsImageSizeForAccessibilityContentSizeCategory="YES" highlighted="YES" clipsSubviews="YES" ambiguous="YES">
+                                <rect key="frame" x="0.0" y="20" width="375" height="299"/>
                                 <constraints>
-                                    <constraint id="107988" firstItem="21806" firstAttribute="width" constant="342"/>
-                                </constraints>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="27995" restorationIdentifier="image" adjustsImageSizeForAccessibilityContentSizeCategory="YES" highlighted="YES" clipsSubviews="YES">
-                                <rect key="frame" x="0.0" y="20" width="375" height="294"/>
-                                <constraints>
-                                    <constraint id="107369" firstItem="27995" firstAttribute="width" constant="375"/>
-                                    <constraint id="107370" firstItem="27995" firstAttribute="height" constant="294"/>
+                                    <constraint id="119114" firstItem="27995" firstAttribute="width" constant="375"/>
+                                    <constraint id="124852" firstItem="27995" firstAttribute="height" constant="299"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="123576" translatesAutoresizingMaskIntoConstraints="NO" alpha="0.5" ambiguous="YES">
+                                <rect key="frame" x="0.0" y="244" width="375" height="75"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint id="123577" firstItem="123576" firstAttribute="width" constant="375"/>
+                                    <constraint id="125473" firstItem="123576" firstAttribute="height" constant="75"/>
+                                </constraints>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Juice of the day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="125474" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES" ambiguous="YES">
+                                <rect key="frame" x="16" y="256" width="343" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21" weight="semibold"/>
+                                <color key="textColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
+                                <color key="highlightedColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
+                                <color key="tintColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
+                                <constraints>
+                                    <constraint id="125478" firstItem="125474" firstAttribute="width" constant="343"/>
+                                </constraints>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Juice Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="125479" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES" ambiguous="YES" restorationIdentifier="JuiceName">
+                                <rect key="frame" x="16" y="285" width="344" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
+                                <nil key="highlightedColor"/>
+                                <constraints>
+                                    <constraint id="126110" firstItem="125479" firstAttribute="width" constant="344"/>
+                                    <constraint id="126113" firstItem="125479" firstAttribute="width" constant="344"/>
+                                </constraints>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint id="107367" firstItem="27995" firstAttribute="top" secondItem="227" secondAttribute="bottom"/>
-                            <constraint id="107371" firstItem="231" firstAttribute="leadingMargin" secondItem="27995" secondAttribute="leading" constant="16"/>
-                            <constraint id="107372" firstItem="27995" firstAttribute="trailing" secondItem="231" secondAttribute="trailingMargin" constant="16"/>
-                            <constraint id="107987" firstItem="21806" firstAttribute="top" secondItem="27995" secondAttribute="bottom" constant="18"/>
-                            <constraint id="107989" firstItem="21806" firstAttribute="leading" secondItem="231" secondAttribute="leadingMargin"/>
-                            <constraint id="107990" firstItem="231" firstAttribute="trailingMargin" secondItem="21806" secondAttribute="trailing" constant="1"/>
+                            <constraint id="123579" firstItem="123576" firstAttribute="trailing" secondItem="27995" secondAttribute="trailing"/>
+                            <constraint id="123580" firstItem="123576" firstAttribute="trailing" secondItem="27995" secondAttribute="trailing"/>
+                            <constraint id="123581" firstItem="123576" firstAttribute="leading" secondItem="27995" secondAttribute="leading"/>
+                            <constraint id="123582" firstItem="123576" firstAttribute="bottom" secondItem="27995" secondAttribute="bottom"/>
+                            <constraint id="124228" firstItem="27995" firstAttribute="top" secondItem="227" secondAttribute="bottom"/>
+                            <constraint id="124229" firstItem="123576" firstAttribute="trailing" secondItem="27995" secondAttribute="trailing"/>
+                            <constraint id="125475" firstItem="125474" firstAttribute="top" secondItem="123576" secondAttribute="top" constant="9"/>
+                            <constraint id="125476" firstItem="125474" firstAttribute="leading" secondItem="123576" secondAttribute="leading" constant="16"/>
+                            <constraint id="125477" firstItem="123576" firstAttribute="trailing" secondItem="125474" secondAttribute="trailing" constant="16"/>
+                            <constraint id="126111" firstItem="125479" firstAttribute="leading" secondItem="123576" secondAttribute="leading" constant="15"/>
+                            <constraint id="126112" firstItem="123576" firstAttribute="trailing" secondItem="125479" secondAttribute="trailing" constant="16"/>
+                            <constraint id="127404" firstItem="123576" firstAttribute="bottom" secondItem="125479" secondAttribute="bottom" constant="13"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="Name" destination="21806" id="name-outlet-21806"/>
                         <outlet property="image" destination="27995" id="name-outlet-27995"/>
+                        <outlet property="Name" destination="231" id="name-outlet-231"/>
+                        <outlet property="JuiceName" destination="125479" id="name-outlet-125479"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="232" userLabel="First Responder" sceneMemberID="firstResponder"/>

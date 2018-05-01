@@ -57,10 +57,15 @@ namespace JuiceIt.iOS.Views
         public override void ViewWillAppear(Boolean animated)
         {
             base.ViewWillAppear(animated);
-            //var searchController = new UISearchController(searchResultsController: null);
-            //TabBarController.NavigationItem.HidesSearchBarWhenScrolling = false;
-            //TabBarController.NavigationItem.SearchController = searchController;
-            //searchController.SearchBar.Hidden = false;
+            var searchController = new UISearchController(searchResultsController: null);
+            TabBarController.NavigationItem.HidesSearchBarWhenScrolling = false;
+            TabBarController.NavigationItem.SearchController = searchController;
+            searchController.SearchBar.Hidden = false;
+
+            _searchBar = searchController.SearchBar;
+            _searchBar.SearchButtonClicked += SearchBar_SearchButtonClicked;
+            _searchBar.TextChanged += SearchBarOnTextChanged;
+            _searchBar.CancelButtonClicked += SearchBarOnCancelButtonClicked;
         }
 
         public override void ViewWillDisappear(bool animated)

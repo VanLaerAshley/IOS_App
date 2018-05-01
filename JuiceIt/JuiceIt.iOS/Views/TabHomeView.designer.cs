@@ -20,13 +20,22 @@ namespace JuiceIt.iOS.Views
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel Name { get; set; }
+        UIKit.UILabel JuiceName { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIView Name { get; set; }
 
         void ReleaseDesignerOutlets ()
         {
             if (image != null) {
                 image.Dispose ();
                 image = null;
+            }
+
+            if (JuiceName != null) {
+                JuiceName.Dispose ();
+                JuiceName = null;
             }
 
             if (Name != null) {

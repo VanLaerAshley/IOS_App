@@ -179,6 +179,12 @@
     <Reference Include="MvvmCross.Plugins.Messenger">
       <HintPath>..\packages\MvvmCross.Plugin.Messenger.5.7.0\lib\net45\MvvmCross.Plugins.Messenger.dll</HintPath>
     </Reference>
+    <Reference Include="MvvmCross.Plugins.File">
+      <HintPath>..\packages\MvvmCross.Plugin.File.5.7.0\lib\net45\MvvmCross.Plugins.File.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Plugins.File.Wpf">
+      <HintPath>..\packages\MvvmCross.Plugin.File.5.7.0\lib\net45\MvvmCross.Plugins.File.Wpf.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
@@ -208,6 +214,7 @@
     <Compile Include="Repositories\ILocalShopListRepository.cs" />
     <Compile Include="Services\ILocalShopListService.cs" />
     <Compile Include="ViewModels\DetailFavoriteViewModel.cs" />
+    <Compile Include="Bootstrap\FilePluginBootstrap.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
