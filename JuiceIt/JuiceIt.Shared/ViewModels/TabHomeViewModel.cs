@@ -7,26 +7,26 @@ namespace JuiceIt.Shared.ViewModels
 {
     public class TabHomeViewModel : MvxViewModel
     {
-        //private readonly IRecipeService _recipeService;
+        private readonly IRecipeService _recipeService;
         public TabHomeViewModel(IRecipeService recipeService)
         {
-            //this._recipeService = recipeService;
+            this._recipeService = recipeService;
+            GetRecipesData();
         }
-        //private Favorites _favoriteContent;
-        //public Favorites FavoriteContent
-        //{
-        //    get { return _favoriteContent; }
-        //    set
-        //    {
-        //        _favoriteContent = value;
-        //        RaisePropertyChanged(() => FavoriteContent);
-        //    }
-        //}
+        private Recipe _recipeContent;
+        public Recipe RecipeContent
+        {
+            get { return _recipeContent; }
+            set
+            {
+                _recipeContent = value;
+                RaisePropertyChanged(() => RecipeContent);
+            }
+        }
+        public async void GetRecipesData()
+        {
+            RecipeContent = await _recipeService.GetRecipeById(1);
+        }
 
-        //public void Init()
-        //{
-        //    this.FavoriteContent = _recipeService.GetFavorite();
-        //    RaisePropertyChanged(() => RecipeContent);
-        //}
     }
 }

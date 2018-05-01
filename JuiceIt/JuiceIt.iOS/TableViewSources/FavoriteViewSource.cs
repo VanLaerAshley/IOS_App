@@ -54,6 +54,28 @@ namespace JuiceIt.iOS.TableViewSources
 
         public IMvxCommand RemoveRowCommand { get; set; }
 
+        public override bool CanMoveRow(UITableView tableView, NSIndexPath indexPath)
+        {
+            return true;
+        }
+
+        public override void MoveRow(UITableView tableView, NSIndexPath sourceIndexPath, NSIndexPath destinationIndexPath)
+        {
+            var deleteAt = sourceIndexPath.Row;
+            var insertAt = destinationIndexPath.Row;
+            if (destinationIndexPath.Row < sourceIndexPath.Row)
+            {
+                deleteAt += 1;
+            }
+            else
+            {
+                insertAt += 1;
+            }
+
+            ReorderCommand.Execute(new Tuple<int, int>(deleteAt, insertAt));
+        }
+
+        public IMvxCommand ReorderCommand { get; set; }
 
     }
 }

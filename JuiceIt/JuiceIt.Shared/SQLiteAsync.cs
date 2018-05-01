@@ -27,6 +27,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
+using JuiceIt.Shared.Models;
 
 namespace SQLite
 {
@@ -383,6 +384,11 @@ namespace SQLite
 				}
 			});
 		}
+
+        internal Favorites First()
+        {
+            throw new NotImplementedException();
+        }
     }
 
 	public class CreateTablesResult

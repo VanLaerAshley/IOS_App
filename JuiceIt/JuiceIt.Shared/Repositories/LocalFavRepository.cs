@@ -31,6 +31,8 @@ namespace JuiceIt.Shared.Repositories
             var newUserTask = new Favorites();
             newUserTask.name = recipe.name;
             newUserTask.description = recipe.description;
+            newUserTask.picture = recipe.picture;
+            newUserTask.thumbnail = recipe.thumbnail;
             string joinedIngredients = string.Join(",", recipe.ingredients.ToArray());
             string joinedConditions = string.Join(",", recipe.condition.ToArray());
             newUserTask.ingredients = joinedIngredients;
@@ -47,14 +49,31 @@ namespace JuiceIt.Shared.Repositories
             }
             return newUserTask;
         }
-
+        private List<Favorites> _favorites;
         public async Task<List<Favorites>> GetFavorite()
+        {
+            var db = new SQLiteAsyncConnection(dbPath);
+            var table = db.Table<Favorites>();
+            if(_favorites == null) 
+                _favorites = await table.ToListAsync();
+            return _favorites;
+        }
+
+        public async Task<List<Favorites>> GetFavorites()
         {
             var db = new SQLiteAsyncConnection(dbPath);
             var table = db.Table<Favorites>();
             var result = table.ToListAsync();
             return await result;
         }
+
+
+        public async Task<Favorites> GetFavoritesById(int FavoriteId)
+        {
+            if (_favorites == null) await GetFavorite();
+            return _favorites.Where(favorite => favorite.id == FavoriteId)?.First();
+        }
+
 
         public async Task DeleteFavorite(int id)
         {
@@ -67,7 +86,6 @@ namespace JuiceIt.Shared.Repositories
             await db.DeleteAsync(newUserTask.Id);
 
         }
-
 
     }
 }

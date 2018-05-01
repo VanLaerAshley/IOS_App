@@ -53,22 +53,37 @@ namespace JuiceIt.Shared.ViewModels
             GetFavoriteData();
 
         }
-
-		public override void ViewAppearing()
-		{
-            base.ViewAppearing();
-            GetFavoriteData();
-		}
-
-        public MvxCommand<Recipe> NavigateToDetailCommand
+        public MvxCommand<Favorites> NavigateToDetailCommand
         {
             get
             {
-                return new MvxCommand<Recipe>(selectedRecipe =>
+                return new MvxCommand<Favorites>(selectedFavorite =>
                 {
-                    ShowViewModel<DetailJuiceListViewModel>(new { RecipeId = selectedRecipe.name });
+                    ShowViewModel<DetailFavoriteViewModel>(new { FavoriteId = selectedFavorite.id });
                 });
             }
+        }
+
+        public IMvxCommand<Tuple<int, int>> Reorder
+        {
+            get
+            {
+                return new MvxCommand<Tuple<int, int>>(ReOrder);
+            }
+        }
+
+        private void ReOrder(Tuple<int, int> positions)
+        {
+            var item = Favorites[positions.Item1];
+            Favorites.Insert(positions.Item2, item);
+            Favorites.RemoveAt(positions.Item1);
+            RaisePropertyChanged(() => Favorites);
+        }
+
+        public override void ViewAppearing()
+        {
+            base.ViewAppearing();
+            GetFavoriteData();
         }
 	}
 }

@@ -24,7 +24,9 @@ namespace JuiceIt.iOS.Views
 
             //tabs aanmaken
             CreateTabs();
+
         }
+
         private void CreateTabs()
         {
             //voeg viewcontrollers toe voor elk tablad en bewaar
@@ -56,6 +58,7 @@ namespace JuiceIt.iOS.Views
             tabViewModel.Start();
 
             //titel instellen op naam tablad
+
             viewController.Title = tabName;
             //UIImage Image = Image.Size(10)
             viewController.TabBarItem = new UITabBarItem() { Title = tabName, Image = image };

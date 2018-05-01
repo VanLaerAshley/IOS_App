@@ -52,6 +52,7 @@ namespace JuiceIt.Shared.ViewModels
         public override void ViewAppearing()
         {
             base.ViewAppearing();
+
             GetShopList();
         }
     }

@@ -20,6 +20,10 @@ namespace JuiceIt.iOS.Views
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIImageView ThumbnailPicture { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel TitleFavorite { get; set; }
 
         void ReleaseDesignerOutlets ()
@@ -27,6 +31,11 @@ namespace JuiceIt.iOS.Views
             if (SubtitleFavorite != null) {
                 SubtitleFavorite.Dispose ();
                 SubtitleFavorite = null;
+            }
+
+            if (ThumbnailPicture != null) {
+                ThumbnailPicture.Dispose ();
+                ThumbnailPicture = null;
             }
 
             if (TitleFavorite != null) {

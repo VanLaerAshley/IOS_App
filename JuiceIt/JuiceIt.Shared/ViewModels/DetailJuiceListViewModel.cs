@@ -16,7 +16,7 @@ namespace JuiceIt.Shared.ViewModels
         private readonly IRecipeService _recipeService;
         private readonly ILocalDbService _localDbService;
         private readonly ILocalShopListService _localShopListService;
-        private Recipe _recipeContent;
+
 
 
         public DetailJuiceListViewModel( IRecipeService recipeService, ILocalDbService localDbService, ILocalShopListService localShopListService)
@@ -25,7 +25,7 @@ namespace JuiceIt.Shared.ViewModels
             this._localDbService = localDbService;
             this._localShopListService = localShopListService;
         }
-
+        private Recipe _recipeContent;
         public Recipe RecipeContent
         {
             get { return _recipeContent; }

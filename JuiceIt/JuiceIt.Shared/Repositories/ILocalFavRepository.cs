@@ -9,7 +9,8 @@ namespace JuiceIt.Shared.Repositories
     {
         void SetupDatabase();
         Favorites AddFavorites(Recipe recipe);
-        Task<List<Favorites>> GetFavorite();
+        Task<List<Favorites>> GetFavorites();
+        Task<Favorites> GetFavoritesById(int FavoriteId);
         Task DeleteFavorite(int id);
     }
 }

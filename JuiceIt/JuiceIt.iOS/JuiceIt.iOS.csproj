@@ -340,7 +340,11 @@
       <DependentUpon>ShopListViewCell.cs</DependentUpon>
     </Compile>
     <Compile Include="TableViewSources\ShopListViewSource.cs" />
-    <Compile Include="Bootstrap\MessengerPluginBootstrap.cs" />
+    <Compile Include="Views\DetailFavoriteView.cs" />
+    <Compile Include="Views\DetailFavoriteView.designer.cs">
+      <DependentUpon>DetailFavoriteView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\StringToImageConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\JuiceIt.iOS.JuicIt.Watch\JuiceIt.iOS.JuicIt.Watch.csproj">
@@ -355,6 +359,9 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\testsmoothie.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Converters\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />

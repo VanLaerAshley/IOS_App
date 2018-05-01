@@ -20,6 +20,10 @@ namespace JuiceIt.iOS.Views
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIImageView ThumbnailPicture { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel TitleRecipe { get; set; }
 
         void ReleaseDesignerOutlets ()
@@ -27,6 +31,11 @@ namespace JuiceIt.iOS.Views
             if (SubtitleRecipe != null) {
                 SubtitleRecipe.Dispose ();
                 SubtitleRecipe = null;
+            }
+
+            if (ThumbnailPicture != null) {
+                ThumbnailPicture.Dispose ();
+                ThumbnailPicture = null;
             }
 
             if (TitleRecipe != null) {

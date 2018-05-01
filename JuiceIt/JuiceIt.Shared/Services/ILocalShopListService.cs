@@ -7,6 +7,7 @@ namespace JuiceIt.Shared.Services
     public interface ILocalShopListService
     {
         Recipe AddShopList(Recipe recipe);
+        Favorites AddShopListFromLocal(Favorites favorite);
         Task<List<ShopList>> GetShopList();
         Task DeleteShopListItem(int id);
     }

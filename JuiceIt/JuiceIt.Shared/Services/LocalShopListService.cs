@@ -26,6 +26,14 @@ namespace JuiceIt.Shared.Services
             _localShopListRepository.AddShopList(recipe);
             return recipe;
         }
+
+        public Favorites AddShopListFromLocal(Favorites favorite)
+        {
+
+            _localShopListRepository.AddShopListFromLocal(favorite);
+            return favorite;
+        }
+
         public async Task DeleteShopListItem(int id)
         {
             await _localShopListRepository.DeleteShopListItem(id);

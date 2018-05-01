@@ -1,4 +1,5 @@
 using Foundation;
+using JuiceIt.iOS.Converters;
 using JuiceIt.Shared.Models;
 using MvvmCross.Binding.BindingContext;
 using MvvmCross.Binding.iOS.Views;
@@ -20,8 +21,9 @@ namespace JuiceIt.iOS.Views
 
             MvxFluentBindingDescriptionSet<IndexTableCell, Recipe> set = new MvxFluentBindingDescriptionSet<IndexTableCell, Recipe>(this);
             set.Bind(TitleRecipe).To(res => res.name);
-
             set.Bind(SubtitleRecipe).To(res => res.description);
+            set.Bind(ThumbnailPicture).For(img => img.Image).To(res => res.thumbnail).WithConversion<StringToImageConverter>();
+
             set.Apply();
         }
 

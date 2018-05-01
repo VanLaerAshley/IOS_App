@@ -21,22 +21,17 @@ namespace JuiceIt.iOS.Views
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-            
 
-            _recipeViewSource = new RecipeViewSource(this.TableView, IndexTableCell.Identifier, 125);
-            this.TableView.Source = _recipeViewSource;
-            this.TableView.ReloadData();
-
-            ////BEGIN initialize searchbar 
-
+            //SEARCH BAR BEGINNING
             var searchController = new UISearchController(searchResultsController: null);
 
             searchController.SearchBar.SizeToFit();
-            searchController.SearchBar.SearchBarStyle = UISearchBarStyle.Minimal;
+            searchController.SearchBar.SearchBarStyle = UISearchBarStyle.Prominent;
 
-            NavigationItem.HidesSearchBarWhenScrolling = false;
-            NavigationItem.SearchController = searchController;
+            TabBarController.NavigationItem.HidesSearchBarWhenScrolling = false;
+            TabBarController.NavigationItem.SearchController = searchController;
 
+            NavigationController.NavigationBar.PrefersLargeTitles = true;
             this.Title = "Search";
 
             _searchBar = searchController.SearchBar;
@@ -44,7 +39,12 @@ namespace JuiceIt.iOS.Views
             _searchBar.TextChanged += SearchBarOnTextChanged;
             _searchBar.CancelButtonClicked += SearchBarOnCancelButtonClicked;
 
-            // END initialize searchbar
+            //SEARCHBAR ENDING
+
+
+            _recipeViewSource = new RecipeViewSource(this.TableView, IndexTableCell.Identifier, 125);
+            this.TableView.Source = _recipeViewSource;
+            this.TableView.ReloadData();
 
             MvxFluentBindingDescriptionSet<TabIndexView, TabIndexViewModel> set = new MvxFluentBindingDescriptionSet<TabIndexView, TabIndexViewModel>(this);
             set.Bind(_recipeViewSource).To(vm => vm.FilteredRecepies);
@@ -52,6 +52,21 @@ namespace JuiceIt.iOS.Views
                .For(src => src.SelectionChangedCommand)
                .To(vm => vm.NavigateToDetailCommand);
             set.Apply();
+        }
+
+        public override void ViewWillAppear(Boolean animated)
+        {
+            base.ViewWillAppear(animated);
+            //var searchController = new UISearchController(searchResultsController: null);
+            //TabBarController.NavigationItem.HidesSearchBarWhenScrolling = false;
+            //TabBarController.NavigationItem.SearchController = searchController;
+            //searchController.SearchBar.Hidden = false;
+        }
+
+        public override void ViewWillDisappear(bool animated)
+        {
+            base.ViewWillDisappear(animated);
+            TabBarController.NavigationItem.SearchController = null;
         }
 
         private void SearchBarOnCancelButtonClicked(object sender, EventArgs eventArgs)

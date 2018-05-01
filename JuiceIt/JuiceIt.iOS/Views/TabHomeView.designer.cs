@@ -16,13 +16,22 @@ namespace JuiceIt.iOS.Views
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel naeit { get; set; }
+        UIKit.UIImageView image { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel Name { get; set; }
 
         void ReleaseDesignerOutlets ()
         {
-            if (naeit != null) {
-                naeit.Dispose ();
-                naeit = null;
+            if (image != null) {
+                image.Dispose ();
+                image = null;
+            }
+
+            if (Name != null) {
+                Name.Dispose ();
+                Name = null;
             }
         }
     }

@@ -10,6 +10,8 @@ namespace JuiceIt.Shared.Models
         [PrimaryKey, AutoIncrement, Column("_id")]
         public int id { get; set; }
         public string name { get; set; }
+        public string picture { get; set; }
+        public string thumbnail { get; set; }
         public string description { get; set; }
         public string ingredients { get; set; }
         public string condition { get; set; }

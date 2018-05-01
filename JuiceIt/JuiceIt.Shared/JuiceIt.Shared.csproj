@@ -207,7 +207,7 @@
     <Compile Include="Services\LocalShopListService.cs" />
     <Compile Include="Repositories\ILocalShopListRepository.cs" />
     <Compile Include="Services\ILocalShopListService.cs" />
-    <Compile Include="Bootstrap\MessengerPluginBootstrap.cs" />
+    <Compile Include="ViewModels\DetailFavoriteViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

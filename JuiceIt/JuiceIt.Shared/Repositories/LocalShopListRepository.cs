@@ -21,7 +21,7 @@ namespace JuiceIt.Shared.Repositories
                 Console.WriteLine(s.Id + " " + s.Ingredients);
             }
         }
-        private string _ingredients;
+
         public ShopList AddShopList(Recipe recipe)
         {
             var db = new SQLiteConnection(dbPath);
@@ -29,6 +29,29 @@ namespace JuiceIt.Shared.Repositories
             foreach(string value in recipe.ingredients)
             {
                 newUserTask.Ingredients = value;
+                var UserExist = db.Query<ShopList>("select * from ShopList where Ingredients = ?", value);
+                int selectedDepartment = UserExist.Count;
+                if (selectedDepartment > 0)
+                {
+                    Debug.WriteLine(" Zit al in database", newUserTask.Ingredients);
+                }
+                else
+                {
+                    db.Insert(newUserTask);
+                }
+                Console.WriteLine("Ingredients: {0}", value);
+            }
+            return newUserTask;
+        }
+
+        public ShopList AddShopListFromLocal(Favorites favorite)
+        {
+            var db = new SQLiteConnection(dbPath);
+            var newUserTask = new ShopList();
+            List<string> ingredientList = favorite.ingredients.Split(',').ToList<string>();
+            foreach (string value in ingredientList)
+            {
+                newUserTask.Ingredients = value.ToString();
                 var UserExist = db.Query<ShopList>("select * from ShopList where Ingredients = ?", value);
                 int selectedDepartment = UserExist.Count;
                 if (selectedDepartment > 0)

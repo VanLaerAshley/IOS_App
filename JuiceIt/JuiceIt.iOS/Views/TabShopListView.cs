@@ -4,6 +4,7 @@ using JuiceIt.Shared.ViewModels;
 using MvvmCross.Binding.BindingContext;
 using MvvmCross.iOS.Views;
 using System;
+using UIKit;
 
 namespace JuiceIt.iOS.Views
 {
@@ -22,7 +23,8 @@ namespace JuiceIt.iOS.Views
             _shopListViewSource = new ShopListViewSource(this.TableView);
             this.TableView.Source = _shopListViewSource;
             this.TableView.ReloadData();
-
+        
+           
             MvxFluentBindingDescriptionSet<TabShopListView, TabShopListViewModel> set = new MvxFluentBindingDescriptionSet<TabShopListView, TabShopListViewModel>(this);
             set.Bind(_shopListViewSource).To(vm => vm.ShopList);
 
