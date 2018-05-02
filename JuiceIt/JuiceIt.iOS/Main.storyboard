@@ -75,6 +75,13 @@
                                     <constraint id="126113" firstItem="125479" firstAttribute="width" constant="344"/>
                                 </constraints>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="128475" translatesAutoresizingMaskIntoConstraints="NO" ambiguous="YES" restorationIdentifier="RandomJuiceBtn" clipsSubviews="YES">
+                                <rect key="frame" x="0.0" y="20" width="375" height="299"/>
+                                <constraints>
+                                    <constraint id="128476" firstItem="128475" firstAttribute="height" constant="299"/>
+                                    <constraint id="128477" firstItem="128475" firstAttribute="width" constant="375"/>
+                                </constraints>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -90,12 +97,17 @@
                             <constraint id="126111" firstItem="125479" firstAttribute="leading" secondItem="123576" secondAttribute="leading" constant="15"/>
                             <constraint id="126112" firstItem="123576" firstAttribute="trailing" secondItem="125479" secondAttribute="trailing" constant="16"/>
                             <constraint id="127404" firstItem="123576" firstAttribute="bottom" secondItem="125479" secondAttribute="bottom" constant="13"/>
+                            <constraint id="128478" firstItem="128475" firstAttribute="trailing" secondItem="27995" secondAttribute="trailing"/>
+                            <constraint id="128479" firstItem="128475" firstAttribute="leading" secondItem="27995" secondAttribute="leading"/>
+                            <constraint id="128480" firstItem="128475" firstAttribute="top" secondItem="227" secondAttribute="bottom"/>
+                            <constraint id="128481" firstItem="128475" firstAttribute="bottom" secondItem="123576" secondAttribute="bottom"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="image" destination="27995" id="name-outlet-27995"/>
                         <outlet property="Name" destination="231" id="name-outlet-231"/>
                         <outlet property="JuiceName" destination="125479" id="name-outlet-125479"/>
+                        <outlet property="RandomJuiceBtn" destination="128475" id="name-outlet-128475"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="232" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -228,7 +240,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="ButtonFavorites" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="55845">
+                                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="ButtonFavorites" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="55845" showsTouchWhenHighlighted="YES">
                                                         <rect key="frame" x="322" y="19" width="36" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="36" id="56247"/>
@@ -473,7 +485,34 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1906" id="1907">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checklist Item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="130651" translatesAutoresizingMaskIntoConstraints="NO" restorationIdentifier="CheckListItem">
+                                            <rect key="frame" x="66" y="12" width="293" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="131328" translatesAutoresizingMaskIntoConstraints="NO" restorationIdentifier="CheckBox">
+                                            <rect key="frame" x="12" y="0.0" width="46" height="44"/>
+                                            <constraints>
+                                                <constraint id="131332" firstItem="131328" firstAttribute="width" constant="46"/>
+                                            </constraints>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint id="130652" firstItem="1907" firstAttribute="trailing" secondItem="130651" secondAttribute="trailing" constant="16"/>
+                                        <constraint id="130654" firstItem="1907" firstAttribute="bottom" secondItem="130651" secondAttribute="bottom" constant="10"/>
+                                        <constraint id="130655" firstItem="130651" firstAttribute="top" secondItem="1907" secondAttribute="top" constant="12"/>
+                                        <constraint id="130656" firstItem="130651" firstAttribute="leading" secondItem="1907" secondAttribute="leading" constant="66"/>
+                                        <constraint id="131329" firstItem="131328" firstAttribute="leading" secondItem="1907" secondAttribute="leading" constant="12"/>
+                                        <constraint id="131330" firstItem="131328" firstAttribute="top" secondItem="1907" secondAttribute="top"/>
+                                        <constraint id="131331" firstItem="131328" firstAttribute="bottom" secondItem="1907" secondAttribute="bottom"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="CheckListItem" destination="130651" id="name-outlet-130651"/>
+                                    <outlet property="CheckBox" destination="131328" id="name-outlet-131328"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

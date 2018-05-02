@@ -26,6 +26,10 @@ namespace JuiceIt.iOS.Views
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIView Name { get; set; }
 
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton RandomJuiceBtn { get; set; }
+
         void ReleaseDesignerOutlets ()
         {
             if (image != null) {
@@ -41,6 +45,11 @@ namespace JuiceIt.iOS.Views
             if (Name != null) {
                 Name.Dispose ();
                 Name = null;
+            }
+
+            if (RandomJuiceBtn != null) {
+                RandomJuiceBtn.Dispose ();
+                RandomJuiceBtn = null;
             }
         }
     }

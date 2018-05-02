@@ -24,7 +24,7 @@ namespace JuiceIt.iOS
 
             MvxFluentBindingDescriptionSet<DetailJuiceListView, DetailJuiceListViewModel> set = new MvxFluentBindingDescriptionSet<DetailJuiceListView, DetailJuiceListViewModel>(this);
             set.Bind(NameRecipe).To(res => res.RecipeContent.name);
-            set.Bind(DetailImage).For(img => img.Image).To(res => res.RecipeContent.thumbnail).WithConversion<StringToImageConverter>();
+            set.Bind(DetailImage).For(img => img.Image).To(res => res.RecipeContent.picture).WithConversion<StringToImageConverter>();
             set.Bind(DescriptionText).To(res => res.RecipeContent.description);
             set.Bind(IngredientsList).To(res => res.Ingredients);
             set.Bind(ConditionText).To(res => res.Conditions);

@@ -10,5 +10,6 @@ namespace JuiceIt.Shared.Services
         Favorites AddShopListFromLocal(Favorites favorite);
         Task<List<ShopList>> GetShopList();
         Task DeleteShopListItem(int id);
+        //ShopList AddShopListChecker();
     }
 }

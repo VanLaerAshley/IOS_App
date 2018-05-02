@@ -20,6 +20,8 @@ namespace JuiceIt.iOS.Views
             MvxFluentBindingDescriptionSet<TabHomeView, TabHomeViewModel> set = new MvxFluentBindingDescriptionSet<TabHomeView, TabHomeViewModel>(this);
             set.Bind(image).For(img => img.Image).To(res => res.RecipeContent.picture).WithConversion<StringToImageConverter>();
             set.Bind(JuiceName).To(vm => vm.RecipeContent.name);
+            set.Bind(RandomJuiceBtn)
+               .To(vm => vm.NavigateToDetailCommand);
             set.Apply();
         }
 

@@ -20,6 +20,11 @@ namespace JuiceIt.iOS.Views
         private RecipeViewSource _recipeViewSource;
         public override void ViewDidLoad()
         {
+            var g = new UITapGestureRecognizer(() => View.EndEditing(true));
+            g.CancelsTouchesInView = false;
+
+            View.AddGestureRecognizer(g);
+
             base.ViewDidLoad();
 
             //SEARCH BAR BEGINNING

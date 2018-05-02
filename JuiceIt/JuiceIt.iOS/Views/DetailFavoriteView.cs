@@ -22,7 +22,7 @@ namespace JuiceIt.iOS.Views
 
             MvxFluentBindingDescriptionSet<DetailFavoriteView, DetailFavoriteViewModel> set = new MvxFluentBindingDescriptionSet<DetailFavoriteView, DetailFavoriteViewModel>(this);
             set.Bind(NameRecipe).To(res => res.FavoriteContent.name);
-            set.Bind(DetailImage).For(img => img.Image).To(res => res.FavoriteContent.thumbnail).WithConversion<StringToImageConverter>();
+            set.Bind(DetailImage).For(img => img.Image).To(res => res.FavoriteContent.picture).WithConversion<StringToImageConverter>();
             set.Bind(DescriptionText).To(res => res.FavoriteContent.description);
             set.Bind(IngredientsList).To(res => res.Ingredients);
             set.Bind(ConditionText).To(res => res.Conditions);

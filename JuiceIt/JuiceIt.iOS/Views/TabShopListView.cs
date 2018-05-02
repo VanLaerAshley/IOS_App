@@ -28,6 +28,7 @@ namespace JuiceIt.iOS.Views
             MvxFluentBindingDescriptionSet<TabShopListView, TabShopListViewModel> set = new MvxFluentBindingDescriptionSet<TabShopListView, TabShopListViewModel>(this);
             set.Bind(_shopListViewSource).To(vm => vm.ShopList);
 
+
             set.Bind(_shopListViewSource).For(s => s.RemoveRowCommand).To(vm => vm.RemoveShopListItemCommand);
             set.Apply();
         }

@@ -4,8 +4,10 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Timers;
+using System.Windows.Input;
 using JuiceIt.Shared.Models;
 using JuiceIt.Shared.Services;
+using MvvmCross.Core.Navigation;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Plugins.File;
 
@@ -14,12 +16,14 @@ namespace JuiceIt.Shared.ViewModels
     public class TabHomeViewModel : MvxViewModel
     {
         private IMvxFileStore _fileStore;
+        private readonly IMvxNavigationService _navigationService;
         private readonly IRecipeService _recipeService;
-        public TabHomeViewModel(IRecipeService recipeService, IMvxFileStore fileStore)
+        public TabHomeViewModel(IRecipeService recipeService, IMvxFileStore fileStore, IMvxNavigationService navigationService)
         {
+            this._navigationService = navigationService;
             this._fileStore = fileStore;
             this._recipeService = recipeService;
-            GetRecipesData();
+            GetRandomRecipeData();
         }
         private Recipe _recipeContent;
         public Recipe RecipeContent
@@ -46,8 +50,12 @@ namespace JuiceIt.Shared.ViewModels
             }
         }
 
+        public void Init(int index)
+        {
+            
+        }
 
-        public async void GetRecipesData()
+        public async void GetRandomRecipeData()
         {
             Recipes = await _recipeService.GetRecipes();
             int counter = Recipes.Count;
@@ -97,6 +105,27 @@ namespace JuiceIt.Shared.ViewModels
                 RecipeContent = await _recipeService.GetRecipeById(NewRandomValue);
             }
 
+        }
+        public MvxCommand<Recipe> NavigateToDetailCommand
+        {
+            get
+            {
+                var _folderName = "TextFilesFolder";
+                var _fileName = "TextFile.txt";
+                string value = string.Empty;
+                _fileStore.TryReadTextFile(_folderName + "/" + _fileName, out (value));
+                string fV = value;
+                List<string> TextFileList = new List<string>(
+                    fV.Split(new string[] { "," }, StringSplitOptions.None));
+                int numVall = Int32.Parse(TextFileList[1]);
+                int NewRandomValue = numVall;
+
+                    
+                return new MvxCommand<Recipe>(SelectedRecipe =>
+                {
+                    ShowViewModel<DetailJuiceListViewModel>(new { RecipeId = NewRandomValue });
+                });
+            }
         }
 
     }

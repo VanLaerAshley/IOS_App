@@ -1,16 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Input;
 using JuiceIt.Shared.Models;
 using JuiceIt.Shared.Services;
+using MvvmCross.Core.Navigation;
 using MvvmCross.Core.ViewModels;
 
 namespace JuiceIt.Shared.ViewModels
 {
     public class TabShopListViewModel : MvxViewModel
     {
+        private readonly IMvxNavigationService _navigationService;
         private ILocalShopListService _localShopListService;
-        public TabShopListViewModel(ILocalShopListService localShopListService)
+        public TabShopListViewModel(ILocalShopListService localShopListService, IMvxNavigationService navigationService)
         {
+            this._navigationService = navigationService;
             this._localShopListService = localShopListService;
         }
 
@@ -26,6 +30,21 @@ namespace JuiceIt.Shared.ViewModels
             {
                 _shopList = value;
                 RaisePropertyChanged(() => ShopList);
+            }
+        }
+
+        private ShopList _shopItems;
+
+        public ShopList ShopItems
+        {
+            get
+            {
+                return _shopItems;
+            }
+            set
+            {
+                _shopItems = value;
+                RaisePropertyChanged(() => ShopItems);
             }
         }
 
@@ -55,5 +74,18 @@ namespace JuiceIt.Shared.ViewModels
 
             GetShopList();
         }
+
+        //public ICommand PostCheckCommand
+        //{
+        //    get
+        //    {
+        //        return new MvxCommand(AddChecker);
+        //    }
+        //}
+        //public void AddChecker()
+        //{
+        //    _localShopListService.AddShopListChecker();
+        //    _navigationService.Navigate<TabShopListViewModel>();
+        //}
     }
 }

@@ -14,6 +14,7 @@ namespace JuiceIt.Shared.Repositories
         public void SetupDatabase()
         {
             var db = new SQLiteConnection(dbPath);
+            //db.DropTable<ShopList>();
             db.CreateTable<ShopList>();
             var table = db.Table<ShopList>();
             foreach (var s in table)
@@ -33,7 +34,7 @@ namespace JuiceIt.Shared.Repositories
                 int selectedDepartment = UserExist.Count;
                 if (selectedDepartment > 0)
                 {
-                    Debug.WriteLine(" Zit al in database", newUserTask.Ingredients);
+                    Debug.WriteLine("{0} Zit al in database. Checker is: {1}", newUserTask.Ingredients, newUserTask.checker);
                 }
                 else
                 {
@@ -56,7 +57,7 @@ namespace JuiceIt.Shared.Repositories
                 int selectedDepartment = UserExist.Count;
                 if (selectedDepartment > 0)
                 {
-                    Debug.WriteLine(" Zit al in database", newUserTask.Ingredients);
+                    Debug.WriteLine("{0} Zit al in database. Checker is: {1}", newUserTask.Ingredients, newUserTask.checker);
                 }
                 else
                 {
@@ -66,6 +67,7 @@ namespace JuiceIt.Shared.Repositories
             }
             return newUserTask;
         }
+
 
         public async Task<List<ShopList>> GetShopList()
         {
@@ -86,5 +88,28 @@ namespace JuiceIt.Shared.Repositories
             await db.DeleteAsync(newUserTask.Id);
 
         }
+
+
+        //public ShopList AddShopListChecker()
+        //{
+        //    var db = new SQLiteConnection(dbPath);
+        //    var newUserTask = new ShopList();
+        //    if (newUserTask.checker == null)
+        //    {
+        //        newUserTask.checker = 1;
+        //        db.Insert(newUserTask);
+        //        Debug.WriteLine("1 is toegevoeg: ", newUserTask);
+        //        return newUserTask;
+
+        //    }
+        //    else
+        //    {
+
+        //        newUserTask.checker = 0;
+        //        db.Update(newUserTask);
+        //        Debug.WriteLine("1 is toegevoeg verwijderd: ", newUserTask);
+        //        return newUserTask;
+        //    }
+        //}
     }
 }
