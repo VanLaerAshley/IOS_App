@@ -21,15 +21,17 @@ namespace JuiceIt.iOS.Views
         {
             base.LayoutSubviews();
 
-            //var bemCheckBoxLabel = new UILabel()
-            //{
-            //    Frame = new CoreGraphics.CGRect(0, 0, 0, 0)
-            //};
+            var bemCheckBoxLabel = new UILabel()
+            {
+                Frame = new CoreGraphics.CGRect(900, 900, 207, 207)
+            };
 
 
             var checkbox = new BEMCheckBox(new CoreGraphics.CGRect(9, 9, 27, 27));
             checkbox.OnCheckColor = Color.FromHex("97BD57").ToUIColor();
             checkbox.OnTintColor = Color.FromHex("97BD57").ToUIColor();
+            checkbox.OnAnimationType = BEMAnimationType.Fill;
+            checkbox.OffAnimationType = BEMAnimationType.Fill;
             checkbox.AnimationDidStopForCheckBox += CheckBoxClickedEvent;
             //ShopList shop = new ShopList();
             //while(shop != null)
@@ -44,6 +46,8 @@ namespace JuiceIt.iOS.Views
             //    }
             //    shop = null;
             //}
+
+            CheckBox.AddSubview(bemCheckBoxLabel);
             CheckBox.AddSubview(checkbox);
 
             MvxFluentBindingDescriptionSet<ShopListViewCell, ShopList> set = new MvxFluentBindingDescriptionSet<ShopListViewCell, ShopList>(this);
@@ -53,22 +57,19 @@ namespace JuiceIt.iOS.Views
 
         }
 
+
+
         private void CheckBoxClickedEvent(object sender, EventArgs eventArgs)
         {
             var checkbox = sender as BEMCheckBox;
-            if (checkbox != null)
-            {
+            if (checkbox == null)
+                return;
                 Console.WriteLine("checkbox is gelijk aan nul dus unchecked");
                 //MvxFluentBindingDescriptionSet<ShopListViewCell, TabShopListViewModel> set = new MvxFluentBindingDescriptionSet<ShopListViewCell, TabShopListViewModel>(this);
                 //set.Bind(CheckBox).To(vm => vm.PostCheckCommand);
                 //set.Apply();
-            }
-            else
-            {
-                Console.WriteLine("checkbox is NIET gelijk aan nul dus checked");    
-            }
 
-            // Do what you need to do with the checkbox.
+
         }
     }
 }

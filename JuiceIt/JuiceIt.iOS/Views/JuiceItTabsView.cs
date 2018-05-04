@@ -32,7 +32,7 @@ namespace JuiceIt.iOS.Views
             //voeg viewcontrollers toe voor elk tablad en bewaar
             var viewControllers = new UIViewController[]
             {
-                CreateSingleTab("Home", ViewModel.TabHomeVM, UIImage.FromBundle("home")),
+                CreateSingleTab("Today", ViewModel.TabHomeVM, UIImage.FromBundle("today")),
                 CreateSingleTab("Search", ViewModel.TabIndexVM, UIImage.FromBundle("search")),
                 CreateSingleTab("Favorites", ViewModel.TabFavoriteVM, UIImage.FromBundle("favorites")),
                 CreateSingleTab("Shop List", ViewModel.TabShopListVM, UIImage.FromBundle("list"))

@@ -16,40 +16,85 @@ namespace JuiceIt.iOS.Views
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIImageView image { get; set; }
+        UIKit.UIButton AfternoonBtn { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel JuiceName { get; set; }
+        UIKit.UIImageView AfternoonImage { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIView Name { get; set; }
+        UIKit.UILabel AfternoonJuiceName { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIButton RandomJuiceBtn { get; set; }
+        UIKit.UIButton EveningBtn { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIImageView EveningImage { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel EveningJuiceName { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton MorningBtn { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIImageView MorningImage { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel MorningJuiceName { get; set; }
 
         void ReleaseDesignerOutlets ()
         {
-            if (image != null) {
-                image.Dispose ();
-                image = null;
+            if (AfternoonBtn != null) {
+                AfternoonBtn.Dispose ();
+                AfternoonBtn = null;
             }
 
-            if (JuiceName != null) {
-                JuiceName.Dispose ();
-                JuiceName = null;
+            if (AfternoonImage != null) {
+                AfternoonImage.Dispose ();
+                AfternoonImage = null;
             }
 
-            if (Name != null) {
-                Name.Dispose ();
-                Name = null;
+            if (AfternoonJuiceName != null) {
+                AfternoonJuiceName.Dispose ();
+                AfternoonJuiceName = null;
             }
 
-            if (RandomJuiceBtn != null) {
-                RandomJuiceBtn.Dispose ();
-                RandomJuiceBtn = null;
+            if (EveningBtn != null) {
+                EveningBtn.Dispose ();
+                EveningBtn = null;
+            }
+
+            if (EveningImage != null) {
+                EveningImage.Dispose ();
+                EveningImage = null;
+            }
+
+            if (EveningJuiceName != null) {
+                EveningJuiceName.Dispose ();
+                EveningJuiceName = null;
+            }
+
+            if (MorningBtn != null) {
+                MorningBtn.Dispose ();
+                MorningBtn = null;
+            }
+
+            if (MorningImage != null) {
+                MorningImage.Dispose ();
+                MorningImage = null;
+            }
+
+            if (MorningJuiceName != null) {
+                MorningJuiceName.Dispose ();
+                MorningJuiceName = null;
             }
         }
     }

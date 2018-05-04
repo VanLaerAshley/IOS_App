@@ -23,18 +23,44 @@ namespace JuiceIt.Shared.ViewModels
             this._navigationService = navigationService;
             this._fileStore = fileStore;
             this._recipeService = recipeService;
-            GetRandomRecipeData();
+            GetMorningJuice();
+            GetAfternoonJuice();
+            GetEveningJuice();
         }
-        private Recipe _recipeContent;
-        public Recipe RecipeContent
+        private Recipe _morningContent;
+        public Recipe MorningContent
         {
-            get { return _recipeContent; }
+            get { return _morningContent; }
             set
             {
-                _recipeContent = value;
-                RaisePropertyChanged(() => RecipeContent);
+                _morningContent = value;
+                RaisePropertyChanged(() => MorningContent);
             }
         }
+
+
+        private Recipe _afternoonContent;
+        public Recipe AfternoonContent
+        {
+            get { return _afternoonContent; }
+            set
+            {
+                _afternoonContent = value;
+                RaisePropertyChanged(() => AfternoonContent);
+            }
+        }
+
+        private Recipe _eveningContent;
+        public Recipe EveningContent
+        {
+            get { return _eveningContent; }
+            set
+            {
+                _eveningContent = value;
+                RaisePropertyChanged(() => EveningContent);
+            }
+        }
+
 
         private List<Recipe> _recipes;
         public List<Recipe> Recipes
@@ -55,7 +81,7 @@ namespace JuiceIt.Shared.ViewModels
             
         }
 
-        public async void GetRandomRecipeData()
+        public async void GetMorningJuice()
         {
             Recipes = await _recipeService.GetRecipes();
             int counter = Recipes.Count;
@@ -66,24 +92,25 @@ namespace JuiceIt.Shared.ViewModels
             DateTime dateAndTime = DateTime.Now;
             string day = dateAndTime.ToString("dd/MM/yyyy");
             string folderValue = (day + "," + rndNumToStr);
-            var _folderName = "TextFilesFolder";
-            var _fileName = "TextFile.txt";
+            var _folderName = "TextFilesFolder1";
+            var _fileName = "MorningJuice";
 
+            if (!_fileStore.FolderExists(_folderName))
+                _fileStore.EnsureFolderExists(_folderName);
+
+            _fileStore.WriteFile(_folderName + "/" + _fileName, folderValue);
             string value = string.Empty;
             _fileStore.TryReadTextFile(_folderName + "/" + _fileName, out (value));
             string fV = value;
             List<string> TextFileList = new List<string>(
                 fV.Split(new string[] { "," }, StringSplitOptions.None));
-            
+
 
             if(TextFileList[0] != day)
             {
                 try
                 {
-                    if (!_fileStore.FolderExists(_folderName))
-                        _fileStore.EnsureFolderExists(_folderName);
-                    _fileStore.WriteFile(_folderName + "/" + _fileName, folderValue);
-
+                    
                     string NewValue = string.Empty;
                     _fileStore.TryReadTextFile(_folderName + "/" + _fileName, out (NewValue));
                     string NValue = NewValue;
@@ -91,7 +118,7 @@ namespace JuiceIt.Shared.ViewModels
                         fV.Split(new string[] { "," }, StringSplitOptions.None));
                     int numVall = Int32.Parse(NewTextFileList[1]); 
                     int NewRandomValue = numVall;
-                    RecipeContent = await _recipeService.GetRecipeById(NewRandomValue);
+                    MorningContent = await _recipeService.GetRecipeById(NewRandomValue);
                 }
                 catch (Exception ex)
                 {
@@ -102,16 +129,16 @@ namespace JuiceIt.Shared.ViewModels
             {
                 int numVall = Int32.Parse(TextFileList[1]);
                 int NewRandomValue = numVall;
-                RecipeContent = await _recipeService.GetRecipeById(NewRandomValue);
+                MorningContent = await _recipeService.GetRecipeById(NewRandomValue);
             }
 
         }
-        public MvxCommand<Recipe> NavigateToDetailCommand
+        public MvxCommand<Recipe> NavigateToMorningJuice
         {
             get
             {
-                var _folderName = "TextFilesFolder";
-                var _fileName = "TextFile.txt";
+                var _folderName = "TextFilesFolder1";
+                var _fileName = "MorningJuice";
                 string value = string.Empty;
                 _fileStore.TryReadTextFile(_folderName + "/" + _fileName, out (value));
                 string fV = value;
@@ -128,5 +155,155 @@ namespace JuiceIt.Shared.ViewModels
             }
         }
 
+
+
+        public async void GetAfternoonJuice()
+        {
+            Recipes = await _recipeService.GetRecipes();
+            int counter = Recipes.Count;
+
+            Random rnd = new Random();
+            int RandomNumber = rnd.Next(1, counter);
+            string rndNumToStr = RandomNumber.ToString();
+            DateTime dateAndTime = DateTime.Now;
+            string day = dateAndTime.ToString("dd/MM/yyyy");
+            string folderValue = (day + "," + rndNumToStr);
+            var _folderName = "TextFilesFolder2";
+            var _fileName = "AfternoonJuice";
+
+            if (!_fileStore.FolderExists(_folderName))
+                _fileStore.EnsureFolderExists(_folderName);
+
+            _fileStore.WriteFile(_folderName + "/" + _fileName, folderValue);
+            string value = string.Empty;
+            _fileStore.TryReadTextFile(_folderName + "/" + _fileName, out (value));
+            string fV = value;
+            List<string> TextFileList = new List<string>(
+                fV.Split(new string[] { "," }, StringSplitOptions.None));
+
+
+            if (TextFileList[0] != day)
+            {
+                try
+                {
+
+                    string NewValue = string.Empty;
+                    _fileStore.TryReadTextFile(_folderName + "/" + _fileName, out (NewValue));
+                    string NValue = NewValue;
+                    List<string> NewTextFileList = new List<string>(
+                        fV.Split(new string[] { "," }, StringSplitOptions.None));
+                    int numVall = Int32.Parse(NewTextFileList[1]);
+                    int NewRandomValue = numVall;
+                    AfternoonContent = await _recipeService.GetRecipeById(NewRandomValue);
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+            else
+            {
+                int numVall = Int32.Parse(TextFileList[1]);
+                int NewRandomValue = numVall;
+                AfternoonContent = await _recipeService.GetRecipeById(NewRandomValue);
+            }
+
+        }
+        public MvxCommand<Recipe> NavigateToAfternoonJuice
+        {
+            get
+            {
+                var _folderName = "TextFilesFolder2";
+                var _fileName = "AfternoonJuice";
+                string value = string.Empty;
+                _fileStore.TryReadTextFile(_folderName + "/" + _fileName, out (value));
+                string fV = value;
+                List<string> TextFileList = new List<string>(
+                    fV.Split(new string[] { "," }, StringSplitOptions.None));
+                int numVall = Int32.Parse(TextFileList[1]);
+                int NewRandomValue = numVall;
+
+
+                return new MvxCommand<Recipe>(SelectedRecipe =>
+                {
+                    ShowViewModel<DetailJuiceListViewModel>(new { RecipeId = NewRandomValue });
+                });
+            }
+        }
+
+
+        public async void GetEveningJuice()
+        {
+            Recipes = await _recipeService.GetRecipes();
+            int counter = Recipes.Count;
+
+            Random rnd = new Random();
+            int RandomNumber = rnd.Next(1, counter);
+            string rndNumToStr = RandomNumber.ToString();
+            DateTime dateAndTime = DateTime.Now;
+            string day = dateAndTime.ToString("dd/MM/yyyy");
+            string folderValue = (day + "," + rndNumToStr);
+            var _folderName = "TextFilesFolder3";
+            var _fileName = "EveningJuice";
+
+            if (!_fileStore.FolderExists(_folderName))
+                _fileStore.EnsureFolderExists(_folderName);
+
+            _fileStore.WriteFile(_folderName + "/" + _fileName, folderValue);
+            string value = string.Empty;
+            _fileStore.TryReadTextFile(_folderName + "/" + _fileName, out (value));
+            string fV = value;
+            List<string> TextFileList = new List<string>(
+                fV.Split(new string[] { "," }, StringSplitOptions.None));
+
+
+            if (TextFileList[0] != day)
+            {
+                try
+                {
+
+                    string NewValue = string.Empty;
+                    _fileStore.TryReadTextFile(_folderName + "/" + _fileName, out (NewValue));
+                    string NValue = NewValue;
+                    List<string> NewTextFileList = new List<string>(
+                        fV.Split(new string[] { "," }, StringSplitOptions.None));
+                    int numVall = Int32.Parse(NewTextFileList[1]);
+                    int NewRandomValue = numVall;
+                    EveningContent = await _recipeService.GetRecipeById(NewRandomValue);
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+            else
+            {
+                int numVall = Int32.Parse(TextFileList[1]);
+                int NewRandomValue = numVall;
+                EveningContent = await _recipeService.GetRecipeById(NewRandomValue);
+            }
+
+        }
+        public MvxCommand<Recipe> NavigateToEveningJuice
+        {
+            get
+            {
+                var _folderName = "TextFilesFolder3";
+                var _fileName = "EveningJuice";
+                string value = string.Empty;
+                _fileStore.TryReadTextFile(_folderName + "/" + _fileName, out (value));
+                string fV = value;
+                List<string> TextFileList = new List<string>(
+                    fV.Split(new string[] { "," }, StringSplitOptions.None));
+                int numVall = Int32.Parse(TextFileList[1]);
+                int NewRandomValue = numVall;
+
+
+                return new MvxCommand<Recipe>(SelectedRecipe =>
+                {
+                    ShowViewModel<DetailJuiceListViewModel>(new { RecipeId = NewRandomValue });
+                });
+            }
+        }
     }
 }

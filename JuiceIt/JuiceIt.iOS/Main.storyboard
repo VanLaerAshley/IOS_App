@@ -6,7 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,97 +22,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="223" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-276" y="-52"/>
-        </scene>
-        <!--Tab Home View-->
-        <scene sceneID="229">
-            <objects>
-                <viewController storyboardIdentifier="TabHomeView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="230" customClass="TabHomeView" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="227"/>
-                        <viewControllerLayoutGuide type="bottom" id="228"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="231" restorationIdentifier="Name">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="27995" restorationIdentifier="image" adjustsImageSizeForAccessibilityContentSizeCategory="YES" highlighted="YES" clipsSubviews="YES" ambiguous="YES">
-                                <rect key="frame" x="0.0" y="20" width="375" height="299"/>
-                                <constraints>
-                                    <constraint id="119114" firstItem="27995" firstAttribute="width" constant="375"/>
-                                    <constraint id="124852" firstItem="27995" firstAttribute="height" constant="299"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="123576" translatesAutoresizingMaskIntoConstraints="NO" alpha="0.5" ambiguous="YES">
-                                <rect key="frame" x="0.0" y="244" width="375" height="75"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <constraints>
-                                    <constraint id="123577" firstItem="123576" firstAttribute="width" constant="375"/>
-                                    <constraint id="125473" firstItem="123576" firstAttribute="height" constant="75"/>
-                                </constraints>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Juice of the day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="125474" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES" ambiguous="YES">
-                                <rect key="frame" x="16" y="256" width="343" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21" weight="semibold"/>
-                                <color key="textColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
-                                <color key="highlightedColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
-                                <color key="tintColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
-                                <constraints>
-                                    <constraint id="125478" firstItem="125474" firstAttribute="width" constant="343"/>
-                                </constraints>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Juice Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="125479" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES" ambiguous="YES" restorationIdentifier="JuiceName">
-                                <rect key="frame" x="16" y="285" width="344" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
-                                <nil key="highlightedColor"/>
-                                <constraints>
-                                    <constraint id="126110" firstItem="125479" firstAttribute="width" constant="344"/>
-                                    <constraint id="126113" firstItem="125479" firstAttribute="width" constant="344"/>
-                                </constraints>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="128475" translatesAutoresizingMaskIntoConstraints="NO" ambiguous="YES" restorationIdentifier="RandomJuiceBtn" clipsSubviews="YES">
-                                <rect key="frame" x="0.0" y="20" width="375" height="299"/>
-                                <constraints>
-                                    <constraint id="128476" firstItem="128475" firstAttribute="height" constant="299"/>
-                                    <constraint id="128477" firstItem="128475" firstAttribute="width" constant="375"/>
-                                </constraints>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint id="123579" firstItem="123576" firstAttribute="trailing" secondItem="27995" secondAttribute="trailing"/>
-                            <constraint id="123580" firstItem="123576" firstAttribute="trailing" secondItem="27995" secondAttribute="trailing"/>
-                            <constraint id="123581" firstItem="123576" firstAttribute="leading" secondItem="27995" secondAttribute="leading"/>
-                            <constraint id="123582" firstItem="123576" firstAttribute="bottom" secondItem="27995" secondAttribute="bottom"/>
-                            <constraint id="124228" firstItem="27995" firstAttribute="top" secondItem="227" secondAttribute="bottom"/>
-                            <constraint id="124229" firstItem="123576" firstAttribute="trailing" secondItem="27995" secondAttribute="trailing"/>
-                            <constraint id="125475" firstItem="125474" firstAttribute="top" secondItem="123576" secondAttribute="top" constant="9"/>
-                            <constraint id="125476" firstItem="125474" firstAttribute="leading" secondItem="123576" secondAttribute="leading" constant="16"/>
-                            <constraint id="125477" firstItem="123576" firstAttribute="trailing" secondItem="125474" secondAttribute="trailing" constant="16"/>
-                            <constraint id="126111" firstItem="125479" firstAttribute="leading" secondItem="123576" secondAttribute="leading" constant="15"/>
-                            <constraint id="126112" firstItem="123576" firstAttribute="trailing" secondItem="125479" secondAttribute="trailing" constant="16"/>
-                            <constraint id="127404" firstItem="123576" firstAttribute="bottom" secondItem="125479" secondAttribute="bottom" constant="13"/>
-                            <constraint id="128478" firstItem="128475" firstAttribute="trailing" secondItem="27995" secondAttribute="trailing"/>
-                            <constraint id="128479" firstItem="128475" firstAttribute="leading" secondItem="27995" secondAttribute="leading"/>
-                            <constraint id="128480" firstItem="128475" firstAttribute="top" secondItem="227" secondAttribute="bottom"/>
-                            <constraint id="128481" firstItem="128475" firstAttribute="bottom" secondItem="123576" secondAttribute="bottom"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="image" destination="27995" id="name-outlet-27995"/>
-                        <outlet property="Name" destination="231" id="name-outlet-231"/>
-                        <outlet property="JuiceName" destination="125479" id="name-outlet-125479"/>
-                        <outlet property="RandomJuiceBtn" destination="128475" id="name-outlet-128475"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="232" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="233" y="-477"/>
+            <point key="canvasLocation" x="-570" y="-36"/>
         </scene>
         <!--Tab Index View-->
         <scene sceneID="876">
@@ -134,7 +44,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="341" height="138.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" highlighted="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="14731" restorationIdentifier="ThumbnailPicture">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="ThumbnailPicture" highlighted="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="14731">
                                             <rect key="frame" x="20" y="8" width="107" height="107"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <userDefinedRuntimeAttributes>
@@ -162,8 +72,8 @@
                                 <inset key="separatorInset" minX="147" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="SubtitleRecipe" destination="15567" id="name-outlet-15567"/>
-                                    <outlet property="TitleRecipe" destination="15566" id="name-outlet-15566"/>
                                     <outlet property="ThumbnailPicture" destination="14731" id="name-outlet-14731"/>
+                                    <outlet property="TitleRecipe" destination="15566" id="name-outlet-15566"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -202,7 +112,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="751" y="-478"/>
+            <point key="canvasLocation" x="334" y="-523"/>
         </scene>
         <!--Detail Juice List View-->
         <scene sceneID="qRg-6z-Uf5">
@@ -240,7 +150,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="ButtonFavorites" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="55845" showsTouchWhenHighlighted="YES">
+                                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="ButtonFavorites" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="55845">
                                                         <rect key="frame" x="322" y="19" width="36" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="36" id="56247"/>
@@ -250,10 +160,10 @@
                                                             <color key="titleColor" red="0.59215686274509804" green="0.74117647058823533" blue="0.3411764705882353" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
                                                         <state key="highlighted">
-                                                            <color key="titleShadowColor" colorSpace="calibratedRGB" red="0.48627450980392156" green="0.60392156862745094" blue="0.28235294117647058" alpha="1"/>
+                                                            <color key="titleShadowColor" red="0.48627450980392156" green="0.60392156862745094" blue="0.28235294117647058" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="ButtonFavorites_TouchUpInside:" destination="dZe-zL-uui" id="77356" eventType="touchUpInside"/>
+                                                            <action selector="ButtonFavorites_TouchUpInside:" destination="dZe-zL-uui" eventType="touchUpInside" id="77356"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -295,7 +205,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="ButtonShopList_TouchUpInside:" destination="dZe-zL-uui" id="79057" eventType="touchUpInside"/>
+                                                            <action selector="ButtonShopList_TouchUpInside:" destination="dZe-zL-uui" eventType="touchUpInside" id="79057"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="IngredientsList" text="Ingredient list" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="41995">
@@ -380,11 +290,10 @@
                                                     <constraint firstItem="43392" firstAttribute="top" secondItem="43391" secondAttribute="bottom" constant="8" id="54346"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" id="56663" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
+                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="56663">
                                                 <rect key="frame" x="0.0" y="901" width="375" height="255"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="May Help With" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="57147" misplaced="YES">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="May Help With" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="57147">
                                                         <rect key="frame" x="23" y="19" width="329" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="329" id="57148"/>
@@ -393,7 +302,7 @@
                                                         <color key="textColor" red="0.59215686274509804" green="0.74117647058823533" blue="0.3411764705882353" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="ConditionText" text="ConditionText" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="57154" misplaced="YES">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="ConditionText" text="ConditionText" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="57154">
                                                         <rect key="frame" x="23" y="60" width="329" height="112"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="329" id="57155"/>
@@ -403,15 +312,16 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint id="56665" firstItem="56663" firstAttribute="width" constant="375"/>
-                                                    <constraint id="57150" firstItem="57147" firstAttribute="top" secondItem="56663" secondAttribute="top" constant="19"/>
-                                                    <constraint id="57151" firstItem="57147" firstAttribute="leading" secondItem="56663" secondAttribute="leading" constant="23"/>
-                                                    <constraint id="57152" firstItem="56663" firstAttribute="trailing" secondItem="57147" secondAttribute="trailing" constant="23"/>
-                                                    <constraint id="57157" firstItem="57154" firstAttribute="leading" secondItem="56663" secondAttribute="leading" constant="23"/>
-                                                    <constraint id="57158" firstItem="57154" firstAttribute="top" secondItem="57147" secondAttribute="bottom" constant="20"/>
-                                                    <constraint id="57159" firstItem="56663" firstAttribute="trailing" secondItem="57154" secondAttribute="trailing" constant="23"/>
-                                                    <constraint id="58349" firstItem="56663" firstAttribute="bottom" secondItem="57154" secondAttribute="bottom" constant="83"/>
+                                                    <constraint firstAttribute="width" constant="375" id="56665"/>
+                                                    <constraint firstItem="57147" firstAttribute="top" secondItem="56663" secondAttribute="top" constant="19" id="57150"/>
+                                                    <constraint firstItem="57147" firstAttribute="leading" secondItem="56663" secondAttribute="leading" constant="23" id="57151"/>
+                                                    <constraint firstAttribute="trailing" secondItem="57147" secondAttribute="trailing" constant="23" id="57152"/>
+                                                    <constraint firstItem="57154" firstAttribute="leading" secondItem="56663" secondAttribute="leading" constant="23" id="57157"/>
+                                                    <constraint firstItem="57154" firstAttribute="top" secondItem="57147" secondAttribute="bottom" constant="20" id="57158"/>
+                                                    <constraint firstAttribute="trailing" secondItem="57154" secondAttribute="trailing" constant="23" id="57159"/>
+                                                    <constraint firstAttribute="bottom" secondItem="57154" secondAttribute="bottom" constant="83" id="58349"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -431,10 +341,10 @@
                                             <constraint firstItem="53928" firstAttribute="top" secondItem="50398" secondAttribute="bottom" constant="31" id="53932"/>
                                             <constraint firstItem="53928" firstAttribute="leading" secondItem="T9S-hq-YtG" secondAttribute="leading" id="53933"/>
                                             <constraint firstItem="53928" firstAttribute="trailing" secondItem="T9S-hq-YtG" secondAttribute="trailing" id="53934"/>
+                                            <constraint firstItem="56663" firstAttribute="top" secondItem="53928" secondAttribute="bottom" constant="30" id="56725"/>
+                                            <constraint firstItem="56663" firstAttribute="leading" secondItem="T9S-hq-YtG" secondAttribute="leading" id="56726"/>
+                                            <constraint firstItem="56663" firstAttribute="trailing" secondItem="T9S-hq-YtG" secondAttribute="trailing" id="56727"/>
                                             <constraint firstAttribute="height" constant="1200" id="bdw-eF-wH6"/>
-                                            <constraint id="56725" firstItem="56663" firstAttribute="top" secondItem="53928" secondAttribute="bottom" constant="30"/>
-                                            <constraint id="56726" firstItem="56663" firstAttribute="leading" secondItem="T9S-hq-YtG" secondAttribute="leading"/>
-                                            <constraint id="56727" firstItem="56663" firstAttribute="trailing" secondItem="T9S-hq-YtG" secondAttribute="trailing"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -459,16 +369,16 @@
                     <connections>
                         <outlet property="ButtonFavorites" destination="55845" id="name-outlet-55845"/>
                         <outlet property="ButtonShopList" destination="46284" id="name-outlet-46284"/>
+                        <outlet property="ConditionText" destination="57154" id="name-outlet-57154"/>
                         <outlet property="DescriptionText" destination="43392" id="name-outlet-43392"/>
                         <outlet property="DetailImage" destination="39262" id="name-outlet-39262"/>
                         <outlet property="IngredientsList" destination="41995" id="name-outlet-41995"/>
                         <outlet property="NameRecipe" destination="mRk-nS-VVu" id="name-outlet-mRk-nS-VVu"/>
-                        <outlet property="ConditionText" destination="57154" id="name-outlet-57154"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GNZ-a1-UOl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1229" y="-476"/>
+            <point key="canvasLocation" x="746" y="-1061"/>
         </scene>
         <!--Tab Shop List View-->
         <scene sceneID="1901">
@@ -486,32 +396,33 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checklist Item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="130651" translatesAutoresizingMaskIntoConstraints="NO" restorationIdentifier="CheckListItem">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="CheckListItem" text="Checklist Item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="130651">
                                             <rect key="frame" x="66" y="12" width="293" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="131328" translatesAutoresizingMaskIntoConstraints="NO" restorationIdentifier="CheckBox">
-                                            <rect key="frame" x="12" y="0.0" width="46" height="44"/>
+                                        <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="CheckBox" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="131328">
+                                            <rect key="frame" x="12" y="0.0" width="347" height="44"/>
                                             <constraints>
-                                                <constraint id="131332" firstItem="131328" firstAttribute="width" constant="46"/>
+                                                <constraint id="169307" firstItem="131328" firstAttribute="width" constant="347"/>
                                             </constraints>
+                                            <connections/>
                                         </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint id="130652" firstItem="1907" firstAttribute="trailing" secondItem="130651" secondAttribute="trailing" constant="16"/>
-                                        <constraint id="130654" firstItem="1907" firstAttribute="bottom" secondItem="130651" secondAttribute="bottom" constant="10"/>
-                                        <constraint id="130655" firstItem="130651" firstAttribute="top" secondItem="1907" secondAttribute="top" constant="12"/>
-                                        <constraint id="130656" firstItem="130651" firstAttribute="leading" secondItem="1907" secondAttribute="leading" constant="66"/>
-                                        <constraint id="131329" firstItem="131328" firstAttribute="leading" secondItem="1907" secondAttribute="leading" constant="12"/>
-                                        <constraint id="131330" firstItem="131328" firstAttribute="top" secondItem="1907" secondAttribute="top"/>
-                                        <constraint id="131331" firstItem="131328" firstAttribute="bottom" secondItem="1907" secondAttribute="bottom"/>
+                                        <constraint firstAttribute="trailing" secondItem="130651" secondAttribute="trailing" constant="16" id="130652"/>
+                                        <constraint firstAttribute="bottom" secondItem="130651" secondAttribute="bottom" constant="10" id="130654"/>
+                                        <constraint firstItem="130651" firstAttribute="top" secondItem="1907" secondAttribute="top" constant="12" id="130655"/>
+                                        <constraint firstItem="130651" firstAttribute="leading" secondItem="1907" secondAttribute="leading" constant="66" id="130656"/>
+                                        <constraint firstItem="131328" firstAttribute="leading" secondItem="1907" secondAttribute="leading" constant="12" id="131329"/>
+                                        <constraint firstItem="131328" firstAttribute="top" secondItem="1907" secondAttribute="top" id="131330"/>
+                                        <constraint firstItem="131328" firstAttribute="bottom" secondItem="1907" secondAttribute="bottom" id="131331"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="CheckListItem" destination="130651" id="name-outlet-130651"/>
                                     <outlet property="CheckBox" destination="131328" id="name-outlet-131328"/>
+                                    <outlet property="CheckListItem" destination="130651" id="name-outlet-130651"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -523,7 +434,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1908" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="756" y="401"/>
+            <point key="canvasLocation" x="-97" y="293"/>
         </scene>
         <!--Tab Favorite View-->
         <scene sceneID="22072">
@@ -541,7 +452,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="341" height="138.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" highlighted="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="24664" restorationIdentifier="ThumbnailPicture">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="ThumbnailPicture" highlighted="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="24664">
                                             <rect key="frame" x="20" y="8" width="107" height="107"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <userDefinedRuntimeAttributes>
@@ -569,8 +480,8 @@
                                 <inset key="separatorInset" minX="147" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="SubtitleFavorite" destination="24662" id="name-outlet-24662"/>
-                                    <outlet property="TitleFavorite" destination="24660" id="name-outlet-24660"/>
                                     <outlet property="ThumbnailPicture" destination="24664" id="name-outlet-24664"/>
+                                    <outlet property="TitleFavorite" destination="24660" id="name-outlet-24660"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -593,8 +504,9 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="241" y="398"/>
+            <point key="canvasLocation" x="334" y="296"/>
         </scene>
+        <!--Detail Favorite View-->
         <scene sceneID="89818">
             <objects>
                 <viewController storyboardIdentifier="DetailFavoriteView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="89819" customClass="DetailFavoriteView" sceneMemberID="viewController">
@@ -630,14 +542,14 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Added Favorite" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="117825" numberOfLines="3">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Added Favorite" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="117825">
                                                         <rect key="frame" x="299" y="11" width="53" height="46"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="53" id="117828"/>
+                                                        </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" red="0.59215686274509804" green="0.74117647058823533" blue="0.3411764705882353" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
-                                                        <constraints>
-                                                            <constraint id="117828" firstItem="117825" firstAttribute="width" constant="53"/>
-                                                        </constraints>
                                                     </label>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -647,9 +559,9 @@
                                                     <constraint firstAttribute="trailing" secondItem="89831" secondAttribute="trailing" constant="23" id="89844"/>
                                                     <constraint firstAttribute="height" constant="68" id="89845"/>
                                                     <constraint firstAttribute="width" constant="375" id="89846"/>
-                                                    <constraint id="117829" firstItem="89838" firstAttribute="trailing" secondItem="117825" secondAttribute="trailing" constant="23"/>
-                                                    <constraint id="118464" firstItem="117825" firstAttribute="top" secondItem="89838" secondAttribute="top" constant="11"/>
-                                                    <constraint id="118465" firstItem="89838" firstAttribute="bottom" secondItem="117825" secondAttribute="bottom" constant="11"/>
+                                                    <constraint firstAttribute="trailing" secondItem="117825" secondAttribute="trailing" constant="23" id="117829"/>
+                                                    <constraint firstItem="117825" firstAttribute="top" secondItem="89838" secondAttribute="top" constant="11" id="118464"/>
+                                                    <constraint firstAttribute="bottom" secondItem="117825" secondAttribute="bottom" constant="11" id="118465"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="89850">
@@ -678,7 +590,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="ButtonShopList_TouchUpInside:" destination="89819" id="89851" eventType="touchUpInside"/>
+                                                            <action selector="ButtonShopList_TouchUpInside:" destination="89819" eventType="touchUpInside" id="89851"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="IngredientsList" text="Ingredient list" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89829">
@@ -763,11 +675,10 @@
                                                     <constraint firstItem="89825" firstAttribute="top" secondItem="89874" secondAttribute="bottom" constant="8" id="89886"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" id="89887" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
+                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="89887">
                                                 <rect key="frame" x="0.0" y="901" width="375" height="255"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="May Help With" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89888" misplaced="YES">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="May Help With" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89888">
                                                         <rect key="frame" x="23" y="19" width="329" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="329" id="89889"/>
@@ -776,7 +687,7 @@
                                                         <color key="textColor" red="0.59215686274509804" green="0.74117647058823533" blue="0.3411764705882353" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="ConditionText" text="ConditionText" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89833" misplaced="YES">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="ConditionText" text="ConditionText" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89833">
                                                         <rect key="frame" x="23" y="60" width="329" height="112"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="329" id="89890"/>
@@ -786,15 +697,16 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint id="89891" firstItem="89887" firstAttribute="width" constant="375"/>
-                                                    <constraint id="89892" firstItem="89888" firstAttribute="top" secondItem="89887" secondAttribute="top" constant="19"/>
-                                                    <constraint id="89893" firstItem="89888" firstAttribute="leading" secondItem="89887" secondAttribute="leading" constant="23"/>
-                                                    <constraint id="89894" firstItem="89887" firstAttribute="trailing" secondItem="89888" secondAttribute="trailing" constant="23"/>
-                                                    <constraint id="89895" firstItem="89833" firstAttribute="leading" secondItem="89887" secondAttribute="leading" constant="23"/>
-                                                    <constraint id="89896" firstItem="89833" firstAttribute="top" secondItem="89888" secondAttribute="bottom" constant="20"/>
-                                                    <constraint id="89897" firstItem="89887" firstAttribute="trailing" secondItem="89833" secondAttribute="trailing" constant="23"/>
-                                                    <constraint id="89898" firstItem="89887" firstAttribute="bottom" secondItem="89833" secondAttribute="bottom" constant="83"/>
+                                                    <constraint firstAttribute="width" constant="375" id="89891"/>
+                                                    <constraint firstItem="89888" firstAttribute="top" secondItem="89887" secondAttribute="top" constant="19" id="89892"/>
+                                                    <constraint firstItem="89888" firstAttribute="leading" secondItem="89887" secondAttribute="leading" constant="23" id="89893"/>
+                                                    <constraint firstAttribute="trailing" secondItem="89888" secondAttribute="trailing" constant="23" id="89894"/>
+                                                    <constraint firstItem="89833" firstAttribute="leading" secondItem="89887" secondAttribute="leading" constant="23" id="89895"/>
+                                                    <constraint firstItem="89833" firstAttribute="top" secondItem="89888" secondAttribute="bottom" constant="20" id="89896"/>
+                                                    <constraint firstAttribute="trailing" secondItem="89833" secondAttribute="trailing" constant="23" id="89897"/>
+                                                    <constraint firstAttribute="bottom" secondItem="89833" secondAttribute="bottom" constant="83" id="89898"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -815,9 +727,9 @@
                                             <constraint firstItem="89873" firstAttribute="leading" secondItem="89836" secondAttribute="leading" id="89911"/>
                                             <constraint firstItem="89873" firstAttribute="trailing" secondItem="89836" secondAttribute="trailing" id="89912"/>
                                             <constraint firstAttribute="height" constant="1200" id="89913"/>
-                                            <constraint id="89914" firstItem="89887" firstAttribute="top" secondItem="89873" secondAttribute="bottom" constant="30"/>
-                                            <constraint id="89915" firstItem="89887" firstAttribute="leading" secondItem="89836" secondAttribute="leading"/>
-                                            <constraint id="89916" firstItem="89887" firstAttribute="trailing" secondItem="89836" secondAttribute="trailing"/>
+                                            <constraint firstItem="89887" firstAttribute="top" secondItem="89873" secondAttribute="bottom" constant="30" id="89914"/>
+                                            <constraint firstItem="89887" firstAttribute="leading" secondItem="89836" secondAttribute="leading" id="89915"/>
+                                            <constraint firstItem="89887" firstAttribute="trailing" secondItem="89836" secondAttribute="trailing" id="89916"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -841,23 +753,264 @@
                     <size key="freeformSize" width="375" height="1200"/>
                     <connections>
                         <outlet property="ButtonShopList" destination="89823" id="89822"/>
+                        <outlet property="ConditionText" destination="89833" id="89832"/>
                         <outlet property="DescriptionText" destination="89825" id="89824"/>
                         <outlet property="DetailImage" destination="89827" id="89826"/>
                         <outlet property="IngredientsList" destination="89829" id="89828"/>
                         <outlet property="NameRecipe" destination="89831" id="89830"/>
-                        <outlet property="ConditionText" destination="89833" id="89832"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="89928" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1638" y="-473"/>
+            <point key="canvasLocation" x="749" y="196"/>
+        </scene>
+        <!--Tab Home View-->
+        <scene sceneID="132107">
+            <objects>
+                <viewController storyboardIdentifier="TabHomeView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="132108" customClass="TabHomeView" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="132210"/>
+                        <viewControllerLayoutGuide type="bottom" id="132213"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="132121">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="915"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="132122">
+                                <rect key="frame" x="0.0" y="20" width="375" height="895"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="132123">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="MorningImage" highlighted="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="27995" misplaced="YES">
+                                                <rect key="frame" x="0.0" y="-2" width="375" height="300"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="375" id="119114"/>
+                                                    <constraint firstAttribute="height" constant="299" id="124852"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="123576">
+                                                <rect key="frame" x="0.0" y="223" width="375" height="75"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="75" id="125473"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Morning Juice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="125474">
+                                                <rect key="frame" x="16" y="232" width="343" height="30"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="343" id="125478"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="MorningJuiceName" text="Juice Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="125479">
+                                                <rect key="frame" x="16" y="262" width="344" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="344" id="126110"/>
+                                                    <constraint firstAttribute="width" constant="344" id="126113"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MorningBtn" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="128475" misplaced="YES">
+                                                <rect key="frame" x="0.0" y="-2" width="375" height="300"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="375" id="128477"/>
+                                                    <constraint id="165969" firstItem="128475" firstAttribute="height" constant="300"/>
+                                                </constraints>
+                                            </button>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" highlighted="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="132962" restorationIdentifier="AfternoonImage">
+                                                <rect key="frame" x="0.0" y="296" width="375" height="299"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="375" id="132963"/>
+                                                    <constraint firstAttribute="height" constant="299" id="132964"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="132965">
+                                                <rect key="frame" x="0.0" y="520" width="375" height="75"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="75" id="132966"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Juice Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="132967" restorationIdentifier="AfternoonJuiceName">
+                                                <rect key="frame" x="16" y="563" width="344" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="344" id="132968"/>
+                                                    <constraint firstAttribute="width" constant="344" id="132969"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Afternoon Juice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="132970">
+                                                <rect key="frame" x="16" y="532" width="343" height="30"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="343" id="132971"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </label>
+                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="132972" misplaced="YES" restorationIdentifier="AfternoonBtn">
+                                                <rect key="frame" x="0.0" y="300" width="375" height="299"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="299" id="132973"/>
+                                                    <constraint firstAttribute="width" constant="375" id="132974"/>
+                                                </constraints>
+                                            </button>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" highlighted="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="132975" restorationIdentifier="EveningImage">
+                                                <rect key="frame" x="0.0" y="596" width="375" height="299"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="375" id="132976"/>
+                                                    <constraint firstAttribute="height" constant="299" id="132977"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="132978">
+                                                <rect key="frame" x="0.0" y="821" width="375" height="75"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="75" id="132979"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Juice Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="132980" misplaced="YES" restorationIdentifier="EveningJuiceName">
+                                                <rect key="frame" x="16" y="859" width="344" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="344" id="132981"/>
+                                                    <constraint firstAttribute="width" constant="344" id="132982"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Evening Juice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="132983" misplaced="YES">
+                                                <rect key="frame" x="16" y="828" width="343" height="30"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="343" id="132984"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </label>
+                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="132985" restorationIdentifier="EveningBtn">
+                                                <rect key="frame" x="0.0" y="592" width="375" height="307"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="299" id="132986"/>
+                                                    <constraint firstAttribute="width" constant="375" id="132987"/>
+                                                </constraints>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="900" id="132200"/>
+                                            <constraint firstAttribute="top" secondItem="27995" secondAttribute="top" constant="2" id="132238"/>
+                                            <constraint firstItem="27995" firstAttribute="trailing" secondItem="132123" secondAttribute="trailing" id="132239"/>
+                                            <constraint firstItem="27995" firstAttribute="leading" secondItem="132123" secondAttribute="leading" id="132240"/>
+                                            <constraint firstItem="125474" firstAttribute="leading" secondItem="123576" secondAttribute="leading" constant="16" id="132241"/>
+                                            <constraint firstItem="123576" firstAttribute="trailing" secondItem="125474" secondAttribute="trailing" constant="16" id="132243"/>
+                                            <constraint firstItem="125479" firstAttribute="leading" secondItem="123576" secondAttribute="leading" constant="16" id="132244"/>
+                                            <constraint firstItem="123576" firstAttribute="trailing" secondItem="125479" secondAttribute="trailing" constant="15" id="132247"/>
+                                            <constraint firstItem="123576" firstAttribute="leading" secondItem="27995" secondAttribute="leading" id="132249"/>
+                                            <constraint firstItem="123576" firstAttribute="trailing" secondItem="27995" secondAttribute="trailing" id="132250"/>
+                                            <constraint firstItem="128475" firstAttribute="top" secondItem="27995" secondAttribute="top" constant="2" id="132253"/>
+                                            <constraint firstItem="128475" firstAttribute="leading" secondItem="27995" secondAttribute="leading" id="132254"/>
+                                            <constraint firstItem="128475" firstAttribute="trailing" secondItem="27995" secondAttribute="trailing" id="132255"/>
+                                            <constraint firstItem="132962" firstAttribute="leading" secondItem="132123" secondAttribute="leading" id="133025"/>
+                                            <constraint firstItem="132962" firstAttribute="trailing" secondItem="132123" secondAttribute="trailing" id="133026"/>
+                                            <constraint firstItem="132965" firstAttribute="leading" secondItem="132962" secondAttribute="leading" id="133029"/>
+                                            <constraint firstItem="132965" firstAttribute="trailing" secondItem="132962" secondAttribute="trailing" id="133030"/>
+                                            <constraint firstItem="132970" firstAttribute="leading" secondItem="132965" secondAttribute="leading" constant="16" id="133039"/>
+                                            <constraint firstItem="132965" firstAttribute="trailing" secondItem="132970" secondAttribute="trailing" constant="16" id="133041"/>
+                                            <constraint firstItem="132967" firstAttribute="leading" secondItem="132965" secondAttribute="leading" constant="16" id="133043"/>
+                                            <constraint firstItem="132965" firstAttribute="trailing" secondItem="132967" secondAttribute="trailing" constant="15" id="133045"/>
+                                            <constraint firstItem="132972" firstAttribute="leading" secondItem="132962" secondAttribute="leading" id="133051"/>
+                                            <constraint firstItem="132972" firstAttribute="trailing" secondItem="132962" secondAttribute="trailing" id="133052"/>
+                                            <constraint firstItem="132975" firstAttribute="leading" secondItem="132123" secondAttribute="leading" id="133065"/>
+                                            <constraint firstItem="132975" firstAttribute="trailing" secondItem="132123" secondAttribute="trailing" id="133066"/>
+                                            <constraint firstItem="132983" firstAttribute="leading" secondItem="132978" secondAttribute="leading" constant="16" id="133070"/>
+                                            <constraint firstItem="132978" firstAttribute="trailing" secondItem="132983" secondAttribute="trailing" constant="16" id="133072"/>
+                                            <constraint firstItem="132980" firstAttribute="leading" secondItem="132978" secondAttribute="leading" constant="16" id="133073"/>
+                                            <constraint firstItem="132978" firstAttribute="trailing" secondItem="132980" secondAttribute="trailing" constant="15" id="133075"/>
+                                            <constraint firstItem="132985" firstAttribute="leading" secondItem="132975" secondAttribute="leading" id="133080"/>
+                                            <constraint firstItem="132985" firstAttribute="trailing" secondItem="132975" secondAttribute="trailing" id="133081"/>
+                                            <constraint firstItem="132978" firstAttribute="trailing" secondItem="132975" secondAttribute="trailing" id="134682"/>
+                                            <constraint firstItem="132978" firstAttribute="leading" secondItem="132975" secondAttribute="leading" id="134683"/>
+                                            <constraint firstItem="132975" firstAttribute="top" secondItem="132972" secondAttribute="bottom" id="142729"/>
+                                            <constraint firstItem="132985" firstAttribute="top" secondItem="132975" secondAttribute="top" id="142734"/>
+                                            <constraint id="143541" firstItem="132975" firstAttribute="top" secondItem="132965" secondAttribute="bottom" constant="1"/>
+                                            <constraint id="143542" firstItem="132123" firstAttribute="bottom" secondItem="132978" secondAttribute="bottom" constant="4"/>
+                                            <constraint id="143549" firstItem="132970" firstAttribute="top" secondItem="132965" secondAttribute="top" constant="12"/>
+                                            <constraint id="143550" firstItem="132975" firstAttribute="top" secondItem="132967" secondAttribute="bottom" constant="12"/>
+                                            <constraint id="144340" firstItem="132983" firstAttribute="top" secondItem="132978" secondAttribute="top" constant="9"/>
+                                            <constraint id="144341" firstItem="132980" firstAttribute="top" secondItem="132983" secondAttribute="bottom" constant="8"/>
+                                            <constraint id="145130" firstItem="123576" firstAttribute="top" secondItem="27995" secondAttribute="top" constant="225"/>
+                                            <constraint id="145131" firstItem="125474" firstAttribute="top" secondItem="123576" secondAttribute="top" constant="9"/>
+                                            <constraint id="166757" firstItem="128475" firstAttribute="bottom" secondItem="132962" secondAttribute="top" constant="2"/>
+                                            <constraint id="166760" firstItem="132972" firstAttribute="top" secondItem="132962" secondAttribute="top"/>
+                                            <constraint id="167543" firstItem="125479" firstAttribute="top" secondItem="123576" secondAttribute="centerY" constant="1"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="132123" firstAttribute="leading" secondItem="132122" secondAttribute="leading" id="132204"/>
+                                    <constraint firstItem="132123" firstAttribute="top" secondItem="132122" secondAttribute="top" id="132205"/>
+                                    <constraint firstAttribute="trailing" secondItem="132123" secondAttribute="trailing" id="132206"/>
+                                    <constraint firstAttribute="bottom" secondItem="132123" secondAttribute="bottom" id="132207"/>
+                                    <constraint firstItem="132123" firstAttribute="width" secondItem="132122" secondAttribute="width" id="132208"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="132122" firstAttribute="top" secondItem="132210" secondAttribute="bottom" id="132209"/>
+                            <constraint firstAttribute="trailing" secondItem="132122" secondAttribute="trailing" id="132211"/>
+                            <constraint firstItem="132213" firstAttribute="top" secondItem="132122" secondAttribute="bottom" id="132212"/>
+                            <constraint firstItem="132122" firstAttribute="leading" secondItem="132121" secondAttribute="leading" id="132214"/>
+                        </constraints>
+                    </view>
+                    <size key="freeformSize" width="375" height="915"/>
+                    <connections>
+                        <outlet property="MorningJuiceName" destination="125479" id="name-outlet-125479"/>
+                        <outlet property="MorningBtn" destination="128475" id="name-outlet-128475"/>
+                        <outlet property="MorningImage" destination="27995" id="name-outlet-27995"/>
+                        <outlet property="AfternoonJuiceName" destination="132967" id="name-outlet-132967"/>
+                        <outlet property="EveningJuiceName" destination="132980" id="name-outlet-132980"/>
+                        <outlet property="AfternoonImage" destination="132962" id="name-outlet-132962"/>
+                        <outlet property="EveningImage" destination="132975" id="name-outlet-132975"/>
+                        <outlet property="AfternoonBtn" destination="132972" id="name-outlet-132972"/>
+                        <outlet property="EveningBtn" destination="132985" id="name-outlet-132985"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="132215" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-99" y="-767"/>
         </scene>
     </scenes>
     <resources>
-        <image name="favorites" width="72" height="72"/>
-        <image name="list" width="72" height="72"/>
+        <image name="favorites" width="48" height="48"/>
+        <image name="list" width="48" height="48"/>
         <image name="testsmoothie.jpg" width="1200" height="900"/>
         <image name="home" width="48" height="48"/>
-        <image name="search" width="72" height="72"/>
+        <image name="search" width="48" height="48"/>
+        <image name="juice.jpg" width="2732" height="2732"/>
+        <image name="today" width="196" height="196"/>
     </resources>
 </document>

@@ -24,6 +24,7 @@ namespace JuiceIt.iOS.Views
             set.Bind(NameRecipe).To(res => res.FavoriteContent.name);
             set.Bind(DetailImage).For(img => img.Image).To(res => res.FavoriteContent.picture).WithConversion<StringToImageConverter>();
             set.Bind(DescriptionText).To(res => res.FavoriteContent.description);
+
             set.Bind(IngredientsList).To(res => res.Ingredients);
             set.Bind(ConditionText).To(res => res.Conditions);
             set.Bind(ButtonShopList).To(res => res.PostShopListCommand);

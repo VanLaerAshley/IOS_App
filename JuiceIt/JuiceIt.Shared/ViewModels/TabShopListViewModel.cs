@@ -68,10 +68,9 @@ namespace JuiceIt.Shared.ViewModels
             GetShopList();
 
         }
-        public override void ViewAppearing()
+        public  override void ViewAppearing()
         {
             base.ViewAppearing();
-
             GetShopList();
         }
 

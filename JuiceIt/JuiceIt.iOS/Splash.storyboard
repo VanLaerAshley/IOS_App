@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="439">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <scene sceneID="438">
+            <objects>
+                <viewController id="439" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="436"/>
+                        <viewControllerLayoutGuide type="bottom" id="437"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="440">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="879" translatesAutoresizingMaskIntoConstraints="NO" image="juice.jpg">
+                                <rect key="frame" x="81" y="240" width="252" height="255"/>
+                                <constraints>
+                                    <constraint id="1317" firstItem="879" firstAttribute="height" constant="255"/>
+                                    <constraint id="1318" firstItem="879" firstAttribute="width" constant="252"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint id="1319" firstItem="879" firstAttribute="top" secondItem="436" secondAttribute="bottom" constant="220"/>
+                            <constraint id="1320" firstItem="879" firstAttribute="leading" secondItem="440" secondAttribute="leadingMargin" constant="61"/>
+                            <constraint id="1321" firstItem="440" firstAttribute="trailingMargin" secondItem="879" secondAttribute="trailing" constant="61"/>
+                            <constraint id="1322" firstItem="437" firstAttribute="top" secondItem="879" secondAttribute="bottom" constant="241"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="441" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="314" y="-30"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="home" width="48" height="48"/>
+        <image name="list" width="48" height="48"/>
+        <image name="favorites" width="48" height="48"/>
+        <image name="search" width="48" height="48"/>
+        <image name="testsmoothie.jpg" width="1200" height="900"/>
+        <image name="juice.jpg" width="2732" height="2732"/>
+    </resources>
+</document>

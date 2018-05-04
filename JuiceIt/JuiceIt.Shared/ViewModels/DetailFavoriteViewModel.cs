@@ -32,12 +32,22 @@ namespace JuiceIt.Shared.ViewModels
             }
         }
 
+        public async void Init(int FavoriteId)
+        {
+            this.FavoriteContent = await _localFavService.GetFavoriteById(FavoriteId);
+            RaisePropertyChanged(() => Ingredients);
+            RaisePropertyChanged(() => Conditions);
+        }
+
         private string _ingredients;
 
         public string Ingredients
         {
             get
             {
+                if (FavoriteContent?.ingredients == null) // IDK if FavoriteContent is a property or a class, I assumed is a property
+                    return string.Empty; // or return string.empty;
+                
                 string[] namesArray = FavoriteContent.ingredients.Split(',');
                 List<string> namesList = new List<string>(namesArray.Length);
                 namesList.AddRange(namesArray);
@@ -53,6 +63,9 @@ namespace JuiceIt.Shared.ViewModels
         {
             get
             {
+                if (FavoriteContent?.condition == null) // IDK if FavoriteContent is a property or a class, I assumed is a property
+                    return null; // or return string.empty;
+
                 string[] namesArray = FavoriteContent.condition.Split(',');
                 List<string> namesList = new List<string>(namesArray.Length);
                 namesList.AddRange(namesArray);
@@ -61,16 +74,6 @@ namespace JuiceIt.Shared.ViewModels
                 return _conditions;
             }
         }
-
-
-
-        public async void Init(int FavoriteId)
-        {
-            this.FavoriteContent = await _localFavService.GetFavoriteById(FavoriteId);
-            RaisePropertyChanged(() => FavoriteContent);
-        }
-
-
 
         public ICommand PostShopListCommand
         {
