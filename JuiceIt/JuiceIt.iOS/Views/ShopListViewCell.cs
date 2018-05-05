@@ -21,34 +21,7 @@ namespace JuiceIt.iOS.Views
         {
             base.LayoutSubviews();
 
-            var bemCheckBoxLabel = new UILabel()
-            {
-                Frame = new CoreGraphics.CGRect(900, 900, 207, 207)
-            };
-
-
-            var checkbox = new BEMCheckBox(new CoreGraphics.CGRect(9, 9, 27, 27));
-            checkbox.OnCheckColor = Color.FromHex("97BD57").ToUIColor();
-            checkbox.OnTintColor = Color.FromHex("97BD57").ToUIColor();
-            checkbox.OnAnimationType = BEMAnimationType.Fill;
-            checkbox.OffAnimationType = BEMAnimationType.Fill;
-            checkbox.AnimationDidStopForCheckBox += CheckBoxClickedEvent;
-            //ShopList shop = new ShopList();
-            //while(shop != null)
-            //{
-            //    if (shop.checker == 0)
-            //    {
-            //        checkbox.On = false;
-            //    }
-            //    else
-            //    {
-            //        checkbox.On = true;
-            //    }
-            //    shop = null;
-            //}
-
-            CheckBox.AddSubview(bemCheckBoxLabel);
-            CheckBox.AddSubview(checkbox);
+           
 
             MvxFluentBindingDescriptionSet<ShopListViewCell, ShopList> set = new MvxFluentBindingDescriptionSet<ShopListViewCell, ShopList>(this);
             set.Bind(CheckListItem).To(res => res.Ingredients);

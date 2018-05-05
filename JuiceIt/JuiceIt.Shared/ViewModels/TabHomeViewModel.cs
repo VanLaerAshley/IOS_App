@@ -27,6 +27,7 @@ namespace JuiceIt.Shared.ViewModels
             GetAfternoonJuice();
             GetEveningJuice();
         }
+
         private Recipe _morningContent;
         public Recipe MorningContent
         {
@@ -34,7 +35,7 @@ namespace JuiceIt.Shared.ViewModels
             set
             {
                 _morningContent = value;
-                RaisePropertyChanged(() => MorningContent);
+
             }
         }
 
@@ -46,7 +47,7 @@ namespace JuiceIt.Shared.ViewModels
             set
             {
                 _afternoonContent = value;
-                RaisePropertyChanged(() => AfternoonContent);
+
             }
         }
 
@@ -57,7 +58,7 @@ namespace JuiceIt.Shared.ViewModels
             set
             {
                 _eveningContent = value;
-                RaisePropertyChanged(() => EveningContent);
+
             }
         }
 
@@ -98,27 +99,47 @@ namespace JuiceIt.Shared.ViewModels
             if (!_fileStore.FolderExists(_folderName))
                 _fileStore.EnsureFolderExists(_folderName);
 
-            _fileStore.WriteFile(_folderName + "/" + _fileName, folderValue);
+            //Content van de file uitlezen
             string value = string.Empty;
             _fileStore.TryReadTextFile(_folderName + "/" + _fileName, out (value));
-            string fV = value;
-            List<string> TextFileList = new List<string>(
-                fV.Split(new string[] { "," }, StringSplitOptions.None));
+            string CheckFileContent = value;
+            string[] TextFileList;
 
+            //Als er niets in zit, default data in steken
+            if (CheckFileContent == null)
+            {
+                _fileStore.WriteFile(_folderName + "/" + _fileName, "00/00/00,0");
+                string d = "00/00/00,0";
+                TextFileList = d.Split(',');
+            }
+            else
+            {
+                TextFileList = CheckFileContent.Split(',');
+
+            }
 
             if(TextFileList[0] != day)
             {
                 try
                 {
-                    
+                    //File verwijderen om overbodige data te verwijderen.
+                    _fileStore.DeleteFile(_folderName + "/" + _fileName);
+                    //File aanmaken.
+                    if (!_fileStore.FolderExists(_folderName))
+                        _fileStore.EnsureFolderExists(_folderName);
+
+                    _fileStore.WriteFile(_folderName + "/" + _fileName, folderValue);
                     string NewValue = string.Empty;
                     _fileStore.TryReadTextFile(_folderName + "/" + _fileName, out (NewValue));
                     string NValue = NewValue;
+
                     List<string> NewTextFileList = new List<string>(
-                        fV.Split(new string[] { "," }, StringSplitOptions.None));
-                    int numVall = Int32.Parse(NewTextFileList[1]); 
+                        NValue.Split(new string[] { "," }, StringSplitOptions.None));
+
+                    int numVall = Int32.Parse(NewTextFileList[1]);
                     int NewRandomValue = numVall;
                     MorningContent = await _recipeService.GetRecipeById(NewRandomValue);
+                    RaisePropertyChanged(() => MorningContent);
                 }
                 catch (Exception ex)
                 {
@@ -130,6 +151,7 @@ namespace JuiceIt.Shared.ViewModels
                 int numVall = Int32.Parse(TextFileList[1]);
                 int NewRandomValue = numVall;
                 MorningContent = await _recipeService.GetRecipeById(NewRandomValue);
+                RaisePropertyChanged(() => MorningContent);
             }
 
         }
@@ -146,7 +168,6 @@ namespace JuiceIt.Shared.ViewModels
                     fV.Split(new string[] { "," }, StringSplitOptions.None));
                 int numVall = Int32.Parse(TextFileList[1]);
                 int NewRandomValue = numVall;
-
                     
                 return new MvxCommand<Recipe>(SelectedRecipe =>
                 {
@@ -173,39 +194,56 @@ namespace JuiceIt.Shared.ViewModels
 
             if (!_fileStore.FolderExists(_folderName))
                 _fileStore.EnsureFolderExists(_folderName);
-
-            _fileStore.WriteFile(_folderName + "/" + _fileName, folderValue);
+            
+            //Content van de file uitlezen
             string value = string.Empty;
             _fileStore.TryReadTextFile(_folderName + "/" + _fileName, out (value));
-            string fV = value;
-            List<string> TextFileList = new List<string>(
-                fV.Split(new string[] { "," }, StringSplitOptions.None));
+            string CheckFileContent = value;
+            string[] TextFileList;
+
+            //Als er niets in zit, default data in steken
+            if (CheckFileContent == null)
+            {
+                _fileStore.WriteFile(_folderName + "/" + _fileName, "00/00/00,0");
+                string d = "00/00/00,0";
+                TextFileList = d.Split(',');
+            }
+            else
+            {
+                TextFileList = CheckFileContent.Split(',');
+             
+            }
 
 
             if (TextFileList[0] != day)
             {
-                try
-                {
 
+                    //File verwijderen om overbodige data te verwijderen.
+                    _fileStore.DeleteFile(_folderName + "/" + _fileName);
+                    //File aanmaken.
+                    if (!_fileStore.FolderExists(_folderName))
+                        _fileStore.EnsureFolderExists(_folderName);
+                    
+                    _fileStore.WriteFile(_folderName + "/" + _fileName, folderValue);
                     string NewValue = string.Empty;
                     _fileStore.TryReadTextFile(_folderName + "/" + _fileName, out (NewValue));
                     string NValue = NewValue;
+
                     List<string> NewTextFileList = new List<string>(
-                        fV.Split(new string[] { "," }, StringSplitOptions.None));
+                    NValue.Split(new string[] { "," }, StringSplitOptions.None));
+                    
                     int numVall = Int32.Parse(NewTextFileList[1]);
                     int NewRandomValue = numVall;
                     AfternoonContent = await _recipeService.GetRecipeById(NewRandomValue);
-                }
-                catch (Exception ex)
-                {
-                    throw ex;
-                }
+                    RaisePropertyChanged(() => AfternoonContent);
+
             }
             else
             {
                 int numVall = Int32.Parse(TextFileList[1]);
                 int NewRandomValue = numVall;
                 AfternoonContent = await _recipeService.GetRecipeById(NewRandomValue);
+                RaisePropertyChanged(() => AfternoonContent);
             }
 
         }
@@ -213,11 +251,13 @@ namespace JuiceIt.Shared.ViewModels
         {
             get
             {
+                
                 var _folderName = "TextFilesFolder2";
                 var _fileName = "AfternoonJuice";
                 string value = string.Empty;
                 _fileStore.TryReadTextFile(_folderName + "/" + _fileName, out (value));
                 string fV = value;
+
                 List<string> TextFileList = new List<string>(
                     fV.Split(new string[] { "," }, StringSplitOptions.None));
                 int numVall = Int32.Parse(TextFileList[1]);
@@ -249,27 +289,48 @@ namespace JuiceIt.Shared.ViewModels
             if (!_fileStore.FolderExists(_folderName))
                 _fileStore.EnsureFolderExists(_folderName);
 
-            _fileStore.WriteFile(_folderName + "/" + _fileName, folderValue);
+            //Content van de file uitlezen
             string value = string.Empty;
             _fileStore.TryReadTextFile(_folderName + "/" + _fileName, out (value));
-            string fV = value;
-            List<string> TextFileList = new List<string>(
-                fV.Split(new string[] { "," }, StringSplitOptions.None));
+            string CheckFileContent = value;
+            string[] TextFileList;
 
+            //Als er niets in zit, default data in steken
+            if (CheckFileContent == null)
+            {
+                _fileStore.WriteFile(_folderName + "/" + _fileName, "00/00/00,0");
+                string d = "00/00/00,0";
+                TextFileList = d.Split(',');
+            }
+            else
+            {
+                TextFileList = CheckFileContent.Split(',');
+
+            }
 
             if (TextFileList[0] != day)
             {
                 try
                 {
+                    //File verwijderen om overbodige data te verwijderen.
+                    _fileStore.DeleteFile(_folderName + "/" + _fileName);
+                    //File aanmaken.
+                    if (!_fileStore.FolderExists(_folderName))
+                        _fileStore.EnsureFolderExists(_folderName);
+
+                    _fileStore.WriteFile(_folderName + "/" + _fileName, folderValue);
 
                     string NewValue = string.Empty;
                     _fileStore.TryReadTextFile(_folderName + "/" + _fileName, out (NewValue));
                     string NValue = NewValue;
+
                     List<string> NewTextFileList = new List<string>(
-                        fV.Split(new string[] { "," }, StringSplitOptions.None));
+                        NValue.Split(new string[] { "," }, StringSplitOptions.None));
+
                     int numVall = Int32.Parse(NewTextFileList[1]);
                     int NewRandomValue = numVall;
                     EveningContent = await _recipeService.GetRecipeById(NewRandomValue);
+                    RaisePropertyChanged(() => EveningContent);
                 }
                 catch (Exception ex)
                 {
@@ -281,6 +342,7 @@ namespace JuiceIt.Shared.ViewModels
                 int numVall = Int32.Parse(TextFileList[1]);
                 int NewRandomValue = numVall;
                 EveningContent = await _recipeService.GetRecipeById(NewRandomValue);
+                RaisePropertyChanged(() => EveningContent);
             }
 
         }
@@ -288,6 +350,7 @@ namespace JuiceIt.Shared.ViewModels
         {
             get
             {
+                
                 var _folderName = "TextFilesFolder3";
                 var _fileName = "EveningJuice";
                 string value = string.Empty;

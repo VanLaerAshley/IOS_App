@@ -45,8 +45,8 @@ namespace JuiceIt.Shared.ViewModels
         {
             get
             {
-                if (FavoriteContent?.ingredients == null) // IDK if FavoriteContent is a property or a class, I assumed is a property
-                    return string.Empty; // or return string.empty;
+                if (FavoriteContent?.ingredients == null)
+                    return string.Empty; 
                 
                 string[] namesArray = FavoriteContent.ingredients.Split(',');
                 List<string> namesList = new List<string>(namesArray.Length);
@@ -63,8 +63,8 @@ namespace JuiceIt.Shared.ViewModels
         {
             get
             {
-                if (FavoriteContent?.condition == null) // IDK if FavoriteContent is a property or a class, I assumed is a property
-                    return null; // or return string.empty;
+                if (FavoriteContent?.condition == null) 
+                    return null;
 
                 string[] namesArray = FavoriteContent.condition.Split(',');
                 List<string> namesList = new List<string>(namesArray.Length);

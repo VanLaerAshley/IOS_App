@@ -32,5 +32,6 @@ namespace JuiceIt.iOS.Views
             set.Bind(_shopListViewSource).For(s => s.RemoveRowCommand).To(vm => vm.RemoveShopListItemCommand);
             set.Apply();
         }
+
     }
 }

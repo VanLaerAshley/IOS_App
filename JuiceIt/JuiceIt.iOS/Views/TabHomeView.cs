@@ -16,6 +16,7 @@ namespace JuiceIt.iOS.Views
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
+           
             MvxFluentBindingDescriptionSet<TabHomeView, TabHomeViewModel> set = new MvxFluentBindingDescriptionSet<TabHomeView, TabHomeViewModel>(this);
             set.Bind(MorningImage).For(img => img.Image).To(res => res.MorningContent.picture).WithConversion<StringToImageConverter>();
             set.Bind(MorningJuiceName).To(vm => vm.MorningContent.name);
@@ -38,6 +39,15 @@ namespace JuiceIt.iOS.Views
         {
             base.ViewWillAppear(animated);
             NavigationController.NavigationBar.PrefersLargeTitles = true;
+            NavigationController.NavigationBar.BarTintColor = UIColor.White;
+
+            NavigationController.NavigationBar.ShadowImage = new UIImage();
+        }
+        public override void ViewWillDisappear(bool animated)
+        {
+            base.ViewWillDisappear(animated);
+           
+            NavigationController.NavigationBar.ShadowImage = null;
         }
     }
 }

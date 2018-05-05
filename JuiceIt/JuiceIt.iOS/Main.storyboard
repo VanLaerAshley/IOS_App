@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -405,9 +404,8 @@
                                         <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="CheckBox" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="131328">
                                             <rect key="frame" x="12" y="0.0" width="347" height="44"/>
                                             <constraints>
-                                                <constraint id="169307" firstItem="131328" firstAttribute="width" constant="347"/>
+                                                <constraint firstAttribute="width" constant="347" id="169307"/>
                                             </constraints>
-                                            <connections/>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -773,199 +771,203 @@
                         <viewControllerLayoutGuide type="bottom" id="132213"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="132121">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="915"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1326"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="132122">
-                                <rect key="frame" x="0.0" y="20" width="375" height="895"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="1306"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="132123">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1300"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="MorningImage" highlighted="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="27995" misplaced="YES">
-                                                <rect key="frame" x="0.0" y="-2" width="375" height="300"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="180072" customClass="TabHomeSubview">
+                                                <rect key="frame" x="22" y="0.0" width="332" height="409"/>
+                                                <subviews>
+                                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="186680">
+                                                        <rect key="frame" x="152" y="179" width="20" height="20"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </activityIndicatorView>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="MorningImage" highlighted="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="27995">
+                                                        <rect key="frame" x="0.0" y="0.0" width="332" height="409"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="409" id="217195"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <real key="value" value="15"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="MorningJuiceName" text="Juice Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="125474">
+                                                        <rect key="frame" x="25" y="46" width="221" height="30"/>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="221" id="174049"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Morning Juice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="125479">
+                                                        <rect key="frame" x="24" y="23" width="272" height="20"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MorningBtn" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="128475">
+                                                        <rect key="frame" x="-1" y="0.0" width="333" height="409"/>
+                                                        <constraints>
+                                                            <constraint id="222325" firstItem="128475" firstAttribute="height" constant="409"/>
+                                                        </constraints>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="375" id="119114"/>
-                                                    <constraint firstAttribute="height" constant="299" id="124852"/>
+                                                    <constraint firstItem="27995" firstAttribute="trailing" secondItem="180072" secondAttribute="trailing" id="215795"/>
+                                                    <constraint firstItem="27995" firstAttribute="leading" secondItem="180072" secondAttribute="leading" id="215796"/>
+                                                    <constraint firstItem="27995" firstAttribute="top" secondItem="180072" secondAttribute="top" id="215797"/>
+                                                    <constraint firstItem="125479" firstAttribute="top" secondItem="27995" secondAttribute="top" constant="23" id="215798"/>
+                                                    <constraint firstItem="125479" firstAttribute="leading" secondItem="27995" secondAttribute="leading" constant="24" id="215799"/>
+                                                    <constraint firstItem="125474" firstAttribute="leading" secondItem="27995" secondAttribute="leading" constant="25" id="215800"/>
+                                                    <constraint firstItem="125474" firstAttribute="top" secondItem="125479" secondAttribute="bottom" constant="3" id="215801"/>
+                                                    <constraint firstAttribute="height" constant="409" id="217194"/>
+                                                    <constraint id="222321" firstItem="128475" firstAttribute="trailing" secondItem="27995" secondAttribute="trailing"/>
+                                                    <constraint id="222322" firstItem="27995" firstAttribute="leading" secondItem="128475" secondAttribute="leading" constant="1"/>
+                                                    <constraint id="222323" firstItem="128475" firstAttribute="top" secondItem="27995" secondAttribute="top"/>
+                                                    <constraint id="222324" firstItem="128475" firstAttribute="bottom" secondItem="27995" secondAttribute="bottom"/>
                                                 </constraints>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="123576">
-                                                <rect key="frame" x="0.0" y="223" width="375" height="75"/>
-                                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="217888" customClass="TabHomeSubview">
+                                                <rect key="frame" x="22" y="435" width="332" height="409"/>
+                                                <subviews>
+                                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="217889">
+                                                        <rect key="frame" x="152" y="179" width="20" height="20"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </activityIndicatorView>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testsmoothie.jpg" highlighted="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="217890" restorationIdentifier="AfternoonImage">
+                                                        <rect key="frame" x="0.0" y="0.0" width="332" height="409"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="409" id="217891"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <real key="value" value="15"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Juice Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="217892" restorationIdentifier="AfternoonJuiceName">
+                                                        <rect key="frame" x="25" y="46" width="221" height="30"/>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="221" id="217893"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Afternoon Juice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="217894">
+                                                        <rect key="frame" x="24" y="23" width="272" height="20"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="AfternoonBtn" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="132972">
+                                                        <rect key="frame" x="-1" y="0.0" width="333" height="409"/>
+                                                        <constraints>
+                                                            <constraint id="223092" firstItem="132972" firstAttribute="height" constant="409"/>
+                                                        </constraints>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="75" id="125473"/>
+                                                    <constraint firstAttribute="height" constant="409" id="220089"/>
+                                                    <constraint firstItem="217890" firstAttribute="trailing" secondItem="217888" secondAttribute="trailing" id="220090"/>
+                                                    <constraint firstItem="217890" firstAttribute="leading" secondItem="217888" secondAttribute="leading" id="220091"/>
+                                                    <constraint firstItem="217890" firstAttribute="top" secondItem="217888" secondAttribute="top" id="220092"/>
+                                                    <constraint firstItem="217894" firstAttribute="top" secondItem="217890" secondAttribute="top" constant="23" id="220793"/>
+                                                    <constraint firstItem="217894" firstAttribute="leading" secondItem="217890" secondAttribute="leading" constant="24" id="220794"/>
+                                                    <constraint firstItem="217892" firstAttribute="top" secondItem="217894" secondAttribute="bottom" constant="3" id="220795"/>
+                                                    <constraint firstItem="217892" firstAttribute="leading" secondItem="217890" secondAttribute="leading" constant="25" id="220796"/>
+                                                    <constraint id="223088" firstItem="132972" firstAttribute="trailing" secondItem="217890" secondAttribute="trailing"/>
+                                                    <constraint id="223089" firstItem="132972" firstAttribute="top" secondItem="217890" secondAttribute="top"/>
+                                                    <constraint id="223090" firstItem="217890" firstAttribute="leading" secondItem="132972" secondAttribute="leading" constant="1"/>
+                                                    <constraint id="223091" firstItem="132972" firstAttribute="bottom" secondItem="217890" secondAttribute="bottom"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Morning Juice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="125474">
-                                                <rect key="frame" x="16" y="232" width="343" height="30"/>
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="220807" customClass="TabHomeSubview">
+                                                <rect key="frame" x="22" y="870" width="332" height="409"/>
+                                                <subviews>
+                                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="220808">
+                                                        <rect key="frame" x="152" y="179" width="20" height="20"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </activityIndicatorView>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testsmoothie.jpg" highlighted="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="220809" restorationIdentifier="EveningImage">
+                                                        <rect key="frame" x="0.0" y="0.0" width="332" height="409"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="409" id="220810"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <real key="value" value="15"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Juice Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="220811" restorationIdentifier="EveningJuiceName">
+                                                        <rect key="frame" x="25" y="46" width="221" height="36"/>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="221" id="220812"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Evening Juice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="220813" misplaced="YES">
+                                                        <rect key="frame" x="24" y="23" width="113.5" height="20"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="EveningBtn" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="132985">
+                                                        <rect key="frame" x="0.0" y="0.0" width="332" height="409"/>
+                                                        <constraints>
+                                                            <constraint id="223097" firstItem="132985" firstAttribute="height" constant="409"/>
+                                                        </constraints>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="343" id="125478"/>
+                                                    <constraint firstAttribute="height" constant="409" id="220814"/>
+                                                    <constraint firstItem="220809" firstAttribute="trailing" secondItem="220807" secondAttribute="trailing" id="220815"/>
+                                                    <constraint firstItem="220809" firstAttribute="leading" secondItem="220807" secondAttribute="leading" id="220816"/>
+                                                    <constraint firstItem="220809" firstAttribute="top" secondItem="220807" secondAttribute="top" id="220817"/>
+                                                    <constraint firstItem="220813" firstAttribute="top" secondItem="220809" secondAttribute="top" constant="23" id="220818"/>
+                                                    <constraint firstItem="220813" firstAttribute="leading" secondItem="220809" secondAttribute="leading" constant="24" id="220819"/>
+                                                    <constraint firstItem="220811" firstAttribute="top" secondItem="220813" secondAttribute="bottom" constant="3" id="220820"/>
+                                                    <constraint firstItem="220811" firstAttribute="leading" secondItem="220809" secondAttribute="leading" constant="25" id="220821"/>
+                                                    <constraint firstItem="220809" firstAttribute="top" secondItem="220807" secondAttribute="top" id="155-h0-AoT"/>
+                                                    <constraint firstAttribute="trailing" secondItem="220809" secondAttribute="trailing" id="Bjy-5m-g6x"/>
+                                                    <constraint firstAttribute="bottom" secondItem="220809" secondAttribute="bottom" id="mYo-IL-8Eg"/>
+                                                    <constraint firstItem="220809" firstAttribute="leading" secondItem="220807" secondAttribute="leading" id="vc6-Jx-97A"/>
+                                                    <constraint id="223094" firstItem="132985" firstAttribute="trailing" secondItem="220809" secondAttribute="trailing"/>
+                                                    <constraint id="223095" firstItem="132985" firstAttribute="top" secondItem="220809" secondAttribute="top"/>
+                                                    <constraint id="223096" firstItem="132985" firstAttribute="leading" secondItem="220809" secondAttribute="leading"/>
+                                                    <constraint id="223098" firstItem="132985" firstAttribute="bottom" secondItem="220809" secondAttribute="bottom"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="MorningJuiceName" text="Juice Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="125479">
-                                                <rect key="frame" x="16" y="262" width="344" height="20"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="344" id="126110"/>
-                                                    <constraint firstAttribute="width" constant="344" id="126113"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MorningBtn" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="128475" misplaced="YES">
-                                                <rect key="frame" x="0.0" y="-2" width="375" height="300"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="375" id="128477"/>
-                                                    <constraint id="165969" firstItem="128475" firstAttribute="height" constant="300"/>
-                                                </constraints>
-                                            </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" highlighted="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="132962" restorationIdentifier="AfternoonImage">
-                                                <rect key="frame" x="0.0" y="296" width="375" height="299"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="375" id="132963"/>
-                                                    <constraint firstAttribute="height" constant="299" id="132964"/>
-                                                </constraints>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="132965">
-                                                <rect key="frame" x="0.0" y="520" width="375" height="75"/>
-                                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="75" id="132966"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Juice Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="132967" restorationIdentifier="AfternoonJuiceName">
-                                                <rect key="frame" x="16" y="563" width="344" height="21"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="344" id="132968"/>
-                                                    <constraint firstAttribute="width" constant="344" id="132969"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Afternoon Juice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="132970">
-                                                <rect key="frame" x="16" y="532" width="343" height="30"/>
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="343" id="132971"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            </label>
-                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="132972" misplaced="YES" restorationIdentifier="AfternoonBtn">
-                                                <rect key="frame" x="0.0" y="300" width="375" height="299"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="299" id="132973"/>
-                                                    <constraint firstAttribute="width" constant="375" id="132974"/>
-                                                </constraints>
-                                            </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" highlighted="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="132975" restorationIdentifier="EveningImage">
-                                                <rect key="frame" x="0.0" y="596" width="375" height="299"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="375" id="132976"/>
-                                                    <constraint firstAttribute="height" constant="299" id="132977"/>
-                                                </constraints>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="132978">
-                                                <rect key="frame" x="0.0" y="821" width="375" height="75"/>
-                                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="75" id="132979"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Juice Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="132980" misplaced="YES" restorationIdentifier="EveningJuiceName">
-                                                <rect key="frame" x="16" y="859" width="344" height="21"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="344" id="132981"/>
-                                                    <constraint firstAttribute="width" constant="344" id="132982"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Evening Juice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="132983" misplaced="YES">
-                                                <rect key="frame" x="16" y="828" width="343" height="30"/>
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="343" id="132984"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            </label>
-                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="132985" restorationIdentifier="EveningBtn">
-                                                <rect key="frame" x="0.0" y="592" width="375" height="307"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="299" id="132986"/>
-                                                    <constraint firstAttribute="width" constant="375" id="132987"/>
-                                                </constraints>
-                                            </button>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="900" id="132200"/>
-                                            <constraint firstAttribute="top" secondItem="27995" secondAttribute="top" constant="2" id="132238"/>
-                                            <constraint firstItem="27995" firstAttribute="trailing" secondItem="132123" secondAttribute="trailing" id="132239"/>
-                                            <constraint firstItem="27995" firstAttribute="leading" secondItem="132123" secondAttribute="leading" id="132240"/>
-                                            <constraint firstItem="125474" firstAttribute="leading" secondItem="123576" secondAttribute="leading" constant="16" id="132241"/>
-                                            <constraint firstItem="123576" firstAttribute="trailing" secondItem="125474" secondAttribute="trailing" constant="16" id="132243"/>
-                                            <constraint firstItem="125479" firstAttribute="leading" secondItem="123576" secondAttribute="leading" constant="16" id="132244"/>
-                                            <constraint firstItem="123576" firstAttribute="trailing" secondItem="125479" secondAttribute="trailing" constant="15" id="132247"/>
-                                            <constraint firstItem="123576" firstAttribute="leading" secondItem="27995" secondAttribute="leading" id="132249"/>
-                                            <constraint firstItem="123576" firstAttribute="trailing" secondItem="27995" secondAttribute="trailing" id="132250"/>
-                                            <constraint firstItem="128475" firstAttribute="top" secondItem="27995" secondAttribute="top" constant="2" id="132253"/>
-                                            <constraint firstItem="128475" firstAttribute="leading" secondItem="27995" secondAttribute="leading" id="132254"/>
-                                            <constraint firstItem="128475" firstAttribute="trailing" secondItem="27995" secondAttribute="trailing" id="132255"/>
-                                            <constraint firstItem="132962" firstAttribute="leading" secondItem="132123" secondAttribute="leading" id="133025"/>
-                                            <constraint firstItem="132962" firstAttribute="trailing" secondItem="132123" secondAttribute="trailing" id="133026"/>
-                                            <constraint firstItem="132965" firstAttribute="leading" secondItem="132962" secondAttribute="leading" id="133029"/>
-                                            <constraint firstItem="132965" firstAttribute="trailing" secondItem="132962" secondAttribute="trailing" id="133030"/>
-                                            <constraint firstItem="132970" firstAttribute="leading" secondItem="132965" secondAttribute="leading" constant="16" id="133039"/>
-                                            <constraint firstItem="132965" firstAttribute="trailing" secondItem="132970" secondAttribute="trailing" constant="16" id="133041"/>
-                                            <constraint firstItem="132967" firstAttribute="leading" secondItem="132965" secondAttribute="leading" constant="16" id="133043"/>
-                                            <constraint firstItem="132965" firstAttribute="trailing" secondItem="132967" secondAttribute="trailing" constant="15" id="133045"/>
-                                            <constraint firstItem="132972" firstAttribute="leading" secondItem="132962" secondAttribute="leading" id="133051"/>
-                                            <constraint firstItem="132972" firstAttribute="trailing" secondItem="132962" secondAttribute="trailing" id="133052"/>
-                                            <constraint firstItem="132975" firstAttribute="leading" secondItem="132123" secondAttribute="leading" id="133065"/>
-                                            <constraint firstItem="132975" firstAttribute="trailing" secondItem="132123" secondAttribute="trailing" id="133066"/>
-                                            <constraint firstItem="132983" firstAttribute="leading" secondItem="132978" secondAttribute="leading" constant="16" id="133070"/>
-                                            <constraint firstItem="132978" firstAttribute="trailing" secondItem="132983" secondAttribute="trailing" constant="16" id="133072"/>
-                                            <constraint firstItem="132980" firstAttribute="leading" secondItem="132978" secondAttribute="leading" constant="16" id="133073"/>
-                                            <constraint firstItem="132978" firstAttribute="trailing" secondItem="132980" secondAttribute="trailing" constant="15" id="133075"/>
-                                            <constraint firstItem="132985" firstAttribute="leading" secondItem="132975" secondAttribute="leading" id="133080"/>
-                                            <constraint firstItem="132985" firstAttribute="trailing" secondItem="132975" secondAttribute="trailing" id="133081"/>
-                                            <constraint firstItem="132978" firstAttribute="trailing" secondItem="132975" secondAttribute="trailing" id="134682"/>
-                                            <constraint firstItem="132978" firstAttribute="leading" secondItem="132975" secondAttribute="leading" id="134683"/>
-                                            <constraint firstItem="132975" firstAttribute="top" secondItem="132972" secondAttribute="bottom" id="142729"/>
-                                            <constraint firstItem="132985" firstAttribute="top" secondItem="132975" secondAttribute="top" id="142734"/>
-                                            <constraint id="143541" firstItem="132975" firstAttribute="top" secondItem="132965" secondAttribute="bottom" constant="1"/>
-                                            <constraint id="143542" firstItem="132123" firstAttribute="bottom" secondItem="132978" secondAttribute="bottom" constant="4"/>
-                                            <constraint id="143549" firstItem="132970" firstAttribute="top" secondItem="132965" secondAttribute="top" constant="12"/>
-                                            <constraint id="143550" firstItem="132975" firstAttribute="top" secondItem="132967" secondAttribute="bottom" constant="12"/>
-                                            <constraint id="144340" firstItem="132983" firstAttribute="top" secondItem="132978" secondAttribute="top" constant="9"/>
-                                            <constraint id="144341" firstItem="132980" firstAttribute="top" secondItem="132983" secondAttribute="bottom" constant="8"/>
-                                            <constraint id="145130" firstItem="123576" firstAttribute="top" secondItem="27995" secondAttribute="top" constant="225"/>
-                                            <constraint id="145131" firstItem="125474" firstAttribute="top" secondItem="123576" secondAttribute="top" constant="9"/>
-                                            <constraint id="166757" firstItem="128475" firstAttribute="bottom" secondItem="132962" secondAttribute="top" constant="2"/>
-                                            <constraint id="166760" firstItem="132972" firstAttribute="top" secondItem="132962" secondAttribute="top"/>
-                                            <constraint id="167543" firstItem="125479" firstAttribute="top" secondItem="123576" secondAttribute="centerY" constant="1"/>
+                                            <constraint firstAttribute="height" constant="1300" id="132200"/>
+                                            <constraint firstItem="180072" firstAttribute="top" secondItem="132123" secondAttribute="top" id="215790"/>
+                                            <constraint firstAttribute="trailing" secondItem="180072" secondAttribute="trailing" constant="21" id="215791"/>
+                                            <constraint firstItem="180072" firstAttribute="leading" secondItem="132123" secondAttribute="leading" constant="22" id="215792"/>
+                                            <constraint firstAttribute="trailing" secondItem="217888" secondAttribute="trailing" constant="21" id="220086"/>
+                                            <constraint firstItem="217888" firstAttribute="leading" secondItem="132123" secondAttribute="leading" constant="22" id="220087"/>
+                                            <constraint firstItem="217888" firstAttribute="top" secondItem="180072" secondAttribute="bottom" constant="26" id="220088"/>
+                                            <constraint firstItem="220807" firstAttribute="top" secondItem="217888" secondAttribute="bottom" constant="26" id="c28-7F-Ime"/>
+                                            <constraint firstItem="220807" firstAttribute="leading" secondItem="132123" secondAttribute="leading" constant="22" id="dhg-Ei-pKf"/>
+                                            <constraint firstAttribute="trailing" secondItem="220807" secondAttribute="trailing" constant="21" id="kGS-Fl-T52"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -986,22 +988,22 @@
                             <constraint firstItem="132122" firstAttribute="leading" secondItem="132121" secondAttribute="leading" id="132214"/>
                         </constraints>
                     </view>
-                    <size key="freeformSize" width="375" height="915"/>
+                    <size key="freeformSize" width="375" height="1326"/>
                     <connections>
-                        <outlet property="MorningJuiceName" destination="125479" id="name-outlet-125479"/>
-                        <outlet property="MorningBtn" destination="128475" id="name-outlet-128475"/>
                         <outlet property="MorningImage" destination="27995" id="name-outlet-27995"/>
-                        <outlet property="AfternoonJuiceName" destination="132967" id="name-outlet-132967"/>
-                        <outlet property="EveningJuiceName" destination="132980" id="name-outlet-132980"/>
-                        <outlet property="AfternoonImage" destination="132962" id="name-outlet-132962"/>
-                        <outlet property="EveningImage" destination="132975" id="name-outlet-132975"/>
+                        <outlet property="MorningJuiceName" destination="125474" id="name-outlet-125474"/>
+                        <outlet property="MorningBtn" destination="128475" id="name-outlet-128475"/>
+                        <outlet property="AfternoonImage" destination="217890" id="name-outlet-217890"/>
+                        <outlet property="AfternoonJuiceName" destination="217892" id="name-outlet-217892"/>
+                        <outlet property="EveningJuiceName" destination="220811" id="name-outlet-220811"/>
+                        <outlet property="EveningImage" destination="220809" id="name-outlet-220809"/>
                         <outlet property="AfternoonBtn" destination="132972" id="name-outlet-132972"/>
                         <outlet property="EveningBtn" destination="132985" id="name-outlet-132985"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="132215" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-99" y="-767"/>
+            <point key="canvasLocation" x="-95" y="-1109"/>
         </scene>
     </scenes>
     <resources>
@@ -1010,7 +1012,7 @@
         <image name="testsmoothie.jpg" width="1200" height="900"/>
         <image name="home" width="48" height="48"/>
         <image name="search" width="48" height="48"/>
-        <image name="juice.jpg" width="2732" height="2732"/>
         <image name="today" width="196" height="196"/>
+        <image name="juice.jpg" width="2732" height="2732"/>
     </resources>
 </document>

@@ -380,6 +380,10 @@
     </Compile>
     <Compile Include="Converters\StringToImageConverter.cs" />
     <Compile Include="Bootstrap\FilePluginBootstrap.cs" />
+    <Compile Include="Views\TabHomeSubview.cs" />
+    <Compile Include="Views\TabHomeSubview.designer.cs">
+      <DependentUpon>TabHomeSubview.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\JuiceIt.iOS.JuicIt.Watch\JuiceIt.iOS.JuicIt.Watch.csproj">
