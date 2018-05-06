@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JuiceIt.iOS.JuicIt.WatchExt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JuiceIt.Shared", "JuiceIt.Shared\JuiceIt.Shared.csproj", "{6CF810C5-E555-4BEE-8E61-56299F83615E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JuiceIt.Tests", "JuiceIt.Tests\JuiceIt.Tests.csproj", "{9D26D6B4-5258-42CC-A181-2E6D38477D1E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|iPhoneSimulator = Debug|iPhoneSimulator
@@ -49,5 +51,13 @@ Global
 		{6CF810C5-E555-4BEE-8E61-56299F83615E}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{6CF810C5-E555-4BEE-8E61-56299F83615E}.Debug|iPhone.ActiveCfg = Debug|Any CPU
 		{6CF810C5-E555-4BEE-8E61-56299F83615E}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{9D26D6B4-5258-42CC-A181-2E6D38477D1E}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{9D26D6B4-5258-42CC-A181-2E6D38477D1E}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{9D26D6B4-5258-42CC-A181-2E6D38477D1E}.Release|iPhone.ActiveCfg = Release|iPhone
+		{9D26D6B4-5258-42CC-A181-2E6D38477D1E}.Release|iPhone.Build.0 = Release|iPhone
+		{9D26D6B4-5258-42CC-A181-2E6D38477D1E}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{9D26D6B4-5258-42CC-A181-2E6D38477D1E}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+		{9D26D6B4-5258-42CC-A181-2E6D38477D1E}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{9D26D6B4-5258-42CC-A181-2E6D38477D1E}.Debug|iPhone.Build.0 = Debug|iPhone
 	EndGlobalSection
 EndGlobal
