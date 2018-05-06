@@ -74,6 +74,7 @@ namespace JuiceIt.Shared.ViewModels
             GetShopList();
         }
 
+
         //public ICommand PostCheckCommand
         //{
         //    get
@@ -86,5 +87,7 @@ namespace JuiceIt.Shared.ViewModels
         //    _localShopListService.AddShopListChecker();
         //    _navigationService.Navigate<TabShopListViewModel>();
         //}
+
+
     }
 }

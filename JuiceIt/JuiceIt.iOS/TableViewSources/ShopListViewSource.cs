@@ -9,6 +9,7 @@ namespace JuiceIt.iOS.TableViewSources
 {
     public class ShopListViewSource : MvxTableViewSource
     {
+        
         public ShopListViewSource(UITableView tableView) : base(tableView)
         {
         }
@@ -44,6 +45,8 @@ namespace JuiceIt.iOS.TableViewSources
         }
 
         public IMvxCommand RemoveRowCommand { get; set; }
+
+        public IMvxCommand RemoveAllCommand { get; set; }
 
     }
 }

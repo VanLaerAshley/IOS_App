@@ -90,26 +90,26 @@ namespace JuiceIt.Shared.Repositories
         }
 
 
-        //public ShopList AddShopListChecker()
-        //{
-        //    var db = new SQLiteConnection(dbPath);
-        //    var newUserTask = new ShopList();
-        //    if (newUserTask.checker == null)
-        //    {
-        //        newUserTask.checker = 1;
-        //        db.Insert(newUserTask);
-        //        Debug.WriteLine("1 is toegevoeg: ", newUserTask);
-        //        return newUserTask;
+        public ShopList AddShopListChecker()
+        {
+            var db = new SQLiteConnection(dbPath);
+            var newUserTask = new ShopList();
+            if (newUserTask.checker == 0)
+            {
+                newUserTask.checker = 1;
+                db.Insert(newUserTask);
+                Debug.WriteLine("1 is toegevoeg: ", newUserTask);
+                return newUserTask;
 
-        //    }
-        //    else
-        //    {
+            }
+            else
+            {
 
-        //        newUserTask.checker = 0;
-        //        db.Update(newUserTask);
-        //        Debug.WriteLine("1 is toegevoeg verwijderd: ", newUserTask);
-        //        return newUserTask;
-        //    }
-        //}
+                newUserTask.checker = 0;
+                db.Update(newUserTask);
+                Debug.WriteLine("1 is verwijderd: ", newUserTask);
+                return newUserTask;
+            }
+        }
     }
 }

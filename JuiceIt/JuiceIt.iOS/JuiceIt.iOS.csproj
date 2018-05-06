@@ -384,6 +384,8 @@
     <Compile Include="Views\TabHomeSubview.designer.cs">
       <DependentUpon>TabHomeSubview.cs</DependentUpon>
     </Compile>
+    <Compile Include="SessionManager\WCSessionManager.cs" />
+    <Compile Include="TableDelegate\TableDelegate.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\JuiceIt.iOS.JuicIt.Watch\JuiceIt.iOS.JuicIt.Watch.csproj">
@@ -404,6 +406,8 @@
     <Folder Include="Converters\" />
     <Folder Include="Assets.xcassets\" />
     <Folder Include="Assets.xcassets\today.imageset\" />
+    <Folder Include="SessionManager\" />
+    <Folder Include="TableDelegate\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />

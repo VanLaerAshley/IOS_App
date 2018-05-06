@@ -15,23 +15,25 @@
                         <table alignment="left" id="253">
                             <items>
                                 <tableRow id="254" customClass="ShopListCell">
-                                    <group key="rootItem" width="154" alignment="left" id="255" height="40">
+                                    <group key="rootItem" width="134" alignment="left" id="255" height="40">
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <items>
-                                            <label alignment="left" text="Label" id="300" width="120" height="49">
+                                            <label alignment="left" id="300" width="120" height="49" text="Ingredient">
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </label>
                                         </items>
                                     </group>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <connections>
-                                        <outlet property="myRowLabel" destination="300" id="name-outlet-300"/>
+                                        <outlet property="MyLabel" destination="300" id="name-outlet-300"/>
                                     </connections>
                                 </tableRow>
                             </items>
                         </table>
                     </items>
-                    <connections/>
+                    <connections>
+                        <outlet property="MyTable" destination="253" id="name-outlet-253"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>

@@ -11,6 +11,6 @@ namespace JuiceIt.Shared.Repositories
         void SetupDatabase();
         Task<List<ShopList>> GetShopList();
         Task DeleteShopListItem(int id);
-        //ShopList AddShopListChecker();
+        ShopList AddShopListChecker();
     }
 }

@@ -10,18 +10,18 @@ using System.CodeDom.Compiler;
 
 namespace JuiceIt.iOS.JuicIt.WatchExtension
 {
-    [Register ("InterfaceController")]
-    partial class InterfaceController
+    [Register ("ShopListCell")]
+    partial class ShopListCell
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        WatchKit.WKInterfaceTable MyTable { get; set; }
+        public WatchKit.WKInterfaceLabel MyLabel { get; set; }
 
         void ReleaseDesignerOutlets ()
         {
-            if (MyTable != null) {
-                MyTable.Dispose ();
-                MyTable = null;
+            if (MyLabel != null) {
+                MyLabel.Dispose ();
+                MyLabel = null;
             }
         }
     }

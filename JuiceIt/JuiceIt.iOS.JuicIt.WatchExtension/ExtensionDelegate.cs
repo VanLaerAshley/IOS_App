@@ -11,6 +11,7 @@ namespace JuiceIt.iOS.JuicIt.WatchExtension
         
         public override void ApplicationDidFinishLaunching()
         {
+            WCSessionManager.SharedManager.StartSession();
         }
 
         public override void ApplicationDidBecomeActive()

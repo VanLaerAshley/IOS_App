@@ -93,6 +93,9 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.WatchOS" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\Contents.json">
@@ -101,10 +104,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="SessionManager\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExtensionDelegate.cs" />
@@ -115,6 +120,11 @@
     <Compile Include="NotificationController.cs" />
     <Compile Include="NotificationController.designer.cs">
       <DependentUpon>NotificationController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SessionManager\WCSessionManager.cs" />
+    <Compile Include="ShopListCell.cs" />
+    <Compile Include="ShopListCell.designer.cs">
+      <DependentUpon>ShopListCell.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

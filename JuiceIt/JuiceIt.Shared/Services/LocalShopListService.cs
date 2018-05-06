@@ -39,9 +39,9 @@ namespace JuiceIt.Shared.Services
             await _localShopListRepository.DeleteShopListItem(id);
         }
 
-        //public ShopList AddShopListChecker()
-        //{
-        //    return _localShopListRepository.AddShopListChecker();
-        //}
+        public ShopList AddShopListChecker()
+        {
+            return _localShopListRepository.AddShopListChecker();
+        }
     }
 }

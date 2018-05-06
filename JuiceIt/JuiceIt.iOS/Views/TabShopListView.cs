@@ -1,10 +1,14 @@
+using CoreGraphics;
 using Foundation;
+using JuiceIt.iOS.SessionManager;
 using JuiceIt.iOS.TableViewSources;
 using JuiceIt.Shared.ViewModels;
 using MvvmCross.Binding.BindingContext;
 using MvvmCross.iOS.Views;
 using System;
+using System.Collections.Generic;
 using UIKit;
+using WatchConnectivity;
 
 namespace JuiceIt.iOS.Views
 {
@@ -14,7 +18,12 @@ namespace JuiceIt.iOS.Views
         public TabShopListView (IntPtr handle) : base (handle)
         {
         }
-
+        private TabShopListView Controller;
+        public TabShopListView(TabShopListView controller)
+        {
+            // Initialize
+            this.Controller = controller;
+        }
         private ShopListViewSource _shopListViewSource;
         public override void ViewDidLoad()
         {
@@ -22,9 +31,9 @@ namespace JuiceIt.iOS.Views
 
             _shopListViewSource = new ShopListViewSource(this.TableView);
             this.TableView.Source = _shopListViewSource;
+            this.TableView.Delegate = new TableDelegate(this);
             this.TableView.ReloadData();
-        
-           
+
             MvxFluentBindingDescriptionSet<TabShopListView, TabShopListViewModel> set = new MvxFluentBindingDescriptionSet<TabShopListView, TabShopListViewModel>(this);
             set.Bind(_shopListViewSource).To(vm => vm.ShopList);
 
@@ -33,5 +42,12 @@ namespace JuiceIt.iOS.Views
             set.Apply();
         }
 
-    }
+        public void SendDataToWatch(string emoji)
+        {
+            
+            WCSessionManager.SharedManager.UpdateApplicationContext(new Dictionary<string, object>() { { "MessagePhone", $"{emoji}" } });
+           
+        }
+
+	}
 }

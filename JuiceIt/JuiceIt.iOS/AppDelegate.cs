@@ -1,4 +1,5 @@
 ﻿using Foundation;
+using JuiceIt.iOS.SessionManager;
 using JuiceIt.IOS;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.iOS.Platform;
@@ -27,7 +28,7 @@ namespace JuiceIt.iOS
             var startup = Mvx.Resolve<IMvxAppStart>();
             startup.Start();
             window.MakeKeyAndVisible();
-
+            WCSessionManager.SharedManager.StartSession();
             return true;
         }
 

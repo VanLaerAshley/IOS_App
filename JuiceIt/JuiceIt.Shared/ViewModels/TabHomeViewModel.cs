@@ -155,26 +155,34 @@ namespace JuiceIt.Shared.ViewModels
             }
 
         }
+
+        private MvxCommand<Recipe> _navigateToMorningJuice;
         public MvxCommand<Recipe> NavigateToMorningJuice
         {
             get
             {
-                var _folderName = "TextFilesFolder1";
-                var _fileName = "MorningJuice";
-                string value = string.Empty;
-                _fileStore.TryReadTextFile(_folderName + "/" + _fileName, out (value));
-                string fV = value;
-                List<string> TextFileList = new List<string>(
-                    fV.Split(new string[] { "," }, StringSplitOptions.None));
-                int numVall = Int32.Parse(TextFileList[1]);
-                int NewRandomValue = numVall;
-                    
-                return new MvxCommand<Recipe>(SelectedRecipe =>
-                {
-                    ShowViewModel<DetailJuiceListViewModel>(new { RecipeId = NewRandomValue });
-                });
+                if (_navigateToMorningJuice == null)
+                    _navigateToMorningJuice = new MvxCommand<Recipe>(DoNavigateToMorningJuice);
+                return _navigateToMorningJuice;
             }
         }
+
+        private void DoNavigateToMorningJuice(Recipe selectedRecipe)
+        {
+            var _folderName = "TextFilesFolder1";
+            var _fileName = "MorningJuice";
+            string value = string.Empty;
+            _fileStore.TryReadTextFile(_folderName + "/" + _fileName, out (value));
+            string fV = value;
+
+            List<string> TextFileList = new List<string>(
+                fV.Split(new string[] { "," }, StringSplitOptions.None));
+            int numVall = Int32.Parse(TextFileList[1]);
+            int NewRandomValue = numVall;
+
+            ShowViewModel<DetailJuiceListViewModel>(new { RecipeId = NewRandomValue });
+        }
+
 
 
 
@@ -247,28 +255,33 @@ namespace JuiceIt.Shared.ViewModels
             }
 
         }
+
+
+        private MvxCommand<Recipe> _navigateToAfternoonJuice;
         public MvxCommand<Recipe> NavigateToAfternoonJuice
         {
             get
             {
-                
-                var _folderName = "TextFilesFolder2";
-                var _fileName = "AfternoonJuice";
-                string value = string.Empty;
-                _fileStore.TryReadTextFile(_folderName + "/" + _fileName, out (value));
-                string fV = value;
-
-                List<string> TextFileList = new List<string>(
-                    fV.Split(new string[] { "," }, StringSplitOptions.None));
-                int numVall = Int32.Parse(TextFileList[1]);
-                int NewRandomValue = numVall;
-
-
-                return new MvxCommand<Recipe>(SelectedRecipe =>
-                {
-                    ShowViewModel<DetailJuiceListViewModel>(new { RecipeId = NewRandomValue });
-                });
+                if (_navigateToAfternoonJuice == null)
+                    _navigateToAfternoonJuice = new MvxCommand<Recipe>(DoNavigateToAfternoonJuice);
+                return _navigateToAfternoonJuice;
             }
+        }
+
+        private void DoNavigateToAfternoonJuice(Recipe selectedRecipe)
+        {
+            var _folderName = "TextFilesFolder2";
+            var _fileName = "AfternoonJuice";
+            string value = string.Empty;
+            _fileStore.TryReadTextFile(_folderName + "/" + _fileName, out (value));
+            string fV = value;
+
+            List<string> TextFileList = new List<string>(
+                fV.Split(new string[] { "," }, StringSplitOptions.None));
+            int numVall = Int32.Parse(TextFileList[1]);
+            int NewRandomValue = numVall;
+
+            ShowViewModel<DetailJuiceListViewModel>(new { RecipeId = NewRandomValue });
         }
 
 
@@ -346,27 +359,34 @@ namespace JuiceIt.Shared.ViewModels
             }
 
         }
+
+
+        private MvxCommand<Recipe> _navigateToEveningJuice;
         public MvxCommand<Recipe> NavigateToEveningJuice
         {
             get
             {
-                
-                var _folderName = "TextFilesFolder3";
-                var _fileName = "EveningJuice";
-                string value = string.Empty;
-                _fileStore.TryReadTextFile(_folderName + "/" + _fileName, out (value));
-                string fV = value;
-                List<string> TextFileList = new List<string>(
-                    fV.Split(new string[] { "," }, StringSplitOptions.None));
-                int numVall = Int32.Parse(TextFileList[1]);
-                int NewRandomValue = numVall;
-
-
-                return new MvxCommand<Recipe>(SelectedRecipe =>
-                {
-                    ShowViewModel<DetailJuiceListViewModel>(new { RecipeId = NewRandomValue });
-                });
+                if (_navigateToEveningJuice == null)
+                    _navigateToEveningJuice = new MvxCommand<Recipe>(DoNavigateToEveningJuice);
+                return _navigateToEveningJuice;
             }
         }
+
+        private void DoNavigateToEveningJuice(Recipe selectedRecipe)
+        {
+            var _folderName = "TextFilesFolder3";
+            var _fileName = "EveningJuice";
+            string value = string.Empty;
+            _fileStore.TryReadTextFile(_folderName + "/" + _fileName, out (value));
+            string fV = value;
+
+            List<string> TextFileList = new List<string>(
+                fV.Split(new string[] { "," }, StringSplitOptions.None));
+            int numVall = Int32.Parse(TextFileList[1]);
+            int NewRandomValue = numVall;
+
+            ShowViewModel<DetailJuiceListViewModel>(new { RecipeId = NewRandomValue });
+        }
+
     }
 }
