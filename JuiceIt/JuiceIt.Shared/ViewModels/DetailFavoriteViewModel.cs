@@ -24,7 +24,11 @@ namespace JuiceIt.Shared.ViewModels
 
         public Favorites FavoriteContent
         {
-            get { return _favoriteContent; }
+            get 
+            {
+               
+                return _favoriteContent; 
+            }
             set
             {
                 _favoriteContent = value;
@@ -48,7 +52,7 @@ namespace JuiceIt.Shared.ViewModels
                 if (FavoriteContent?.ingredients == null)
                     return string.Empty; 
                 
-                string[] namesArray = FavoriteContent.ingredients.Split(',');
+                string[] namesArray = FavoriteContent.ingredients.Split(':');
                 List<string> namesList = new List<string>(namesArray.Length);
                 namesList.AddRange(namesArray);
                 namesList.Reverse();
@@ -66,7 +70,7 @@ namespace JuiceIt.Shared.ViewModels
                 if (FavoriteContent?.condition == null) 
                     return null;
 
-                string[] namesArray = FavoriteContent.condition.Split(',');
+                string[] namesArray = FavoriteContent.condition.Split(':');
                 List<string> namesList = new List<string>(namesArray.Length);
                 namesList.AddRange(namesArray);
                 namesList.Reverse();
@@ -85,6 +89,7 @@ namespace JuiceIt.Shared.ViewModels
 
         public void AddShopList()
         {
+            
             _localShopListService.AddShopListFromLocal(FavoriteContent);
         }
 

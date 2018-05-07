@@ -10,5 +10,6 @@ namespace JuiceIt.Shared.Services
         Task<Favorites> GetFavoriteById(int FavoriteId);
         Recipe AddFavorites(Recipe recipe);
         Task DeleteFavorite(int id);
+        Task<List<Favorites>> GetFavoriteAgain();
     }
 }

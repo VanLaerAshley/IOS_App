@@ -19,17 +19,14 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="879" translatesAutoresizingMaskIntoConstraints="NO" image="juice.jpg">
                                 <rect key="frame" x="81" y="240" width="252" height="255"/>
-                                <constraints>
-                                    <constraint id="1317" firstItem="879" firstAttribute="height" constant="255"/>
-                                    <constraint id="1318" firstItem="879" firstAttribute="width" constant="252"/>
-                                </constraints>
                             </imageView>
                         </subviews>
                         <constraints>
-                            <constraint id="1319" firstItem="879" firstAttribute="top" secondItem="436" secondAttribute="bottom" constant="220"/>
                             <constraint id="1320" firstItem="879" firstAttribute="leading" secondItem="440" secondAttribute="leadingMargin" constant="61"/>
                             <constraint id="1321" firstItem="440" firstAttribute="trailingMargin" secondItem="879" secondAttribute="trailing" constant="61"/>
-                            <constraint id="1322" firstItem="437" firstAttribute="top" secondItem="879" secondAttribute="bottom" constant="241"/>
+                            <constraint id="2321" firstItem="879" firstAttribute="centerX" secondItem="440" secondAttribute="centerX"/>
+                            <constraint id="2322" firstItem="879" firstAttribute="top" secondItem="436" secondAttribute="bottom" constant="220"/>
+                            <constraint id="2323" firstItem="437" firstAttribute="top" secondItem="879" secondAttribute="bottom" constant="241"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -45,5 +42,6 @@
         <image name="search" width="48" height="48"/>
         <image name="testsmoothie.jpg" width="1200" height="900"/>
         <image name="juice.jpg" width="2732" height="2732"/>
+        <image name="today" width="196" height="196"/>
     </resources>
 </document>

@@ -16,6 +16,7 @@ namespace JuiceIt.Shared.ViewModels
         {
             this._localDbService = localDbService;
             this._navigationService = navigationService;
+            GetFavoriteData();
         }
         private List<Favorites> _favorites;
 
@@ -34,8 +35,12 @@ namespace JuiceIt.Shared.ViewModels
 
         public async void GetFavoriteData()
         {
-            
             Favorites = await _localDbService.GetFavorite();
+        }
+
+        public async void GetFavoriteAgain()
+        {
+            Favorites = await _localDbService.GetFavoriteAgain();
         }
 
         public IMvxCommand RemoveFavoriteCommand
@@ -50,7 +55,7 @@ namespace JuiceIt.Shared.ViewModels
         {
             Favorites f = Favorites[index];
             _localDbService.DeleteFavorite(f.id);
-            GetFavoriteData();
+            GetFavoriteAgain();
 
         }
         public MvxCommand<Favorites> NavigateToDetailCommand

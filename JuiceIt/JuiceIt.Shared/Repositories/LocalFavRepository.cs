@@ -12,7 +12,7 @@ namespace JuiceIt.Shared.Repositories
 {
     public class LocalFavRepository : ILocalFavRepository
     {
-        private string dbPath = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "Favorites.db3");
+        private string dbPath = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "Favoriteszz.db3");
         public void SetupDatabase()
         {
             var db = new SQLiteConnection(dbPath);
@@ -33,8 +33,8 @@ namespace JuiceIt.Shared.Repositories
             newUserTask.description = recipe.description;
             newUserTask.picture = recipe.picture;
             newUserTask.thumbnail = recipe.thumbnail;
-            string joinedIngredients = string.Join(",", recipe.ingredients.ToArray());
-            string joinedConditions = string.Join(",", recipe.condition.ToArray());
+            string joinedIngredients = string.Join(":", recipe.ingredients.ToArray());
+            string joinedConditions = string.Join(":", recipe.condition.ToArray());
             newUserTask.ingredients = joinedIngredients;
             newUserTask.condition = joinedConditions;
             var UserExist = db.Query<Favorites>("select * from Favorites where name = ?", recipe.name);

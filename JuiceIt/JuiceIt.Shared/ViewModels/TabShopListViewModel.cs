@@ -16,6 +16,7 @@ namespace JuiceIt.Shared.ViewModels
         {
             this._navigationService = navigationService;
             this._localShopListService = localShopListService;
+            GetShopList();
         }
 
         private List<ShopList> _shopList;
@@ -53,6 +54,11 @@ namespace JuiceIt.Shared.ViewModels
             ShopList = await _localShopListService.GetShopList();
         }
 
+        public async void GetShopListAgain()
+        {
+            ShopList = await _localShopListService.GetShopListAgain();
+        }
+
         public IMvxCommand RemoveShopListItemCommand
         {
             get
@@ -65,7 +71,7 @@ namespace JuiceIt.Shared.ViewModels
         {
             ShopList f = ShopList[index];
             _localShopListService.DeleteShopListItem(f.Id);
-            GetShopList();
+            GetShopListAgain();
 
         }
         public  override void ViewAppearing()

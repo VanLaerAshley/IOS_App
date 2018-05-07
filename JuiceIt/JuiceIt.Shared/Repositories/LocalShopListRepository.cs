@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using JuiceIt.Shared.Models;
@@ -10,7 +11,7 @@ namespace JuiceIt.Shared.Repositories
 {
     public class LocalShopListRepository : ILocalShopListRepository
     {
-        private string dbPath = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "ShopList.db3");
+        private string dbPath = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "ShopzzList.db3");
         public void SetupDatabase()
         {
             var db = new SQLiteConnection(dbPath);
@@ -27,17 +28,36 @@ namespace JuiceIt.Shared.Repositories
         {
             var db = new SQLiteConnection(dbPath);
             var newUserTask = new ShopList();
-            foreach(string value in recipe.ingredients)
+            List<string> ingredientList = recipe.ingredients.ToList<string>();
+            foreach (string value in ingredientList)
             {
-                newUserTask.Ingredients = value;
-                var UserExist = db.Query<ShopList>("select * from ShopList where Ingredients = ?", value);
+                var firstSpaceIndex = value.IndexOf(" ");
+                var firstString = value.Substring(0, firstSpaceIndex); 
+                var secondString = value.Substring(firstSpaceIndex + 1);
+
+                var UserExist = db.Query<ShopList>($"select * from ShopList where Ingredients LIKE '%{secondString}%'");
                 int selectedDepartment = UserExist.Count;
                 if (selectedDepartment > 0)
                 {
-                    Debug.WriteLine("{0} Zit al in database. Checker is: {1}", newUserTask.Ingredients, newUserTask.checker);
+                    var DatabaseIngredient = db.Query<ShopList>($"select * from ShopList where Ingredients LIKE '%{secondString}%'");
+                    var GetInteger = DatabaseIngredient[0].Ingredients.Split(' ');
+
+                    var clone = (CultureInfo)CultureInfo.InvariantCulture.Clone();
+                    clone.NumberFormat.NumberDecimalSeparator = ",";
+                    clone.NumberFormat.NumberGroupSeparator = " ";
+
+                    decimal numVal = decimal.Parse(GetInteger[0], clone);
+                    decimal numVal2 = decimal.Parse(firstString, clone);
+                    decimal math = numVal + numVal2;
+                    string result = $"{math} {secondString}";
+
+
+                    var Update = db.Query<ShopList>($"update ShopList set Ingredients = '{result}' where Ingredients LIKE '%{secondString}%'");
+
                 }
                 else
                 {
+                    newUserTask.Ingredients = value;
                     db.Insert(newUserTask);
                 }
                 Console.WriteLine("Ingredients: {0}", value);
@@ -49,18 +69,40 @@ namespace JuiceIt.Shared.Repositories
         {
             var db = new SQLiteConnection(dbPath);
             var newUserTask = new ShopList();
-            List<string> ingredientList = favorite.ingredients.Split(',').ToList<string>();
+            List<string> ingredientList = favorite.ingredients.Split(':').ToList<string>();
             foreach (string value in ingredientList)
             {
-                newUserTask.Ingredients = value.ToString();
-                var UserExist = db.Query<ShopList>("select * from ShopList where Ingredients = ?", value);
+                //Split string bij de eerste space
+                var firstSpaceIndex = value.IndexOf(" ");
+                var firstString = value.Substring(0, firstSpaceIndex);//Voor de spatie
+                var secondString = value.Substring(firstSpaceIndex + 1); // Na de spatie
+
+
+                var UserExist = db.Query<ShopList>($"select * from ShopList where Ingredients LIKE '%{secondString}%'");
                 int selectedDepartment = UserExist.Count;
                 if (selectedDepartment > 0)
                 {
-                    Debug.WriteLine("{0} Zit al in database. Checker is: {1}", newUserTask.Ingredients, newUserTask.checker);
+                    var DatabaseIngredient = db.Query<ShopList>($"select * from ShopList where Ingredients LIKE '%{secondString}%'");
+                    var GetInteger = DatabaseIngredient[0].Ingredients.Split(' ');
+
+                    var clone = (CultureInfo)CultureInfo.InvariantCulture.Clone();
+                    clone.NumberFormat.NumberDecimalSeparator = ",";
+                    clone.NumberFormat.NumberGroupSeparator = " ";
+
+                    decimal numVal = decimal.Parse(GetInteger[0], clone);
+                    decimal numVal2 = decimal.Parse(firstString, clone);
+                    decimal math = numVal + numVal2;
+                    string result = $"{math} {secondString}";
+
+
+                    var Update = db.Query<ShopList>($"update ShopList set Ingredients = '{result}' where Ingredients LIKE '%{secondString}%'");
+                    //Debug.WriteLine("{0} Zit al in database. Checker is: {1}", namesArray, newUserTask.checker);
+
+                 
                 }
                 else
                 {
+                    newUserTask.Ingredients = value;
                     db.Insert(newUserTask);
                 }
                 Console.WriteLine("Ingredients: {0}", value);

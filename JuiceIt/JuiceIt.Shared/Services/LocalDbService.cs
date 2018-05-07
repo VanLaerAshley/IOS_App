@@ -20,6 +20,12 @@ namespace JuiceIt.Shared.Services
             return await _localFavRepository.GetFavorites();
         }
 
+        public async Task<List<Favorites>> GetFavoriteAgain()
+        {
+            
+            return await _localFavRepository.GetFavorites();
+        }
+
         public Task<Favorites> GetFavoriteById(int FavoriteId)
         {
             return _localFavRepository.GetFavoritesById(FavoriteId);

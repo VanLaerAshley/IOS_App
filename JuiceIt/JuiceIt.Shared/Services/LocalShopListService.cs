@@ -19,7 +19,10 @@ namespace JuiceIt.Shared.Services
             _localShopListRepository.SetupDatabase();
             return await _localShopListRepository.GetShopList();
         }
-
+        public async Task<List<ShopList>> GetShopListAgain()
+        {
+            return await _localShopListRepository.GetShopList();
+        }
         public Recipe AddShopList(Recipe recipe)
         {
 

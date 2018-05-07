@@ -11,5 +11,6 @@ namespace JuiceIt.Shared.Services
         Task<List<ShopList>> GetShopList();
         Task DeleteShopListItem(int id);
         ShopList AddShopListChecker();
+        Task<List<ShopList>> GetShopListAgain();
     }
 }
