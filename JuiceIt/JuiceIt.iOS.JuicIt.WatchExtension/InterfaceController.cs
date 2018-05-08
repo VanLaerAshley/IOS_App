@@ -37,9 +37,7 @@ namespace JuiceIt.iOS.JuicIt.WatchExtension
         {
             // This method is called when the watch view controller is no longer visible to the user.
             Console.WriteLine("{0} did deactivate", this);
-            WCSessionManager.SharedManager.ApplicationContextUpdated -= DidReceiveApplicationContext;
-            var counter = rows.Count;
-            rows.RemoveRange(0, counter);
+            //WCSessionManager.SharedManager.ApplicationContextUpdated -= DidReceiveApplicationContext;
         }
         void LoadTableRows()
         {
