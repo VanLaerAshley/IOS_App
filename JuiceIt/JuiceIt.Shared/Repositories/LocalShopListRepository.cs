@@ -35,9 +35,9 @@ namespace JuiceIt.Shared.Repositories
                 var firstString = value.Substring(0, firstSpaceIndex); 
                 var secondString = value.Substring(firstSpaceIndex + 1);
 
-                var UserExist = db.Query<ShopList>($"select * from ShopList where Ingredients LIKE '%{secondString}%'");
-                int selectedDepartment = UserExist.Count;
-                if (selectedDepartment > 0)
+                var IngredientExist = db.Query<ShopList>($"select * from ShopList where Ingredients LIKE '%{secondString}%'");
+                int selectedIngredient = IngredientExist.Count;
+                if (selectedIngredient > 0)
                 {
                     var DatabaseIngredient = db.Query<ShopList>($"select * from ShopList where Ingredients LIKE '%{secondString}%'");
                     var GetInteger = DatabaseIngredient[0].Ingredients.Split(' ');
@@ -78,9 +78,9 @@ namespace JuiceIt.Shared.Repositories
                 var secondString = value.Substring(firstSpaceIndex + 1); // Na de spatie
 
 
-                var UserExist = db.Query<ShopList>($"select * from ShopList where Ingredients LIKE '%{secondString}%'");
-                int selectedDepartment = UserExist.Count;
-                if (selectedDepartment > 0)
+                var IngredientExist = db.Query<ShopList>($"select * from ShopList where Ingredients LIKE '%{secondString}%'");
+                int selectedIngredient = IngredientExist.Count;
+                if (selectedIngredient > 0)
                 {
                     var DatabaseIngredient = db.Query<ShopList>($"select * from ShopList where Ingredients LIKE '%{secondString}%'");
                     var GetInteger = DatabaseIngredient[0].Ingredients.Split(' ');

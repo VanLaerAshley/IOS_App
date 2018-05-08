@@ -3,6 +3,7 @@ using WatchKit;
 using Foundation;
 using System.Collections.Generic;
 using WatchConnectivity;
+using System.Linq;
 
 namespace JuiceIt.iOS.JuicIt.WatchExtension
 {
@@ -29,21 +30,19 @@ namespace JuiceIt.iOS.JuicIt.WatchExtension
             // This method is called when the watch view controller is about to be visible to the user.
 
             Console.WriteLine("{0} will activate", this);
-
+            LoadTableRows();
         }
 
         public override void DidDeactivate()
         {
             // This method is called when the watch view controller is no longer visible to the user.
             Console.WriteLine("{0} did deactivate", this);
-            WCSessionManager.SharedManager.ApplicationContextUpdated -= DidReceiveApplicationContext;
+            //WCSessionManager.SharedManager.ApplicationContextUpdated -= DidReceiveApplicationContext;
         }
         void LoadTableRows()
         {
 
             MyTable.SetNumberOfRows((nint)rows.Count, "default");
-            //MyTable.SetRowTypes (new [] {"default", "type1", "type2", "default", "default"});
-            // Create all of the table rows.
             for (var i = 0; i < rows.Count; i++)
             {
                 var elementRow = (ShopListCell)MyTable.GetRowController(i);
@@ -58,25 +57,27 @@ namespace JuiceIt.iOS.JuicIt.WatchExtension
             if (message != null)
             {
                 Console.WriteLine($"Application context update received : {message}");
-                rows.Add($"{message}");
-                LoadTableRows();
+                rows.Add(message);
+
+
             }
 
         }
 
 
 
-        public override NSObject GetContextForSegue(string segueIdentifier, WKInterfaceTable table, nint rowIndex)
-        {
-            return new NSString(rows[(int)rowIndex]);
-        }
+        //public override NSObject GetContextForSegue(string segueIdentifier, WKInterfaceTable table, nint rowIndex)
+        //{
+        //    return new NSString(rows[(int)rowIndex]);
+        //}
 
 
         public override void DidSelectRow(WKInterfaceTable table, nint rowIndex)
         {
-            var rowData = rows[(int)rowIndex];
+            //var rowData = rows[(int)rowIndex];
             //PushController ("", );
-            Console.WriteLine("Row selected:" + rowData);
+            rows.RemoveAt((int)rowIndex);
+           
         }
     }
 }

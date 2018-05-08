@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using Foundation;
 using JuiceIt.iOS.Views;
+using JuiceIt.Shared.Models;
+using JuiceIt.Shared.ViewModels;
 using MvvmCross.iOS.Views;
 using ObjCRuntime;
+using SQLite;
 using UIKit;
 
 public class TableDelegate : UITableViewDelegate
@@ -13,14 +17,12 @@ public class TableDelegate : UITableViewDelegate
     #endregion
 
     #region Constructors
-    public TableDelegate(UITableView tableView, Foundation.NSIndexPath indexPath)
-    {
-    }
-
+   
     public TableDelegate(TabShopListView controller)
     {
         // Initialize
         this.Controller = controller;
+
     }
     #endregion
 
@@ -29,13 +31,25 @@ public class TableDelegate : UITableViewDelegate
     {
         return 44f;
     }
-
-
-    public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
+    int counter = 0;
+    private string dbPath = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "ShopzzList.db3");
+    public override void WillDisplay(UITableView tableView, UITableViewCell tableViewCell, NSIndexPath indexPath)
     {
-        var cell = tableView.CellAt(indexPath) as ShopListViewCell;
-        Controller.SendDataToWatch(cell.CheckListItem.Text);
-	}
+        List<string> ingredients = new List<string>();
+        var db = new SQLiteConnection(dbPath);
+        var databaseIngredients = db.Query<ShopList>($"select * from ShopList");
+        var AmountOfData = databaseIngredients.Count;
+
+
+        while (AmountOfData > counter)
+        {
+            var ingredient = databaseIngredients[counter].Ingredients;
+            Controller.SendDataToWatch(ingredient);
+            counter += 1;
+        }
+
+    }
+
 
     #endregion
 }

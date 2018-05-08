@@ -42,10 +42,10 @@ namespace JuiceIt.iOS.Views
             set.Apply();
         }
 
-        public void SendDataToWatch(string emoji)
+        public void SendDataToWatch(string ingredient)
         {
             
-            WCSessionManager.SharedManager.UpdateApplicationContext(new Dictionary<string, object>() { { "MessagePhone", $"{emoji}" } });
+            WCSessionManager.SharedManager.UpdateApplicationContext(new Dictionary<string, object>() { { "MessagePhone", $"{ingredient}" } });
            
         }
 
