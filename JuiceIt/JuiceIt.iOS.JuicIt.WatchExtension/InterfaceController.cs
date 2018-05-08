@@ -37,7 +37,9 @@ namespace JuiceIt.iOS.JuicIt.WatchExtension
         {
             // This method is called when the watch view controller is no longer visible to the user.
             Console.WriteLine("{0} did deactivate", this);
-            //WCSessionManager.SharedManager.ApplicationContextUpdated -= DidReceiveApplicationContext;
+            WCSessionManager.SharedManager.ApplicationContextUpdated -= DidReceiveApplicationContext;
+            var counter = rows.Count;
+            rows.RemoveRange(0, counter);
         }
         void LoadTableRows()
         {
@@ -58,7 +60,7 @@ namespace JuiceIt.iOS.JuicIt.WatchExtension
             {
                 Console.WriteLine($"Application context update received : {message}");
                 rows.Add(message);
-
+                LoadTableRows();
 
             }
 
@@ -74,9 +76,8 @@ namespace JuiceIt.iOS.JuicIt.WatchExtension
 
         public override void DidSelectRow(WKInterfaceTable table, nint rowIndex)
         {
-            //var rowData = rows[(int)rowIndex];
-            //PushController ("", );
             rows.RemoveAt((int)rowIndex);
+            LoadTableRows();
            
         }
     }

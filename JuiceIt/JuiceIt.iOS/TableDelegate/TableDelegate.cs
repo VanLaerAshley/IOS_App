@@ -31,22 +31,24 @@ public class TableDelegate : UITableViewDelegate
     {
         return 44f;
     }
-    int counter = 0;
+
     private string dbPath = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "ShopzzList.db3");
+    int counter = 0;
     public override void WillDisplay(UITableView tableView, UITableViewCell tableViewCell, NSIndexPath indexPath)
     {
+        
         List<string> ingredients = new List<string>();
         var db = new SQLiteConnection(dbPath);
         var databaseIngredients = db.Query<ShopList>($"select * from ShopList");
         var AmountOfData = databaseIngredients.Count;
-
-
-        while (AmountOfData > counter)
+        if (counter == AmountOfData)
         {
-            var ingredient = databaseIngredients[counter].Ingredients;
-            Controller.SendDataToWatch(ingredient);
-            counter += 1;
+            counter = 0;
         }
+        var ingredient = databaseIngredients[counter].Ingredients;
+        Controller.SendDataToWatch(ingredient);
+        counter += 1;
+
 
     }
 
