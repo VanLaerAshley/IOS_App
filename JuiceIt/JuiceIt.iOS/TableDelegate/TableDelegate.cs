@@ -31,25 +31,36 @@ public class TableDelegate : UITableViewDelegate
     {
         return 44f;
     }
-
     private string dbPath = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "ShopzzList.db3");
+    private List<ShopList> _shoppingList;
+
+    public List<ShopList> ShoppingList
+    {
+        get
+        {
+            var db = new SQLiteConnection(dbPath);
+            _shoppingList = db.Query<ShopList>($"select * from ShopList");
+            return _shoppingList;
+        }
+    }
+
     int counter = 0;
+
     public override void WillDisplay(UITableView tableView, UITableViewCell tableViewCell, NSIndexPath indexPath)
     {
-        
         List<string> ingredients = new List<string>();
-        var db = new SQLiteConnection(dbPath);
-        var databaseIngredients = db.Query<ShopList>($"select * from ShopList");
-        var AmountOfData = databaseIngredients.Count;
+        int AmountOfData = ShoppingList.Count;
         if (counter == AmountOfData)
         {
             counter = 0;
         }
-        var ingredient = databaseIngredients[counter].Ingredients;
+        else if (counter > AmountOfData)
+        {
+            counter = 0;
+        }
+        var ingredient = ShoppingList[counter].Ingredients;
         Controller.SendDataToWatch(ingredient);
         counter += 1;
-
-
     }
 
 

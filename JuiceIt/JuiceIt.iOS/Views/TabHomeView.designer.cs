@@ -28,6 +28,10 @@ namespace JuiceIt.iOS.Views
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel AfternoonStaticLabel { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIButton EveningBtn { get; set; }
 
         [Outlet]
@@ -40,6 +44,10 @@ namespace JuiceIt.iOS.Views
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel EveningStaticLabel { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIButton MorningBtn { get; set; }
 
         [Outlet]
@@ -49,6 +57,10 @@ namespace JuiceIt.iOS.Views
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel MorningJuiceName { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel MorningStaticLabel { get; set; }
 
         void ReleaseDesignerOutlets ()
         {
@@ -67,6 +79,11 @@ namespace JuiceIt.iOS.Views
                 AfternoonJuiceName = null;
             }
 
+            if (AfternoonStaticLabel != null) {
+                AfternoonStaticLabel.Dispose ();
+                AfternoonStaticLabel = null;
+            }
+
             if (EveningBtn != null) {
                 EveningBtn.Dispose ();
                 EveningBtn = null;
@@ -82,6 +99,11 @@ namespace JuiceIt.iOS.Views
                 EveningJuiceName = null;
             }
 
+            if (EveningStaticLabel != null) {
+                EveningStaticLabel.Dispose ();
+                EveningStaticLabel = null;
+            }
+
             if (MorningBtn != null) {
                 MorningBtn.Dispose ();
                 MorningBtn = null;
@@ -95,6 +117,11 @@ namespace JuiceIt.iOS.Views
             if (MorningJuiceName != null) {
                 MorningJuiceName.Dispose ();
                 MorningJuiceName = null;
+            }
+
+            if (MorningStaticLabel != null) {
+                MorningStaticLabel.Dispose ();
+                MorningStaticLabel = null;
             }
         }
     }

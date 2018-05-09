@@ -13,16 +13,6 @@ namespace JuiceIt.iOS.JuicIt.WatchExtension
     [Register ("ShopListCell")]
     partial class ShopListCell
     {
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        public WatchKit.WKInterfaceLabel MyLabel { get; set; }
 
-        void ReleaseDesignerOutlets ()
-        {
-            if (MyLabel != null) {
-                MyLabel.Dispose ();
-                MyLabel = null;
-            }
-        }
     }
 }

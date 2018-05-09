@@ -1,6 +1,7 @@
 ﻿using System;
 
 using Foundation;
+using JuiceIt.iOS.JuicIt.WatchExtension.SessionManager;
 using WatchKit;
 
 namespace JuiceIt.iOS.JuicIt.WatchExtension

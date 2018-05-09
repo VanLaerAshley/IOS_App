@@ -4,6 +4,8 @@ using Foundation;
 using System.Collections.Generic;
 using WatchConnectivity;
 using System.Linq;
+using System.Diagnostics;
+using JuiceIt.iOS.JuicIt.WatchExtension.SessionManager;
 
 namespace JuiceIt.iOS.JuicIt.WatchExtension
 {
@@ -20,8 +22,8 @@ namespace JuiceIt.iOS.JuicIt.WatchExtension
         {
             base.Awake(context);
             // Configure interface objects here.
-
             Console.WriteLine("{0} awake with context", this);
+
             WCSessionManager.SharedManager.ApplicationContextUpdated += DidReceiveApplicationContext;
         }
 
@@ -30,6 +32,7 @@ namespace JuiceIt.iOS.JuicIt.WatchExtension
             // This method is called when the watch view controller is about to be visible to the user.
 
             Console.WriteLine("{0} will activate", this);
+
             LoadTableRows();
         }
 
@@ -39,38 +42,34 @@ namespace JuiceIt.iOS.JuicIt.WatchExtension
             Console.WriteLine("{0} did deactivate", this);
             //WCSessionManager.SharedManager.ApplicationContextUpdated -= DidReceiveApplicationContext;
         }
+
         void LoadTableRows()
         {
-
             MyTable.SetNumberOfRows((nint)rows.Count, "default");
             for (var i = 0; i < rows.Count; i++)
             {
                 var elementRow = (ShopListCell)MyTable.GetRowController(i);
-
                 elementRow.MyLabel.SetText(rows[i]);
             }
-
         }
+
         public void DidReceiveApplicationContext(WCSession session, Dictionary<string, object> applicationContext)
         {
             var message = (string)applicationContext["MessagePhone"];
             if (message != null)
             {
                 Console.WriteLine($"Application context update received : {message}");
-                rows.Add(message);
-                LoadTableRows();
-
+                if(rows.Contains(message))
+                {
+                    LoadTableRows();
+                }
+                else
+                {
+                    rows.Add(message);
+                    LoadTableRows();
+                }
             }
-
         }
-
-
-
-        //public override NSObject GetContextForSegue(string segueIdentifier, WKInterfaceTable table, nint rowIndex)
-        //{
-        //    return new NSString(rows[(int)rowIndex]);
-        //}
-
 
         public override void DidSelectRow(WKInterfaceTable table, nint rowIndex)
         {

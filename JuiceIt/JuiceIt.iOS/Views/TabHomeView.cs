@@ -4,6 +4,7 @@ using MvvmCross.Binding.BindingContext;
 using MvvmCross.iOS.Views;
 using System;
 using UIKit;
+using CoreGraphics;
 
 namespace JuiceIt.iOS.Views
 {
@@ -16,7 +17,28 @@ namespace JuiceIt.iOS.Views
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-           
+
+            MorningStaticLabel.Layer.ShadowOpacity = .5f;
+            MorningStaticLabel.Layer.ShadowRadius = 6;
+			MorningStaticLabel.Layer.ShadowOffset = new CGSize(0, 0);
+            MorningJuiceName.Layer.ShadowOpacity = .5f;
+            MorningJuiceName.Layer.ShadowRadius = 6;
+			MorningJuiceName.Layer.ShadowOffset = new CGSize(0, 0);
+
+            AfternoonStaticLabel.Layer.ShadowOpacity = .5f;
+            AfternoonStaticLabel.Layer.ShadowRadius = 6;
+			AfternoonStaticLabel.Layer.ShadowOffset = new CGSize(0, 0);
+            AfternoonJuiceName.Layer.ShadowOpacity = .5f;
+            AfternoonJuiceName.Layer.ShadowRadius = 6;
+			AfternoonJuiceName.Layer.ShadowOffset = new CGSize(0, 0);
+            
+            EveningStaticLabel.Layer.ShadowOpacity = .5f;
+            EveningStaticLabel.Layer.ShadowRadius = 6;
+			EveningStaticLabel.Layer.ShadowOffset = new CGSize(0, 0);
+            EveningJuiceName.Layer.ShadowOpacity = .5f;
+            EveningJuiceName.Layer.ShadowRadius = 6;
+			EveningJuiceName.Layer.ShadowOffset = new CGSize(0, 0);
+
             MvxFluentBindingDescriptionSet<TabHomeView, TabHomeViewModel> set = new MvxFluentBindingDescriptionSet<TabHomeView, TabHomeViewModel>(this);
             set.Bind(MorningImage).For(img => img.Image).To(res => res.MorningContent.picture).WithConversion<StringToImageConverter>();
             set.Bind(MorningJuiceName).To(vm => vm.MorningContent.name);

@@ -20,7 +20,7 @@ namespace JuiceIt.iOS.Views
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        public UIKit.UILabel CheckListItem { get; set; }
+        UIKit.UILabel CheckListItem { get; set; }
 
         void ReleaseDesignerOutlets ()
         {

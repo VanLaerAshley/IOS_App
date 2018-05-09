@@ -5,7 +5,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>JuiceIt.iOS.JuicIt.Watch</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.companyname.JuiceIt-iOS.watchkitapp</string>
+	<string>com.ashleyvanlaer.JuiceIt-iOS.watchkitapp</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleShortVersionString</key>
@@ -20,7 +20,7 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
 	<key>WKCompanionAppBundleIdentifier</key>
-	<string>com.companyname.JuiceIt-iOS</string>
+	<string>com.ashleyvanlaer.JuiceIt-iOS</string>
 	<key>WKWatchKitApp</key>
 	<true/>
 	<key>XSAppIconAssets</key>

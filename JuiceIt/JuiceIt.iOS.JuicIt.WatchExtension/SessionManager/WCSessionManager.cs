@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 using System;
 using WatchConnectivity;
 
-namespace JuiceIt.iOS.JuicIt.WatchExtension
+namespace JuiceIt.iOS.JuicIt.WatchExtension.SessionManager
 {
     public sealed class WCSessionManager : WCSessionDelegate
     {
