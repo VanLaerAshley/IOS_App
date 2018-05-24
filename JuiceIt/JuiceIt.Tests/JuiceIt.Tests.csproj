@@ -142,7 +142,7 @@
     <Compile Include="Main.cs" />
     <Compile Include="UnitTestAppDelegate.cs" />
     <Compile Include="MockDispatcher.cs" />
-    <Compile Include="JuiceItTabsViewModel.cs" />
+    <Compile Include="TabIndexViewModelTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\JuiceIt.iOS\JuiceIt.iOS.csproj">
