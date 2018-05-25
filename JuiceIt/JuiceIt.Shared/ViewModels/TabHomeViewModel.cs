@@ -84,74 +84,81 @@ namespace JuiceIt.Shared.ViewModels
 
         public async void GetMorningJuice()
         {
-            Recipes = await _recipeService.GetRecipes();
-            int counter = Recipes.Count;
-
-            Random rnd = new Random();
-            int RandomNumber = rnd.Next(1, counter);
-            string rndNumToStr = RandomNumber.ToString();
-            DateTime dateAndTime = DateTime.Now;
-            string day = dateAndTime.ToString("dd/MM/yyyy");
-            string folderValue = (day + "," + rndNumToStr);
-            var _folderName = "TextFilesFolder1";
-            var _fileName = "MorningJuice";
-
-            if (!_fileStore.FolderExists(_folderName))
-                _fileStore.EnsureFolderExists(_folderName);
-
-            //Content van de file uitlezen
-            string value = string.Empty;
-            _fileStore.TryReadTextFile(_folderName + "/" + _fileName, out (value));
-            string CheckFileContent = value;
-            string[] TextFileList;
-
-            //Als er niets in zit, default data in steken
-            if (CheckFileContent == null)
+            try
             {
-                _fileStore.WriteFile(_folderName + "/" + _fileName, "00/00/00,0");
-                string d = "00/00/00,0";
-                TextFileList = d.Split(',');
-            }
-            else
-            {
-                TextFileList = CheckFileContent.Split(',');
+                Recipes = await _recipeService.GetRecipes();
+                int counter = Recipes.Count;
 
-            }
+                Random rnd = new Random();
+                int RandomNumber = rnd.Next(1, counter);
+                string rndNumToStr = RandomNumber.ToString();
+                DateTime dateAndTime = DateTime.Now;
+                string day = dateAndTime.ToString("dd/MM/yyyy");
+                string folderValue = (day + "," + rndNumToStr);
+                var _folderName = "TextFilesFolder1";
+                var _fileName = "MorningJuice";
 
-            if(TextFileList[0] != day)
-            {
-                try
+                if (!_fileStore.FolderExists(_folderName))
+                    _fileStore.EnsureFolderExists(_folderName);
+
+                //Content van de file uitlezen
+                string value = string.Empty;
+                _fileStore.TryReadTextFile(_folderName + "/" + _fileName, out (value));
+                string CheckFileContent = value;
+                string[] TextFileList;
+
+                //Als er niets in zit, default data in steken
+                if (CheckFileContent == null)
                 {
-                    //File verwijderen om overbodige data te verwijderen.
-                    _fileStore.DeleteFile(_folderName + "/" + _fileName);
-                    //File aanmaken.
-                    if (!_fileStore.FolderExists(_folderName))
-                        _fileStore.EnsureFolderExists(_folderName);
+                    _fileStore.WriteFile(_folderName + "/" + _fileName, "00/00/00,0");
+                    string d = "00/00/00,0";
+                    TextFileList = d.Split(',');
+                }
+                else
+                {
+                    TextFileList = CheckFileContent.Split(',');
 
-                    _fileStore.WriteFile(_folderName + "/" + _fileName, folderValue);
-                    string NewValue = string.Empty;
-                    _fileStore.TryReadTextFile(_folderName + "/" + _fileName, out (NewValue));
-                    string NValue = NewValue;
+                }
 
-                    List<string> NewTextFileList = new List<string>(
-                        NValue.Split(new string[] { "," }, StringSplitOptions.None));
+                if (TextFileList[0] != day)
+                {
+                    try
+                    {
+                        //File verwijderen om overbodige data te verwijderen.
+                        _fileStore.DeleteFile(_folderName + "/" + _fileName);
+                        //File aanmaken.
+                        if (!_fileStore.FolderExists(_folderName))
+                            _fileStore.EnsureFolderExists(_folderName);
 
-                    int numVall = Int32.Parse(NewTextFileList[1]);
+                        _fileStore.WriteFile(_folderName + "/" + _fileName, folderValue);
+                        string NewValue = string.Empty;
+                        _fileStore.TryReadTextFile(_folderName + "/" + _fileName, out (NewValue));
+                        string NValue = NewValue;
+
+                        List<string> NewTextFileList = new List<string>(
+                            NValue.Split(new string[] { "," }, StringSplitOptions.None));
+
+                        int numVall = Int32.Parse(NewTextFileList[1]);
+                        int NewRandomValue = numVall;
+                        MorningContent = await _recipeService.GetRecipeById(NewRandomValue);
+                        RaisePropertyChanged(() => MorningContent);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw ex;
+                    }
+                }
+                else
+                {
+                    int numVall = Int32.Parse(TextFileList[1]);
                     int NewRandomValue = numVall;
                     MorningContent = await _recipeService.GetRecipeById(NewRandomValue);
                     RaisePropertyChanged(() => MorningContent);
                 }
-                catch (Exception ex)
-                {
-                    throw ex;
-                }
             }
-            else
+            catch (Exception ex)
             {
-                int numVall = Int32.Parse(TextFileList[1]);
-                int NewRandomValue = numVall;
-                MorningContent = await _recipeService.GetRecipeById(NewRandomValue);
-                RaisePropertyChanged(() => MorningContent);
+                throw ex;
             }
 
         }
@@ -188,50 +195,52 @@ namespace JuiceIt.Shared.ViewModels
 
         public async void GetAfternoonJuice()
         {
-            Recipes = await _recipeService.GetRecipes();
-            int counter = Recipes.Count;
-
-            Random rnd = new Random();
-            int RandomNumber = rnd.Next(1, counter);
-            string rndNumToStr = RandomNumber.ToString();
-            DateTime dateAndTime = DateTime.Now;
-            string day = dateAndTime.ToString("dd/MM/yyyy");
-            string folderValue = (day + "," + rndNumToStr);
-            var _folderName = "TextFilesFolder2";
-            var _fileName = "AfternoonJuice";
-
-            if (!_fileStore.FolderExists(_folderName))
-                _fileStore.EnsureFolderExists(_folderName);
-            
-            //Content van de file uitlezen
-            string value = string.Empty;
-            _fileStore.TryReadTextFile(_folderName + "/" + _fileName, out (value));
-            string CheckFileContent = value;
-            string[] TextFileList;
-
-            //Als er niets in zit, default data in steken
-            if (CheckFileContent == null)
+            try
             {
-                _fileStore.WriteFile(_folderName + "/" + _fileName, "00/00/00,0");
-                string d = "00/00/00,0";
-                TextFileList = d.Split(',');
-            }
-            else
-            {
-                TextFileList = CheckFileContent.Split(',');
-             
-            }
+                Recipes = await _recipeService.GetRecipes();
+                int counter = Recipes.Count;
+
+                Random rnd = new Random();
+                int RandomNumber = rnd.Next(1, counter);
+                string rndNumToStr = RandomNumber.ToString();
+                DateTime dateAndTime = DateTime.Now;
+                string day = dateAndTime.ToString("dd/MM/yyyy");
+                string folderValue = (day + "," + rndNumToStr);
+                var _folderName = "TextFilesFolder2";
+                var _fileName = "AfternoonJuice";
+
+                if (!_fileStore.FolderExists(_folderName))
+                    _fileStore.EnsureFolderExists(_folderName);
+
+                //Content van de file uitlezen
+                string value = string.Empty;
+                _fileStore.TryReadTextFile(_folderName + "/" + _fileName, out (value));
+                string CheckFileContent = value;
+                string[] TextFileList;
+
+                //Als er niets in zit, default data in steken
+                if (CheckFileContent == null)
+                {
+                    _fileStore.WriteFile(_folderName + "/" + _fileName, "00/00/00,0");
+                    string d = "00/00/00,0";
+                    TextFileList = d.Split(',');
+                }
+                else
+                {
+                    TextFileList = CheckFileContent.Split(',');
+
+                }
 
 
-            if (TextFileList[0] != day)
-            {
+                if (TextFileList[0] != day)
+                {
 
                     //File verwijderen om overbodige data te verwijderen.
                     _fileStore.DeleteFile(_folderName + "/" + _fileName);
                     //File aanmaken.
                     if (!_fileStore.FolderExists(_folderName))
                         _fileStore.EnsureFolderExists(_folderName);
-                    
+
                     _fileStore.WriteFile(_folderName + "/" + _fileName, folderValue);
                     string NewValue = string.Empty;
                     _fileStore.TryReadTextFile(_folderName + "/" + _fileName, out (NewValue));
@@ -239,19 +248,24 @@ namespace JuiceIt.Shared.ViewModels
 
                     List<string> NewTextFileList = new List<string>(
                     NValue.Split(new string[] { "," }, StringSplitOptions.None));
-                    
+
                     int numVall = Int32.Parse(NewTextFileList[1]);
                     int NewRandomValue = numVall;
                     AfternoonContent = await _recipeService.GetRecipeById(NewRandomValue);
                     RaisePropertyChanged(() => AfternoonContent);
 
+                }
+                else
+                {
+                    int numVall = Int32.Parse(TextFileList[1]);
+                    int NewRandomValue = numVall;
+                    AfternoonContent = await _recipeService.GetRecipeById(NewRandomValue);
+                    RaisePropertyChanged(() => AfternoonContent);
+                }
             }
-            else
+            catch(Exception ex)
             {
-                int numVall = Int32.Parse(TextFileList[1]);
-                int NewRandomValue = numVall;
-                AfternoonContent = await _recipeService.GetRecipeById(NewRandomValue);
-                RaisePropertyChanged(() => AfternoonContent);
+                throw ex;
             }
 
         }
@@ -287,75 +301,82 @@ namespace JuiceIt.Shared.ViewModels
 
         public async void GetEveningJuice()
         {
-            Recipes = await _recipeService.GetRecipes();
-            int counter = Recipes.Count;
-
-            Random rnd = new Random();
-            int RandomNumber = rnd.Next(1, counter);
-            string rndNumToStr = RandomNumber.ToString();
-            DateTime dateAndTime = DateTime.Now;
-            string day = dateAndTime.ToString("dd/MM/yyyy");
-            string folderValue = (day + "," + rndNumToStr);
-            var _folderName = "TextFilesFolder3";
-            var _fileName = "EveningJuice";
-
-            if (!_fileStore.FolderExists(_folderName))
-                _fileStore.EnsureFolderExists(_folderName);
-
-            //Content van de file uitlezen
-            string value = string.Empty;
-            _fileStore.TryReadTextFile(_folderName + "/" + _fileName, out (value));
-            string CheckFileContent = value;
-            string[] TextFileList;
-
-            //Als er niets in zit, default data in steken
-            if (CheckFileContent == null)
+            try
             {
-                _fileStore.WriteFile(_folderName + "/" + _fileName, "00/00/00,0");
-                string d = "00/00/00,0";
-                TextFileList = d.Split(',');
-            }
-            else
-            {
-                TextFileList = CheckFileContent.Split(',');
+                Recipes = await _recipeService.GetRecipes();
+                int counter = Recipes.Count;
 
-            }
+                Random rnd = new Random();
+                int RandomNumber = rnd.Next(1, counter);
+                string rndNumToStr = RandomNumber.ToString();
+                DateTime dateAndTime = DateTime.Now;
+                string day = dateAndTime.ToString("dd/MM/yyyy");
+                string folderValue = (day + "," + rndNumToStr);
+                var _folderName = "TextFilesFolder3";
+                var _fileName = "EveningJuice";
 
-            if (TextFileList[0] != day)
-            {
-                try
+                if (!_fileStore.FolderExists(_folderName))
+                    _fileStore.EnsureFolderExists(_folderName);
+
+                //Content van de file uitlezen
+                string value = string.Empty;
+                _fileStore.TryReadTextFile(_folderName + "/" + _fileName, out (value));
+                string CheckFileContent = value;
+                string[] TextFileList;
+
+                //Als er niets in zit, default data in steken
+                if (CheckFileContent == null)
                 {
-                    //File verwijderen om overbodige data te verwijderen.
-                    _fileStore.DeleteFile(_folderName + "/" + _fileName);
-                    //File aanmaken.
-                    if (!_fileStore.FolderExists(_folderName))
-                        _fileStore.EnsureFolderExists(_folderName);
+                    _fileStore.WriteFile(_folderName + "/" + _fileName, "00/00/00,0");
+                    string d = "00/00/00,0";
+                    TextFileList = d.Split(',');
+                }
+                else
+                {
+                    TextFileList = CheckFileContent.Split(',');
 
-                    _fileStore.WriteFile(_folderName + "/" + _fileName, folderValue);
+                }
 
-                    string NewValue = string.Empty;
-                    _fileStore.TryReadTextFile(_folderName + "/" + _fileName, out (NewValue));
-                    string NValue = NewValue;
+                if (TextFileList[0] != day)
+                {
+                    try
+                    {
+                        //File verwijderen om overbodige data te verwijderen.
+                        _fileStore.DeleteFile(_folderName + "/" + _fileName);
+                        //File aanmaken.
+                        if (!_fileStore.FolderExists(_folderName))
+                            _fileStore.EnsureFolderExists(_folderName);
 
-                    List<string> NewTextFileList = new List<string>(
-                        NValue.Split(new string[] { "," }, StringSplitOptions.None));
+                        _fileStore.WriteFile(_folderName + "/" + _fileName, folderValue);
 
-                    int numVall = Int32.Parse(NewTextFileList[1]);
+                        string NewValue = string.Empty;
+                        _fileStore.TryReadTextFile(_folderName + "/" + _fileName, out (NewValue));
+                        string NValue = NewValue;
+
+                        List<string> NewTextFileList = new List<string>(
+                            NValue.Split(new string[] { "," }, StringSplitOptions.None));
+
+                        int numVall = Int32.Parse(NewTextFileList[1]);
+                        int NewRandomValue = numVall;
+                        EveningContent = await _recipeService.GetRecipeById(NewRandomValue);
+                        RaisePropertyChanged(() => EveningContent);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw ex;
+                    }
+                }
+                else
+                {
+                    int numVall = Int32.Parse(TextFileList[1]);
                     int NewRandomValue = numVall;
                     EveningContent = await _recipeService.GetRecipeById(NewRandomValue);
                     RaisePropertyChanged(() => EveningContent);
                 }
-                catch (Exception ex)
-                {
-                    throw ex;
-                }
             }
-            else
+            catch(Exception ex)
             {
-                int numVall = Int32.Parse(TextFileList[1]);
-                int NewRandomValue = numVall;
-                EveningContent = await _recipeService.GetRecipeById(NewRandomValue);
-                RaisePropertyChanged(() => EveningContent);
+                throw ex;
             }
 
         }

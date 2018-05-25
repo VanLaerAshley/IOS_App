@@ -67,8 +67,15 @@ namespace JuiceIt.Shared.ViewModels
 
         public async void GetRecipesData()
         {
-            Recipes = await _recipeService.GetRecipes();
-            FilteredRecepies = Recipes;
+            try
+            {
+                Recipes = await _recipeService.GetRecipes();
+                FilteredRecepies = Recipes;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public MvxCommand<Recipe> NavigateToDetailCommand

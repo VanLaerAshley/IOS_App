@@ -81,18 +81,19 @@ namespace JuiceIt.Shared.ViewModels
         }
 
 
-        //public ICommand PostCheckCommand
-        //{
-        //    get
-        //    {
-        //        return new MvxCommand(AddChecker);
-        //    }
-        //}
-        //public void AddChecker()
-        //{
-        //    _localShopListService.AddShopListChecker();
-        //    _navigationService.Navigate<TabShopListViewModel>();
-        //}
+        public ICommand PostCheckCommand
+        {
+            get
+            {
+                return new MvxCommand(AddChecker);
+            }
+        }
+
+        public void AddChecker()
+        {
+            _localShopListService.AddShopListChecker();
+            _navigationService.Navigate<TabShopListViewModel>();
+        }
 
 
     }

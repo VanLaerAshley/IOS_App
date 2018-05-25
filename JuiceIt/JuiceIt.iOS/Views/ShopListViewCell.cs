@@ -1,10 +1,12 @@
 using Foundation;
 using JuiceIt.iOS.SessionManager;
+using JuiceIt.iOS.TableViewSources;
 using JuiceIt.Shared.Models;
 using JuiceIt.Shared.ViewModels;
 using MvvmCross.Binding.BindingContext;
 using MvvmCross.Binding.iOS.Views;
 using SaturdayMP.XPlugins.iOS;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using UIKit;
@@ -19,11 +21,11 @@ namespace JuiceIt.iOS.Views
         public ShopListViewCell (IntPtr handle) : base (handle)
         {
         }
-
+       
         public override void LayoutSubviews()
         {
             base.LayoutSubviews();
-
+;
 
             var checkbox = new BEMCheckBox(new CoreGraphics.CGRect(9, 9, 27, 27));
             checkbox.OnCheckColor = Color.FromHex("97BD57").ToUIColor();
@@ -32,7 +34,7 @@ namespace JuiceIt.iOS.Views
             checkbox.OffAnimationType = BEMAnimationType.Fill;
             checkbox.AnimationDidStopForCheckBox += CheckBoxClickedEvent;
             //ShopList shop = new ShopList();
-            //while(shop != null)
+            //while (shop != null)
             //{
             //    if (shop.checker == 0)
             //    {
@@ -41,7 +43,7 @@ namespace JuiceIt.iOS.Views
             //    else
             //    {
             //        checkbox.On = true;
-                    
+
             //    }
             //    shop = null;
             //}
@@ -50,23 +52,16 @@ namespace JuiceIt.iOS.Views
 
             MvxFluentBindingDescriptionSet<ShopListViewCell, ShopList> set = new MvxFluentBindingDescriptionSet<ShopListViewCell, ShopList>(this);
             set.Bind(CheckListItem).To(res => res.Ingredients);
-            //set.Bind(CheckBox).To(vm => vm.PostCheckCommand);
             set.Apply();
 
         }
 
-
-
-
-        private void CheckBoxClickedEvent(object sender, EventArgs eventArgs)
+        public void CheckBoxClickedEvent(object sender, EventArgs eventArg)
         {
-            //var checkbox = sender as BEMCheckBox;
-            //if (checkbox == null)
-                //return;
-                //Console.WriteLine("checkbox is gelijk aan nul dus unchecked");
-            //MvxFluentBindingDescriptionSet<ShopListViewCell, TabShopListViewModel> set = new MvxFluentBindingDescriptionSet<ShopListViewCell, TabShopListViewModel>(this);
-            //set.Bind(CheckBox).To(vm => vm.PostCheckCommand);
-            //set.Apply();
+            
+            var checkbox = sender as BEMCheckBox;
+            if (checkbox == null)
+                return;
         }
 
 

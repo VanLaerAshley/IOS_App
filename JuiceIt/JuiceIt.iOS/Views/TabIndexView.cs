@@ -50,13 +50,19 @@ namespace JuiceIt.iOS.Views
             _recipeViewSource = new RecipeViewSource(this.TableView, IndexTableCell.Identifier, 125);
             this.TableView.Source = _recipeViewSource;
             this.TableView.ReloadData();
-
-            MvxFluentBindingDescriptionSet<TabIndexView, TabIndexViewModel> set = new MvxFluentBindingDescriptionSet<TabIndexView, TabIndexViewModel>(this);
-            set.Bind(_recipeViewSource).To(vm => vm.FilteredRecepies);
-            set.Bind(_recipeViewSource)
-               .For(src => src.SelectionChangedCommand)
-               .To(vm => vm.NavigateToDetailCommand);
-            set.Apply();
+            try
+            {
+                MvxFluentBindingDescriptionSet<TabIndexView, TabIndexViewModel> set = new MvxFluentBindingDescriptionSet<TabIndexView, TabIndexViewModel>(this);
+                set.Bind(_recipeViewSource).To(vm => vm.FilteredRecepies);
+                set.Bind(_recipeViewSource)
+                   .For(src => src.SelectionChangedCommand)
+                   .To(vm => vm.NavigateToDetailCommand);
+                set.Apply();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public override void ViewWillAppear(Boolean animated)

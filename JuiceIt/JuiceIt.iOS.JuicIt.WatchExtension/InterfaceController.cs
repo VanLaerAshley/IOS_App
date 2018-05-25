@@ -45,6 +45,7 @@ namespace JuiceIt.iOS.JuicIt.WatchExtension
 
         void LoadTableRows()
         {
+            
             MyTable.SetNumberOfRows((nint)rows.Count, "default");
             for (var i = 0; i < rows.Count; i++)
             {
@@ -52,12 +53,13 @@ namespace JuiceIt.iOS.JuicIt.WatchExtension
                 elementRow.MyLabel.SetText(rows[i]);
             }
         }
-
         public void DidReceiveApplicationContext(WCSession session, Dictionary<string, object> applicationContext)
         {
             var message = (string)applicationContext["MessagePhone"];
+
             if (message != null)
             {
+                
                 Console.WriteLine($"Application context update received : {message}");
                 if(rows.Contains(message))
                 {

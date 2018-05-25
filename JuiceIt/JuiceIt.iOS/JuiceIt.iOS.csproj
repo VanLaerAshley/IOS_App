@@ -17,7 +17,7 @@
     <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodesignKey>iPhone Developer: petra.horemans@hotmail.com (5CF24FHK65)</CodesignKey>
+    <CodesignKey>iPhone Developer: ashley_vanlaer@hotmail.com (88QN249W6C)</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
     <MtouchFastDev>true</MtouchFastDev>
@@ -29,6 +29,7 @@
     <DeviceSpecificBuild>false</DeviceSpecificBuild>
     <MtouchVerbosity>
     </MtouchVerbosity>
+    <CodesignProvision>iOS Team Provisioning Profile: com.ashleyvanlaer-tech.JuiceIt-iOS</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>pdbonly</DebugType>
@@ -86,6 +87,7 @@
     <MtouchVerbosity>
     </MtouchVerbosity>
     <IOSDebugOverWiFi>true</IOSDebugOverWiFi>
+    <CodesignProvision>iOS Team Provisioning Profile: com.ashleyvanlaer-tech.JuiceIt-iOS</CodesignProvision>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System.Xml" />

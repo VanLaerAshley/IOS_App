@@ -7,7 +7,7 @@
 	<key>CFBundleName</key>
 	<string>Juice it!</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.ashleyvanlaer.JuiceIt-iOS.watchkitapp.watchkitextension</string>
+	<string>com.ashleyvanlaer-tech.JuiceIt-iOS.watchkitapp.watchkitextension</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleShortVersionString</key>
@@ -21,7 +21,7 @@
 		<key>NSExtensionAttributes</key>
 		<dict>
 			<key>WKAppBundleIdentifier</key>
-			<string>com.ashleyvanlaer.JuiceIt-iOS.watchkitapp</string>
+			<string>com.ashleyvanlaer-tech.JuiceIt-iOS.watchkitapp</string>
 		</dict>
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.watchkit</string>

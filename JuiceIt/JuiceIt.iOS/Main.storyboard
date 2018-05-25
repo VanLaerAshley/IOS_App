@@ -1014,9 +1014,5 @@
         <image name="favorites" width="48" height="48"/>
         <image name="list" width="48" height="48"/>
         <image name="testsmoothie.jpg" width="1200" height="900"/>
-        <image name="home" width="48" height="48"/>
-        <image name="search" width="48" height="48"/>
-        <image name="today" width="196" height="196"/>
-        <image name="juice.jpg" width="2732" height="2732"/>
     </resources>
 </document>

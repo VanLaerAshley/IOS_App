@@ -21,13 +21,19 @@ namespace JuiceIt.iOS.Views
             base.LayoutSubviews();
 
             var searchController = new UISearchController(searchResultsController: null);
+            try
+            {
+                MvxFluentBindingDescriptionSet<IndexTableCell, Recipe> set = new MvxFluentBindingDescriptionSet<IndexTableCell, Recipe>(this);
+                set.Bind(TitleRecipe).To(res => res.name);
+                set.Bind(SubtitleRecipe).To(res => res.description);
+                set.Bind(ThumbnailPicture).For(img => img.Image).To(res => res.thumbnail).WithConversion<StringToImageConverter>();
 
-            MvxFluentBindingDescriptionSet<IndexTableCell, Recipe> set = new MvxFluentBindingDescriptionSet<IndexTableCell, Recipe>(this);
-            set.Bind(TitleRecipe).To(res => res.name);
-            set.Bind(SubtitleRecipe).To(res => res.description);
-            set.Bind(ThumbnailPicture).For(img => img.Image).To(res => res.thumbnail).WithConversion<StringToImageConverter>();
-
-            set.Apply();
+                set.Apply();
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
         }
 
 

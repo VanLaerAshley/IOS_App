@@ -1,8 +1,10 @@
 ﻿using System;
 using Foundation;
 using JuiceIt.iOS.Views;
+using JuiceIt.Shared.ViewModels;
 using MvvmCross.Binding.iOS.Views;
 using MvvmCross.Core.ViewModels;
+using SaturdayMP.XPlugins.iOS;
 using UIKit;
 
 namespace JuiceIt.iOS.TableViewSources
@@ -46,7 +48,6 @@ namespace JuiceIt.iOS.TableViewSources
 
         public IMvxCommand RemoveRowCommand { get; set; }
 
-        public IMvxCommand RemoveAllCommand { get; set; }
 
     }
 }
